@@ -9,7 +9,6 @@
 # Basic Site Settings
 locale                   : "en-GB"
 site_theme               : "default" 
-remote_theme             : "pages-themes/minimal@v0.2.0"
 title                    : "Andrei Wong Espejo/ PhD Student"
 title_separator          : "-"
 name                     : &name "Andrei Wong Espejo"
