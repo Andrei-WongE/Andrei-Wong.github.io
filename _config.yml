@@ -9,12 +9,12 @@
 # Basic Site Settings
 locale                   : "en-GB"
 site_theme               : "dark" 
-title                    : "Andrei Wong Espejo PhD Student"
+title                    : "Andrei Wong Espejo - PhD Student"
 title_separator          : "-"
 name                     : &name "Andrei Wong Espejo"
 description              : &description "PhD Student in Urban Geography | Specializing in Spatial Datasets"
 url                      : "https://Andrei-WongE.github.io" # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
-baseurl                  : "/blog" # the subpath of your site, e.g. "/blog"
+baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "https://github.com/Andrei-WongE/Andrei-Wong"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
@@ -25,7 +25,7 @@ author:
   avatar           : "Profile.png"
   name             : "Andrei Wong Espejo"
   pronouns         : "he/him"
-  bio              : "“We construct borders, (. . .) to fortify our sense of who we are; and we cross them in search of who we might become. (Saunders, 2016)"
+  bio              : "“We construct borders, (. . .) to fortify our sense of who we are; and we cross them in search of who we might become.” (Saunders, 2016)"
   location         : "London, UK"
   employer         : "Birkbeck College"
   uri              : # URL
@@ -297,7 +297,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: Etc/UTC # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+# timezone: Etc/UTC # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
