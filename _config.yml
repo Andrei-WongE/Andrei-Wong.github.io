@@ -14,7 +14,7 @@ title_separator          : "-"
 name                     : &name "Andrei Wong Espejo"
 description              : &description "PhD Student in Urban Geography | Specializing in Spatial Datasets"
 url                      : "https://Andrei-WongE.github.io" # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
-baseurl                  : "/blog" # the subpath of your site, e.g. "/blog"
+baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Andrei-WongE/Andrei-Wong"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
