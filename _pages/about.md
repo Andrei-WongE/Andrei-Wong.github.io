@@ -9,9 +9,9 @@ redirect_from:
 ---
 `
 About me
-======
+========
 
-- 🔭 I’m currently working on My Blog, <a href="https://andrei-wonge.github.io/Spatial_notes/">Spatial Data Science Notebook</a>.
+- 🔭 I’m currently working on My Blog, (https://andrei-wonge.github.io/Spatial_notes/) [Spatial Data Science Notebook]
 
 - 🌱 I’m currently learning CSS, Bayesian Modelling techniques applied to spatial data
 
@@ -19,19 +19,17 @@ About me
 
 - 💬 Talk to me about Stata, R, Surveys, Sampling, Impact Evaluation, Text as Data, Quantification of Qualitative data, Spatial Data Science, Freelancing Opportunities
 
-<h2> Skills </h2>
-   
-- 🏋️ Project manager with extensive experience in implementation of Impact Assessments and Impact Evaluations.<br>
+Skills
+------
+- 🏋️ Project manager with extensive experience in implementation of Impact Assessments and Impact Evaluations.
 
-- 📈 Social information governance, including generation, wrangling, visualization, monitoring, reporting and presentation of data.<br>
+- 📈 Social information governance, including generation, wrangling, visualization, monitoring, reporting and presentation of data.
 
-<h2> My work </h2>
-Some examples of my work:
-<br></br>
-   - <a href="https://github.com/Andrei-WongE/NUTS_environ_data/"> Spatial dataset creation </a><br>
-   - <a href="https://andrei-wonge.github.io/Spatial_notes/"> Spatial data wrangling and visualization</a><br>
-   - <a href="https://github.com/Andrei-WongE/SDG_UIS_indicators_extractor"> Process automatization and functions</a><br>
-   - <a href="https://github.com/Andrei-WongE/Randomization_Proyect-C"> Impact evaluation </a><br>
-   - <a href="https://github.com/Andrei-WongE/FI_survey_HFC"> Complex sampling survey </a><br>
-   - <a href="https://github.com/Andrei-WongE/ENE_ENAHO_workflow"> Visualization </a><br>
-
+My work
+-------
+- [Spatial dataset creation](https://github.com/Andrei-WongE/NUTS_environ_data/)
+- [Spatial data wrangling and visualization](https://andrei-wonge.github.io/Spatial_notes/)
+- [Process automatization and functions](https://github.com/Andrei-WongE/SDG_UIS_indicators_extractor)
+- [Impact evaluation](https://github.com/Andrei-WongE/Randomization_Proyect-C)
+- [Complex sampling survey](https://github.com/Andrei-WongE/FI_survey_HFC)
+- [Visualization](https://github.com/Andrei-WongE/ENE_ENAHO_workflow)
