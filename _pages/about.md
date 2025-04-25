@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 About me
-========
+------
 
 - 🔭 I’m currently working on My Blog, [Spatial Data Science Notebook](https://andrei-wonge.github.io/Spatial_notes/)
 
