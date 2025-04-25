@@ -1,4 +1,3 @@
-`
 ---
 permalink: /
 title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
@@ -7,11 +6,11 @@ redirect_from:
   - /about/
   - /about.html
 ---
-`
+
 About me
 ========
 
-- 🔭 I’m currently working on My Blog, (https://andrei-wonge.github.io/Spatial_notes/) [Spatial Data Science Notebook]
+- 🔭 I’m currently working on My Blog, [Spatial Data Science Notebook](https://andrei-wonge.github.io/Spatial_notes/)
 
 - 🌱 I’m currently learning CSS, Bayesian Modelling techniques applied to spatial data
 
