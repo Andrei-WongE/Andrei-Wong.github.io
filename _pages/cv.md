@@ -7,39 +7,47 @@ redirect_from:
   - /resume
 ---
 
+
 {% include base_path %}
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Ph.D in Geography, Environment and Development, Birkbeck College, 2026 (expected)
+* M.A. in Poverty and Development (Distinction), University of Sussex, 2014
+* B.Sc.in Social Sciences with a major in Economics, Pontifical Catholic
+University of Peru, 2008
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+Experience as research assistant in the international development sector. Experienced and
+proven ability to write academic and technical reports. 
+I have specific experience in monitoring and evaluation, social information management, 
+project management, impact evaluation and urban interventions social assessments. 
+Designed methodologies and tools to monitor the progress of project activities and outcomes. 
+Supported the development of tools and best practices for data integrity. Worked in 
+political and culturally sensitive environments. I speak and write English, French, Dutch and Spanish. 
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
+With experience in the private and public sector, international NGOs and UN organizations. 
+Currently in process of acquiring geo data science skills. Contact me if interested in this journey.
+In particular if related to geographic boundary detection, social boundaries, segregation and urban inequality.
+ 
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Experience with Unix Command Line, Quarto, ArcGIS, Qgis, SQL, NVIVO, Git version-control
+system and Tableau.
+* Highly skilled in statistical software packages and languages such as STATA, CSS, R
+markdown, Python and R.
+* Highly skilled in project management software such as Notion, Slack, Discord, Google
+Docs/Drive, webinar tools and common internet applications.
+
+  
+Language Skills
+======
+* English: Full professional 
+* French: Professional working 
+* Dutch: Professional working
+* Spanish: Native 
+* Portuguese: Intermediate professional working
 
 Publications
 ======
@@ -61,4 +69,9 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* President of Latin American Society, BBK
+* Pluralist Economics at Sussex (PEAS)
+* Young Scholar Initiative (YSI)
+* Social Protection Ambassador (IPC-UNDP)
+* Project Access: Head of Mentor Experience & Service Strategy Peru
+  
