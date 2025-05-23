@@ -32,3 +32,9 @@ My work
 - [Impact evaluation](https://github.com/Andrei-WongE/Randomization_Proyect-C)
 - [Complex sampling survey](https://github.com/Andrei-WongE/FI_survey_HFC)
 - [Visualization](https://github.com/Andrei-WongE/ENE_ENAHO_workflow)
+
+
+My GitHub Stats
+----------------
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Andrei-WongE&size_weight=0.5&count_weight=0.5&layout=compact&hide=html,lua&theme=dracula&langs_count=10)
+
