@@ -26,6 +26,7 @@ Skills
 
 My work
 -------
+- [GeoData Shiny App](https://github.com/Andrei-WongE/shiny_geo/)
 - [Spatial dataset creation](https://github.com/Andrei-WongE/NUTS_environ_data/)
 - [Spatial data wrangling and visualization](https://andrei-wonge.github.io/Spatial_notes/)
 - [Process automatization and functions](https://github.com/Andrei-WongE/SDG_UIS_indicators_extractor)
