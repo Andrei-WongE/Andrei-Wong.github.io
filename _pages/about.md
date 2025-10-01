@@ -24,8 +24,9 @@ Skills
 
 - 📈 Social information governance, including generation, wrangling, visualization, monitoring, reporting and presentation of data.
 
-- 🗺️ Spatial data wrangling and modelling: spatial point and processes analysis, spatial analysis of linear features (lines and curves) and areal edge detection modelling.
+- 🗺️ Spatial data wrangling and modelling: spatial point and processes analysis, spatial analysis of linear features (lines and curves), areal edge detection modelling.
 
+- 🖥️ Larger than memory spatial data worflow and conteranisation of model fitting workloads of spatial datsasets
   
 My work
 -------
