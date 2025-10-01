@@ -24,6 +24,9 @@ Skills
 
 - 📈 Social information governance, including generation, wrangling, visualization, monitoring, reporting and presentation of data.
 
+- 🗺️ Spatial data wrangling and modelling: spatial point and processes analysis, spatial analysis of linear features (lines and curves) and areal edge detection modelling.
+
+  
 My work
 -------
 - [GeoData Shiny App](https://github.com/Andrei-WongE/shiny_geo/)
