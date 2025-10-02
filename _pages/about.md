@@ -38,6 +38,13 @@ My work
 - [Complex sampling survey](https://github.com/Andrei-WongE/FI_survey_HFC)
 - [Visualization](https://github.com/Andrei-WongE/ENE_ENAHO_workflow)
 
+I have worked with
+----------------
+- Academia: Pontifical Catholic University of Peru, University of Texas, Stanford University, Institute of Development Studies (IDS), Londond School of Economics (LSE)
+- NGOs: Save the Children, Plan International
+- INGOs: World Bank (WB), Interamerican Development Bank (IADB), Development Bank of Latin America and the Caribbean (CAF), Global Green Growth Institute (GGGI)
+- Private sector: Rio Tinto, Golder Associates
+- Public sector: Ministry of Development and Social Inclusion, Ministry of Transport, Ministry of Environment, Swiss Agency for Development and Cooperation
 
 My GitHub Stats
 ----------------
