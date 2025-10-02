@@ -44,7 +44,7 @@ I have worked with
 - NGOs: Save the Children, Plan International
 - INGOs: World Bank (WB), Interamerican Development Bank (IADB), Development Bank of Latin America and the Caribbean (CAF), Global Green Growth Institute (GGGI)
 - Private sector: Rio Tinto, Golder Associates
-- Public sector: Ministry of Development and Social Inclusion, Ministry of Transport, Ministry of Environment, Swiss Agency for Development and Cooperation
+- Public sector: Ministry of Development and Social Inclusion (MIDIS), Ministry of Transport, Ministry of Environment, Swiss Agency for Development and Cooperation
 
 My GitHub Stats
 ----------------
