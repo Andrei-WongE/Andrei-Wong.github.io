@@ -40,7 +40,7 @@ My work
 
 I have worked with
 ----------------
-- Academia: Pontifical Catholic University of Peru, University of Texas, Stanford University, Institute of Development Studies (IDS), Londond School of Economics (LSE)
+- Academia: Pontifical Catholic University of Peru, University of Texas, Stanford University, Institute of Development Studies (IDS), London School of Economics (LSE)
 - NGOs: Save the Children, Plan International
 - INGOs: World Bank (WB), Interamerican Development Bank (IADB), Development Bank of Latin America and the Caribbean (CAF), Global Green Growth Institute (GGGI)
 - Private sector: Rio Tinto, Golder Associates
