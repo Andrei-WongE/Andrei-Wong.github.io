@@ -12,7 +12,7 @@ About me
 
 - 🔭 I’m currently working on My Blog, [Spatial Data Science Notebook](https://andrei-wonge.github.io/Spatial_notes/)
 
-- 🌱 I’m currently learning to assess large language models for spatial analysis workflow and code generation and Bayesian Modelling techniques applied to spatial data
+- 🌱 I’m currently learning to assess large language models for spatial analysis workflow, GeoAI and Bayesian Modelling techniques applied to spatial data
 
 - 👯 I’m looking to collaborate on Projects, Workshops 
 
