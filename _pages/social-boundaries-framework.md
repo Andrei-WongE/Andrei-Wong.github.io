@@ -2,8 +2,6 @@
 title: "Social Boundaries Framework"
 permalink: /social-boundaries-framework/
 ---
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
