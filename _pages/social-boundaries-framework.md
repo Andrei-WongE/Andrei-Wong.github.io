@@ -11,10 +11,10 @@ permalink: /social-boundaries-framework/
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
-  /* ============ THEME: EDITORIAL ============ */
+  /* ============ THEME: EDITORIAL (EVERFOREST) ============ */
   :root {
     --font-heading: 'Playfair Display', serif;
-    --font-body: 'Source Sans Pro', sans-serif;
+    --font-body: 'Inter', sans-serif; /* Using Inter for consistency */
     --font-mono: 'JetBrains Mono', monospace;
 
     --bg: #fdfbf7;
@@ -34,23 +34,41 @@ permalink: /social-boundaries-framework/
     --accent: #8b4513; /* saddle brown */
   }
 
+  /* Support both system preference and site-wide toggle */
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #1a1614;
-      --surface: #251f1c;
-      --surface2: #2d2622;
-      --border: rgba(244, 241, 234, 0.1);
-      --border-bright: rgba(244, 241, 234, 0.2);
-      --text: #f4f1ea;
-      --text-dim: #b8a99a;
+      --bg: #2D353B;
+      --surface: #343F44;
+      --surface2: #3D484D;
+      --border: rgba(79, 88, 94, 0.3);
+      --border-bright: rgba(71, 82, 88, 0.4);
+      --text: #D3C6AA;
+      --text-dim: #9DA9A0;
 
-      --primary: #e68a6a;
-      --primary-dim: rgba(230, 138, 106, 0.15);
-      --secondary: #9dbd5c;
-      --secondary-dim: rgba(157, 189, 92, 0.15);
-      --tertiary: #7eb3e0;
-      --tertiary-dim: rgba(126, 179, 224, 0.15);
+      --primary: #A7C080; /* Green */
+      --primary-dim: rgba(167, 192, 128, 0.15);
+      --secondary: #7FBBB3; /* Blue */
+      --secondary-dim: rgba(127, 187, 179, 0.15);
+      --tertiary: #83C092; /* Aqua */
+      --tertiary-dim: rgba(131, 192, 146, 0.15);
     }
+  }
+
+  html[data-theme="dark"] {
+      --bg: #2D353B;
+      --surface: #343F44;
+      --surface2: #3D484D;
+      --border: rgba(79, 88, 94, 0.3);
+      --border-bright: rgba(71, 82, 88, 0.4);
+      --text: #D3C6AA;
+      --text-dim: #9DA9A0;
+
+      --primary: #A7C080; /* Green */
+      --primary-dim: rgba(167, 192, 128, 0.15);
+      --secondary: #7FBBB3; /* Blue */
+      --secondary-dim: rgba(127, 187, 179, 0.15);
+      --tertiary: #83C092; /* Aqua */
+      --tertiary-dim: rgba(131, 192, 146, 0.15);
   }
 
   /* ============ RESET + BASE ============ */

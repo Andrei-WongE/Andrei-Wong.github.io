@@ -7,46 +7,57 @@ redirect_from:
   - /about.html
 ---
 
+<div class="home-hero" markdown="1">
+# Andrei Wong Espejo
+{{ site.description }}
+</div>
+
 About me
 ------
-
-- 🔭 I’m currently working on My Blog, [Spatial Data Science Notebook](https://andrei-wonge.github.io/Spatial_notes/)
-
-- 🌱 I’m currently learning to assess large language models for spatial analysis workflow, GeoAI and Bayesian Modelling techniques applied to spatial data
-
-- 👯 I’m looking to collaborate on Projects, Workshops 
-
-- 💬 Talk to me about Stata, R, Surveys, Sampling, Impact Evaluation, Text as Data, Quantification of Qualitative data, Spatial Data Science, Freelancing Opportunities
+<ul class="label-list">
+  <li class="tag--green"><span class="tag-label">Current</span>I’m currently working on My Blog, <a href="https://andrei-wonge.github.io/Spatial_notes/">Spatial Data Science Notebook</a></li>
+  <li class="tag--aqua"><span class="tag-label">Learning</span>I’m currently learning to assess large language models for spatial analysis workflow, GeoAI and Bayesian Modelling techniques applied to spatial data</li>
+  <li class="tag--blue"><span class="tag-label">Open For</span>I’m looking to collaborate on Projects, structure and lead Workshops and Research Assistant work</li>
+  <li class="tag--orange"><span class="tag-label">Topics</span>Talk to me about Stata, R, Surveys, Sampling, Impact Evaluation, Text as Data, Quantification of Qualitative data, Spatial Data Science, Freelancing Opportunities</li>
+</ul>
 
 Skills
 ------
-- 🏋️ Project manager with extensive experience in implementation of Impact Assessments and Impact Evaluations.
-
-- 📈 Social information governance, including generation, wrangling, visualization, monitoring, reporting and presentation of data.
-
-- 🗺️ Spatial data wrangling and modelling: spatial point and processes analysis, spatial analysis of linear features (lines and curves), areal edge detection modelling, H3-based spatial grids data machine learning modelling
-
-- 🖥️ Larger than memory spatial data worflow and conteranisation of model fitting workloads of spatial datsasets
+<ul class="label-list">
+  <li class="tag--green"><span class="tag-label">Project Mgmt</span>Project manager with extensive experience in implementation of Impact Assessments and Impact Evaluations.</li>
+  <li class="tag--blue"><span class="tag-label">Data Govt</span>Social information governance, including generation, wrangling, visualization, monitoring, reporting and presentation of data.</li>
+  <li class="tag--aqua"><span class="tag-label">Spatial</span>Spatial data wrangling and modelling: spatial point and processes analysis, spatial analysis of linear features (lines and curves), areal edge detection modelling, H3-based spatial grids data machine learning modelling</li>
+  <li class="tag--red"><span class="tag-label">Big Data</span>Larger than memory spatial data worflow and conteranisation of model fitting workloads of spatial datsasets</li>
+</ul>
   
 My work
 -------
-- [GeoData Shiny App](https://github.com/Andrei-WongE/shiny_geo/)
-- [Spatial dataset creation](https://github.com/Andrei-WongE/NUTS_environ_data/)
-- [Spatial data wrangling and visualization](https://andrei-wonge.github.io/Spatial_notes/)
-- [Process automatization and functions](https://github.com/Andrei-WongE/SDG_UIS_indicators_extractor)
-- [Impact evaluation](https://github.com/Andrei-WongE/Randomization_Proyect-C)
-- [Complex sampling survey](https://github.com/Andrei-WongE/FI_survey_HFC)
-- [Visualization](https://github.com/Andrei-WongE/ENE_ENAHO_workflow)
+<ul class="card-list">
+  <li><a href="https://github.com/Andrei-WongE/geminiCLI_hooks_and_extensions-4research">AI research tools</a>AI-agentic assisted research workflow tools.</li>
+  <li><a href="https://github.com/Andrei-WongE/shiny_geo/">GeoData Shiny App</a>Interactive spatial data visualization tool.</li>
+  <li><a href="https://github.com/Andrei-WongE/NUTS_environ_data/">Spatial dataset creation</a>Environmental data processing for NUTS regions.</li>
+  <li><a href="https://andrei-wonge.github.io/Spatial_notes/">Spatial notes</a>Data wrangling and visualization notebook.</li>
+  <li><a href="https://github.com/Andrei-WongE/SDG_UIS_indicators_extractor">Process automatization</a>SDG indicator extraction tools.</li>
+  <li><a href="https://github.com/Andrei-WongE/Randomization_Proyect-C">Impact evaluation</a>Randomization projects and code.</li>
+  <li><a href="https://github.com/Andrei-WongE/FI_survey_HFC">Complex sampling survey</a>Financial inclusion survey workflows.</li>
+  <li><a href="https://github.com/Andrei-WongE/ENE_ENAHO_workflow">Visualization</a>Workflows for national household surveys.</li>
+</ul>
 
 I have worked with
 ----------------
-- Academia: Pontifical Catholic University of Peru, University of Texas, Stanford University, Institute of Development Studies (IDS), London School of Economics (LSE)
-- NGOs: Save the Children, Plan International
-- INGOs: World Bank (WB), Interamerican Development Bank (IADB), Development Bank of Latin America and the Caribbean (CAF), Global Green Growth Institute (GGGI)
-- Private sector: Rio Tinto, Golder Associates
-- Public sector: Ministry of Development and Social Inclusion (MIDIS), Ministry of Transport, Ministry of Environment, Swiss Agency for Development and Cooperation
+<ul class="badge-cloud">
+  <li><strong>Academia</strong>Pontificia Universidad Católica del Perú, University of Texas, Stanford University, IDS, LSE</li>
+  <li><strong>NGOs</strong>Save the Children, Plan International</li>
+  <li><strong>INGOs</strong>World Bank, IADB, CAF, Global Green Growth Institute</li>
+  <li><strong>Private Sector</strong>Rio Tinto, Golder Associates</li>
+  <li><strong>Public Sector</strong>Ministry of Development (MIDIS), Ministry of Transport, Ministry of Environment</li>
+</ul>
 
 My GitHub Stats
 ----------------
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Andrei-WongE&size_weight=0.5&count_weight=0.5&layout=compact&hide=html,lua&theme=dracula&langs_count=10)
+<div class="stats-container" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1em;">
+  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Andrei-WongE&theme=gruvbox&exclude=html" />
+  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Andrei-WongE&theme=gruvbox" />
+  <img height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=Andrei-WongE&theme=gruvbox&hide_border=true" />
+</div>
 

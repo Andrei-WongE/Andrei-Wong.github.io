@@ -1,0 +1,98 @@
+/* ==========================================================================
+   EVERFOREST MEDIUM DARK THEME
+   ========================================================================== */
+
+/* Everforest Color Palette (Medium Dark) */
+$everforest-bg0             : #2D353B;
+$everforest-bg1             : #343F44;
+$everforest-bg2             : #3D484D;
+$everforest-bg3             : #475258;
+$everforest-bg4             : #4F585E;
+$everforest-bg5             : #56635F;
+
+$everforest-fg              : #D3C6AA;
+$everforest-red             : #E67E80;
+$everforest-orange          : #E69875;
+$everforest-yellow          : #DBBC7F;
+$everforest-green           : #A7C080;
+$everforest-aqua            : #83C092;
+$everforest-blue            : #7FBBB3;
+$everforest-purple          : #D699B6;
+$everforest-grey0           : #7A8478;
+$everforest-grey1           : #859289;
+$everforest-grey2           : #9DA9A0;
+
+/* Color codes used for the theme */
+$gray                       : $everforest-grey1;
+$dark-gray                  : $everforest-bg4;
+$darker-gray                : $everforest-bg3;
+$light-gray                 : $everforest-grey2;
+
+$background                 : $everforest-bg0;
+$background-light           : $everforest-bg1;
+$background-lighter         : $everforest-bg2;
+$text                       : $everforest-fg;
+$link                       : $everforest-green;
+$link-dark                  : $everforest-aqua;
+$link-light                 : $everforest-blue;
+
+/* Typography Overrides */
+$sans-serif                 : "Inter", -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+$global-font-family         : $sans-serif;
+$header-font-family         : $sans-serif;
+
+/* Color codes used for the site */
+$danger-color               : $everforest-red;
+$info-color                 : $everforest-blue;
+$notice-color               : $everforest-grey1;
+$success-color              : $everforest-green;
+$warning-color              : $everforest-orange;
+
+/* Other basic settings for the template */
+$border-radius              : 4px;
+$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
+$global-transition          : all 0.3s ease-in-out;
+$masthead-height            : 70px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+/* Everforest theme for the site */
+html[data-theme="dark"] {
+    --global-base-color                 : #{$background};
+    --global-bg-color                   : #{$background};
+    --global-footer-bg-color            : #{$background-light};
+    --global-border-color               : #{$everforest-bg4};
+    --global-dark-border-color          : #{$everforest-bg3};
+    --global-code-background-color      : #{$everforest-bg1};
+    --global-code-text-color            : #{$everforest-fg};
+    --global-fig-caption-color          : #{$everforest-grey1};
+    --global-link-color                 : #{$link};
+    --global-link-color-hover           : #{$everforest-aqua};
+    --global-link-color-visited         : #{$everforest-blue};
+    --global-masthead-link-color        : #{$everforest-fg};
+    --global-masthead-link-color-hover  : #{$everforest-green};
+    --global-text-color                 : #{$everforest-fg};
+    --global-text-color-light           : #{$everforest-grey2};
+    --global-thead-color                : #{$everforest-bg2};
+    }
+
+    /* Social Icon Accents */
+    .social-icons {
+    .fa-github { color: $everforest-fg; }
+    .fa-twitter, .fa-x-twitter { color: $everforest-blue; }
+    .fa-linkedin { color: $everforest-blue; }
+    .fa-google-scholar { color: $everforest-aqua; }
+    .fa-orcid { color: $everforest-green; }
+    .fa-researchgate { color: $everforest-aqua; }
+    .fa-envelope { color: $everforest-orange; }
+    .fa-location-dot { color: $everforest-red; }
+    .fa-building-columns { color: $everforest-yellow; }
+
+    a:hover i {
+        filter: brightness(1.2);
+        transform: scale(1.1);
+        transition: all 0.2s ease;
+    }
+    }

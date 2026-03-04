@@ -1,0 +1,233 @@
+/* ==========================================================================
+   CUSTOM SITE-WIDE STYLING
+   ========================================================================== */
+
+/* Hero Section (Introduction) - Floating Glass Card Style */
+.home-hero {
+    padding: 2.5em;
+    background: var(--global-code-background-color);
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--global-dark-border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-bottom: 2.5em;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+    
+    h1 {
+        margin: 0;
+        font-size: 2.6em;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        background: linear-gradient(135deg, #A7C080 0%, #83C092 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+    }
+
+    p {
+        margin-top: 0.8em;
+        margin-bottom: 0;
+        font-size: 1.1em;
+        color: var(--global-text-color-light);
+        font-weight: 500;
+        letter-spacing: 0.2px;
+    }
+}
+
+/* Generic Card Styles for Archive Items */
+.archive__item {
+    background: var(--global-code-background-color);
+    padding: 1.5em;
+    border-radius: 8px;
+    border: 1px solid var(--global-dark-border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    margin-bottom: 1.5em;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        border-color: var(--global-link-color);
+    }
+
+    .archive__item-title {
+        margin-top: 0;
+        color: var(--global-link-color);
+        font-weight: 700;
+        
+        a {
+            text-decoration: none;
+        }
+    }
+
+    p {
+        font-size: 0.9em;
+        margin-bottom: 0.8em;
+    }
+}
+
+/* Card List Layout (used in about.md) */
+.card-list {
+    list-style: none !important;
+    padding: 0 !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+
+    li {
+        background: var(--global-code-background-color);
+        padding: 1.25rem;
+        border-radius: 8px;
+        border: 1px solid var(--global-dark-border-color);
+        transition: all 0.3s ease;
+        margin-bottom: 0 !important;
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            transform: translateY(-3px);
+            border-color: var(--global-link-color);
+            background: var(--global-bg-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        a {
+            text-decoration: none !important;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--global-link-color);
+        }
+
+        /* Description text */
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+}
+
+/* CV and Generic List-to-Card transition */
+.page__content ul li article.archive__item {
+    /* If nested in a list, remove standard bullets */
+    list-style-type: none;
+}
+
+/* Grid Layout for Archive Pages */
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5em;
+    
+    .archive__item {
+        margin-bottom: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        
+        .archive__item-excerpt {
+            flex-grow: 1;
+        }
+    }
+}
+
+/* Fixes for dark/light toggle consistency */
+#theme-toggle {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+        transform: scale(1.1);
+    }
+    
+    i {
+        font-size: 1.2em;
+    }
+}
+
+/* Typographic Tabs Styling (Option 1) */
+.label-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 1.5rem 0;
+
+    li {
+        margin-bottom: 1rem !important;
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        line-height: 1.4;
+
+        .tag-label {
+            font-family: var(--font-mono);
+            font-size: 0.7em;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: var(--global-border-color);
+            color: var(--global-text-color-light);
+            border: 1px solid var(--global-dark-border-color);
+            width: 120px; /* Increased and fixed width for perfect alignment */
+            text-align: center;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        &:hover .tag-label {
+            background: var(--global-link-color);
+            color: var(--global-bg-color);
+            border-color: var(--global-link-color);
+        }
+
+        /* Color-coded variations */
+        &.tag--green .tag-label { border-left: 3px solid #A7C080; }
+        &.tag--aqua .tag-label { border-left: 3px solid #83C092; }
+        &.tag--blue .tag-label { border-left: 3px solid #7FBBB3; }
+        &.tag--orange .tag-label { border-left: 3px solid #E69875; }
+        &.tag--red .tag-label { border-left: 3px solid #E67E80; }
+    }
+}
+
+/* Badge Cloud Styling for "I have worked with" */
+.badge-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 1.5rem 0;
+
+    li {
+        background: var(--global-border-color);
+        color: var(--global-text-color);
+        padding: 0.4rem 1rem;
+        border-radius: 50px;
+        font-size: 0.85em;
+        font-weight: 500;
+        border: 1px solid var(--global-dark-border-color);
+        transition: all 0.2s ease;
+        margin-bottom: 0 !important;
+
+        strong {
+            color: var(--global-link-color);
+            margin-right: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            letter-spacing: 0.5px;
+        }
+
+        &:hover {
+            border-color: var(--global-link-color);
+            transform: translateY(-2px);
+            background: var(--global-code-background-color);
+        }
+    }
+}
