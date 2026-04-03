@@ -89,6 +89,7 @@
         margin-bottom: 0 !important;
         display: flex;
         flex-direction: column;
+        overflow: hidden; /* Prevent child overflow from breaking layout */
 
         &:hover {
             transform: translateY(-3px);
@@ -108,6 +109,21 @@
         /* Description text */
         font-size: 0.9em;
         line-height: 1.4;
+
+        /* Visual assets (images/iframes) within cards */
+        img, iframe {
+            max-width: 100% !important;
+            height: auto;
+            border-radius: 4px;
+            margin-top: 1rem;
+            align-self: center;
+            display: block;
+        }
+
+        iframe {
+            border: 1px solid var(--global-dark-border-color);
+            background: white; /* Clean container for badge iframes */
+        }
     }
 }
 
