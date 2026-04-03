@@ -61,3 +61,10 @@ My GitHub Stats
   <img height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=Andrei-WongE&theme=gruvbox&hide_border=true" />
 </div>
 
+
+My Achievements
+----------------
+<ul class="card-list">
+  <li><a href="[https://github.com/Andrei-WongE/geminiCLI_hooks_and_extensions-4research](https://badges.parchment.com/public/assertions/F_M7NwI1SlOECvIASoUc-w?identity__email=awonge01%40student.bbk.ac.uk)">Spatial Skills Certification</a>Apache Sedona Certificatio.</li>
+  <li><a href="[https://github.com/Andrei-WongE/shiny_geo/](https://s3.ap-south-1.amazonaws.com/leverageedu/school-logo/logo_1658381788348.jpeg)">Research Scholarship</a>Funding for PhD.</li>
+</ul>
