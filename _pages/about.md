@@ -53,6 +53,19 @@ I have worked with
   <li><strong>Public Sector</strong>Ministry of Development (MIDIS), Ministry of Transport, Ministry of Environment</li>
 </ul>
 
+My Achievements
+----------------
+<ul class="card-list">
+   <li><a href="https://badges.parchment.com/public/assertions/F_M7NwI1SlOECvIASoUc-w?identity__email=awonge01%40student.bbk.ac.uk">Spatial Skills Certification</a>Apache Sedona Certification.<br>
+   <iframe src="https://badges.parchment.com/public/assertions/F_M7NwI1SlOECvIASoUc-w?embedVersion=1&amp;embedWidth=370&amp;embedHeight=167" style="width: 370px; height: 167px; border: 0px; margin-top: 10px;" title="Badge: Apache Sedona Certification"></iframe>
+   </li>
+   <li>
+   <a href="https://s3.ap-south-1.amazonaws.com/leverageedu/school-logo/logo_1658381788348.jpeg">Research Scholarship</a>Funding for PhD.<br>
+   <img src="https://s3.ap-south-1.amazonaws.com/leverageedu/school-logo/logo_1658381788348.jpeg" alt="Research Scholarship Logo" style="max-height: 100px; margin-top: 10px;">
+   </li>
+</ul>
+
+
 My GitHub Stats
 ----------------
 <div class="stats-container" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1em;">
@@ -60,11 +73,3 @@ My GitHub Stats
   <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Andrei-WongE&theme=gruvbox" />
   <img height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=Andrei-WongE&theme=gruvbox&hide_border=true" />
 </div>
-
-
-My Achievements
-----------------
-<ul class="card-list">
-  <li><a href="[https://github.com/Andrei-WongE/geminiCLI_hooks_and_extensions-4research](https://badges.parchment.com/public/assertions/F_M7NwI1SlOECvIASoUc-w?identity__email=awonge01%40student.bbk.ac.uk)">Spatial Skills Certification</a>Apache Sedona Certificatio.</li>
-  <li><a href="[https://github.com/Andrei-WongE/shiny_geo/](https://s3.ap-south-1.amazonaws.com/leverageedu/school-logo/logo_1658381788348.jpeg)">Research Scholarship</a>Funding for PhD.</li>
-</ul>
