@@ -36,7 +36,7 @@ My work
   <li><a href="https://github.com/Andrei-WongE/geminiCLI_hooks_and_extensions-4research">AI research tools</a>AI-agentic assisted research workflow tools.</li>
   <li><a href="https://github.com/Andrei-WongE/shiny_geo/">GeoData Shiny App</a>Interactive spatial data visualization tool.</li>
   <li><a href="https://github.com/Andrei-WongE/NUTS_environ_data/">Spatial dataset creation</a>Environmental data processing for NUTS regions.</li>
-  <li><a href="https://andrei-wonge.github.io/Spatial_notes/">Spatial notes</a>Data wrangling and visualization notebook.</li>
+  <li><a href="https://andrei-wonge.github.io/Spatial_notes/">Spatial_notes</a>Data wrangling and visualization notebook.</li>
   <li><a href="https://github.com/Andrei-WongE/SDG_UIS_indicators_extractor">Process automatization</a>SDG indicator extraction tools.</li>
   <li><a href="https://github.com/Andrei-WongE/Randomization_Proyect-C">Impact evaluation</a>Randomization projects and code.</li>
   <li><a href="https://github.com/Andrei-WongE/FI_survey_HFC">Complex sampling survey</a>Financial inclusion survey workflows.</li>
@@ -56,15 +56,15 @@ I have worked with
 My Achievements
 ----------------
 <ul class="card-list">
-   <li><a href="https://badges.parchment.com/public/assertions/F_M7NwI1SlOECvIASoUc-w?identity__email=awonge01%40student.bbk.ac.uk">Spatial Skills Certification</a>Apache Sedona Certification.<br>
-   <iframe src="https://badges.parchment.com/public/assertions/F_M7NwI1SlOECvIASoUc-w?embedVersion=1&amp;embedWidth=370&amp;embedHeight=167" style="width: 370px; height: 167px; border: 0px; margin-top: 10px;" title="Badge: Apache Sedona Certification"></iframe>
-   </li>
-   <li>
-   <a href="https://s3.ap-south-1.amazonaws.com/leverageedu/school-logo/logo_1658381788348.jpeg">Research Scholarship</a>Funding for PhD.<br>
-   <img src="https://s3.ap-south-1.amazonaws.com/leverageedu/school-logo/logo_1658381788348.jpeg" alt="Research Scholarship Logo" style="max-height: 100px; margin-top: 10px;">
-   </li>
+  <li>
+    <a href="https://badges.parchment.com/public/assertions/F_M7NwI1SlOECvIASoUc-w?identity__email=awonge01%40student.bbk.ac.uk">Spatial Skills Certification</a>Apache Sedona Certification.<br>
+    <iframe src="https://badges.parchment.com/public/assertions/F_M7NwI1SlOECvIASoUc-w?embedVersion=1&amp;embedWidth=370&amp;embedHeight=167" style="border: 0px;" title="Badge: Apache Sedona Certification"></iframe>
+  </li>
+  <li>
+    <a href="https://s3.ap-south-1.amazonaws.com/leverageedu/school-logo/logo_1658381788348.jpeg">Research Scholarship</a>Funding for PhD.<br>
+    <img src="https://s3.ap-south-1.amazonaws.com/leverageedu/school-logo/logo_1658381788348.jpeg" alt="Research Scholarship Logo">
+  </li>
 </ul>
-
 
 My GitHub Stats
 ----------------
