@@ -23,7 +23,7 @@ permalink                : pretty  # Overrides /:categories/:title/ conflict
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "Profile.png"
+  avatar           : "profile.png"
   name             : "Andrei Wong Espejo"
   pronouns         : "he/him"
   bio              : "“We construct borders, (. . .) to fortify our sense of who we are; and we cross them in search of who we might become.” (Saunders, 2016)"
