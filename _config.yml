@@ -14,7 +14,7 @@ title_separator          : "-"
 name                     : &name "Andrei Wong Espejo"
 description              : &description "PhD Student in Urban Geography | Specializing in Spatial Datasets"
 url                      : https://andrei-wonge.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
+baseurl                  : "/Andrei-Wong.github.io" # the subpath of your site, e.g. "/blog"
 repository               : "Andrei-WongE/Andrei-Wong.github.io"
 permalink                : pretty  # Overrides /:categories/:title/ conflict
 
