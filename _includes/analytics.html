@@ -1,3 +1,20 @@
+<!-- Google Consent Mode v2 Defaults -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+</script>
+
+<!-- PASTE YOUR COOKIEBOT SCRIPT HERE -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="3a598130-6f4c-4604-b306-72f1ab5b45a0" data-blockingmode="auto" type="text/javascript"></script>
+
 {% if site.analytics.provider and page.analytics != false %}
 
 {% case site.analytics.provider %}
