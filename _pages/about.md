@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Welcome to my academic crib"
+title: "Spatial Data Science & Urban Geography Research"
 author_profile: true
 redirect_from: 
   - /about/
@@ -15,19 +15,19 @@ redirect_from:
 About me
 ------
 <ul class="label-list">
-  <li class="tag--green"><span class="tag-label">Current</span>I’m currently working on My Blog, <a href="https://andrei-wonge.github.io/Spatial_notes/">Spatial Data Science Notebook</a></li>
-  <li class="tag--aqua"><span class="tag-label">Learning</span>I’m currently learning to assess large language models for spatial analysis workflow, GeoAI and Bayesian Modelling techniques applied to spatial data</li>
-  <li class="tag--blue"><span class="tag-label">Open For</span>I’m looking to collaborate on Projects, structure and lead Workshops and Research Assistant work</li>
-  <li class="tag--orange"><span class="tag-label">Topics</span>Talk to me about Stata, R, Surveys, Sampling, Impact Evaluation, Text as Data, Quantification of Qualitative data, Spatial Data Science, Freelancing Opportunities</li>
+  <li><span class="tag-label">Current</span>I’m currently working on my blog, the <a href="https://andrei-wonge.github.io/Spatial_notes/">Spatial Data Science Notebook</a>.</li>
+  <li><span class="tag-label">Learning</span>I’m currently learning to assess large language models for spatial analysis workflows, GeoAI, and Bayesian modeling techniques applied to spatial data.</li>
+  <li><span class="tag-label">Open For</span>I’m looking to collaborate on projects, structure and lead workshops, and undertake research assistant work.</li>
+  <li><span class="tag-label">Topics</span>Talk to me about Stata, R, surveys, sampling, impact evaluation, text-as-data, quantification of qualitative data, spatial data science, and freelancing opportunities.</li>
 </ul>
 
 Skills
 ------
 <ul class="label-list">
-  <li class="tag--green"><span class="tag-label">Project Mgmt</span>Project manager with extensive experience in implementation of Impact Assessments and Impact Evaluations.</li>
-  <li class="tag--blue"><span class="tag-label">Data Govt</span>Social information governance, including generation, wrangling, visualization, monitoring, reporting and presentation of data.</li>
-  <li class="tag--aqua"><span class="tag-label">Spatial</span>Spatial data wrangling and modelling: spatial point and processes analysis, spatial analysis of linear features (lines and curves), areal edge detection modelling, H3-based spatial grids data machine learning modelling</li>
-  <li class="tag--red"><span class="tag-label">Big Data</span>Larger than memory spatial data worflow and conteranisation of model fitting workloads of spatial datsasets</li>
+  <li><span class="tag-label">Project Mgmt</span>Project manager with extensive experience in the implementation of impact assessments and impact evaluations.</li>
+  <li><span class="tag-label">Data Govt</span>Social information governance, including the generation, wrangling, visualization, monitoring, reporting, and presentation of data.</li>
+  <li><span class="tag-label">Spatial</span>Spatial data wrangling and modeling: spatial point and process analysis, spatial analysis of linear features (lines and curves), areal edge detection modeling, and H3-based spatial grids machine learning modeling.</li>
+  <li><span class="tag-label">Big Data</span>Larger-than-memory spatial data workflows and containerization of model fitting workloads for spatial datasets.</li>
 </ul>
   
 My work
@@ -57,12 +57,18 @@ My Achievements
 ----------------
 <ul class="card-list">
   <li>
-    <a href="https://badges.parchment.com/public/assertions/F_M7NwI1SlOECvIASoUc-w?identity__email=awonge01%40student.bbk.ac.uk">Spatial Skills Certification</a>Apache Sedona Certification.<br>
-    <iframe src="https://badges.parchment.com/public/assertions/F_M7NwI1SlOECvIASoUc-w?embedVersion=1&amp;embedWidth=370&amp;embedHeight=167" style="border: 0px;" title="Badge: Apache Sedona Certification"></iframe>
+    <div class="achievement-badge-container">
+      <span class="achievement-issuer">Apache Sedona</span>
+      <a href="https://badges.parchment.com/public/assertions/F_M7NwI1SlOECvIASoUc-w?identity__email=awonge01%40student.bbk.ac.uk" class="achievement-title">Spatial Skills Certification</a>
+      <span class="achievement-desc">Certified spatial computation skills using distributed cluster processing frameworks.</span>
+    </div>
   </li>
   <li>
-    <a href="https://s3.ap-south-1.amazonaws.com/leverageedu/school-logo/logo_1658381788348.jpeg">Research Scholarship</a>Funding for PhD.<br>
-    <img src="https://s3.ap-south-1.amazonaws.com/leverageedu/school-logo/logo_1658381788348.jpeg" alt="Research Scholarship Logo">
+    <div class="achievement-badge-container">
+      <span class="achievement-issuer">Birkbeck, University of London</span>
+      <a href="https://s3.ap-south-1.amazonaws.com/leverageedu/school-logo/logo_1658381788348.jpeg" class="achievement-title">PhD Research Scholarship</a>
+      <span class="achievement-desc">Fully funded doctoral research scholarship awarded for outstanding academic achievements.</span>
+    </div>
   </li>
 </ul>
 

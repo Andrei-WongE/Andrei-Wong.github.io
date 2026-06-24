@@ -76,23 +76,55 @@ html[data-theme="dark"] {
     --global-text-color                 : #{$everforest-fg};
     --global-text-color-light           : #{$everforest-grey2};
     --global-thead-color                : #{$everforest-bg2};
+
+    /* Button states */
+    --btn-bg                            : var(--global-link-color);
+    --btn-text                          : #2D353B;
+    --btn-border                        : var(--global-link-color);
+    --btn-hover-bg                      : var(--global-link-color-hover);
+    --btn-hover-text                    : #2D353B;
+    --btn-hover-border                  : var(--global-link-color-hover);
+
+    /* Notice box colors */
+    --notice-bg-default                 : #343F44;
+    --notice-text-default               : #D3C6AA;
+    --notice-border-default             : #475258;
+
+    --notice-bg-info                    : #354751;
+    --notice-text-info                  : #7FBBB3;
+    --notice-border-info                : #4c6472;
+
+    --notice-bg-warning                 : #4c463f;
+    --notice-text-warning               : #E69875;
+    --notice-border-warning             : #5c5246;
+
+    --notice-bg-success                 : #3c4b42;
+    --notice-text-success               : #A7C080;
+    --notice-border-success             : #495d4e;
+
+    --notice-bg-danger                  : #4a3e42;
+    --notice-text-danger                : #E67E80;
+    --notice-border-danger              : #5a4b50;
     }
 
     /* Social Icon Accents */
     .social-icons {
-    .fa-github { color: $everforest-fg; }
-    .fa-twitter, .fa-x-twitter { color: $everforest-blue; }
-    .fa-linkedin { color: $everforest-blue; }
-    .fa-google-scholar { color: $everforest-aqua; }
-    .fa-orcid { color: $everforest-green; }
-    .fa-researchgate { color: $everforest-aqua; }
-    .fa-envelope { color: $everforest-orange; }
-    .fa-location-dot { color: $everforest-red; }
-    .fa-building-columns { color: $everforest-yellow; }
+      .fa-github { color: $everforest-fg; }
+      .fa-twitter, .fa-x-twitter { color: $everforest-blue; }
+      .fa-linkedin { color: $everforest-blue; }
+      .ai-google-scholar { color: $everforest-aqua; }
+      .ai-orcid { color: $everforest-green; }
+      .ai-arxiv { color: $everforest-blue; }
+      .fa-researchgate { color: $everforest-aqua; }
+      .fa-envelope { color: $everforest-orange; }
+      .fa-location-dot { color: $everforest-red; }
+      .fa-building-columns { color: $everforest-yellow; }
+      .fa-bluesky { color: $everforest-blue; }
+      .fa-instagram { color: $everforest-orange; }
 
-    a:hover i {
+      a:hover i {
         filter: brightness(1.2);
         transform: scale(1.1);
         transition: all 0.2s ease;
-    }
+      }
     }

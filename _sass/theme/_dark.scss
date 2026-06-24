@@ -51,4 +51,33 @@ html[data-theme="dark"] {
     --global-text-color                 : #{$text};
     --global-text-color-light           : #{$light-gray};
     --global-thead-color                : #{$background-lighter};
+
+    /* Button states */
+    --btn-bg                            : var(--global-link-color);
+    --btn-text                          : #fff;
+    --btn-border                        : var(--global-link-color);
+    --btn-hover-bg                      : #0b809b;
+    --btn-hover-text                    : #fff;
+    --btn-hover-border                  : #0b809b;
+
+    /* Notice box colors */
+    --notice-bg-default                 : #373737;
+    --notice-text-default               : #ffffff;
+    --notice-border-default             : #555555;
+
+    --notice-bg-info                    : #1a3644;
+    --notice-text-info                  : #90caf9;
+    --notice-border-info                : #0ea1c5;
+
+    --notice-bg-warning                 : #43321c;
+    --notice-text-warning               : #ffe082;
+    --notice-border-warning             : #f89406;
+
+    --notice-bg-success                 : #1b381c;
+    --notice-text-success               : #a5d6a7;
+    --notice-border-success             : #62c462;
+
+    --notice-bg-danger                  : #441a1a;
+    --notice-text-danger                : #ef9a9a;
+    --notice-border-danger              : #ee5f5b;
 }

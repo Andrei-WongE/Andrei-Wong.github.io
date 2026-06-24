@@ -44,4 +44,33 @@ $sidebar-screen-min-width   : 1024px;
     --global-text-color                 : #{$dark-gray};
     --global-text-color-light           : #{$light-gray};
     --global-thead-color                : #{$lighter-gray};
+
+    /* Button states */
+    --btn-bg                            : var(--global-link-color);
+    --btn-text                          : #fff;
+    --btn-border                        : var(--global-link-color);
+    --btn-hover-bg                      : #2f7f93;
+    --btn-hover-text                    : #fff;
+    --btn-hover-border                  : #2f7f93;
+
+    /* Notice box colors */
+    --notice-bg-default                 : #f2f3f3;
+    --notice-text-default               : #474747;
+    --notice-border-default             : #bdc1c4;
+
+    --notice-bg-info                    : #e3f2fd;
+    --notice-text-info                  : #0d47a1;
+    --notice-border-info                : #90caf9;
+
+    --notice-bg-warning                 : #fff3e0;
+    --notice-text-warning               : #e65100;
+    --notice-border-warning             : #ffe082;
+
+    --notice-bg-success                 : #e8f5e9;
+    --notice-text-success               : #1b5e20;
+    --notice-border-success             : #a5d6a7;
+
+    --notice-bg-danger                  : #ffebee;
+    --notice-text-danger                : #b71c1c;
+    --notice-border-danger              : #ef9a9a;
 }

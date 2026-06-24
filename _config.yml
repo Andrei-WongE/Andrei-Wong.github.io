@@ -12,9 +12,9 @@ site_theme               : "dark"
 title                    : "Andrei Wong Espejo - PhD Student"
 title_separator          : "-"
 name                     : &name "Andrei Wong Espejo"
-description              : &description "PhD Student in Urban Geography | Specializing in Spatial Datasets"
+description              : &description "PhD Researcher in Urban Geography | Spatial Data Science & Computational Geography"
 url                      : https://andrei-wonge.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
+baseurl                  : "/Andrei-Wong.github.io" # the subpath of your site, e.g. "/blog"
 repository               : "Andrei-WongE/Andrei-Wong.github.io"
 permalink                : pretty  # Overrides /:categories/:title/ conflict
 
@@ -26,7 +26,7 @@ author:
   avatar           : "profile.png"
   name             : "Andrei Wong Espejo"
   pronouns         : "he/him"
-  bio              : "“We construct borders, (. . .) to fortify our sense of who we are; and we cross them in search of who we might become.” (Saunders, 2016)"
+  bio              : "“We construct borders... to fortify our sense of who we are; and we cross them in search of who we might become.” (Saunders, 2016)"
   location         : "London, UK"
   employer         : "Birkbeck College"
   uri              : # URL
@@ -51,7 +51,7 @@ author:
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "andrei-wonge.bsky.social" # Replace this with you Bluesky username
+  bluesky          : "andrei-wonge.bsky.social" # Your Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
@@ -318,7 +318,7 @@ whitelist:
   - jekyll-sitemap
   - jekyll-redirect-from
   - jekyll-seo-tag # metadata and searchability
-  - jekyll-analytics # track site traffic using google analyt
+  - jekyll-analytics # track site traffic using Google Analytics
   - jemoji
 
 

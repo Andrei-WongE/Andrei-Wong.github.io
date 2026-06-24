@@ -10,20 +10,21 @@
  *  </div>
  */
 
-@mixin notice($notice-color) {
+@mixin notice($type) {
   margin: 2em 0 !important;  /* override*/
   padding: 1em;
   font-family: $global-font-family;
   font-size: $type-size-6 !important;
   text-indent: initial; /* override*/
-  background-color: mix(#fff, $notice-color, 90%);
+  background-color: var(--notice-bg-#{$type});
+  border: 1px solid var(--notice-border-#{$type});
   border-radius: $border-radius;
-  box-shadow: 0 1px 1px rgba($notice-color, 0.25);
-  color: var(--global-code-text-color);
+  color: var(--notice-text-#{$type});
 
   h4 {
     margin-top: 0 !important; /* override*/
     margin-bottom: 0.75em;
+    color: var(--notice-text-#{$type});
   }
 
   @at-root .page__content #{&} h4 {
@@ -45,15 +46,18 @@
   }
 
   a {
-    color: $notice-color;
+    color: var(--notice-text-#{$type});
+    text-decoration: underline;
 
     &:hover {
-      color: mix(#000, $notice-color, 40%);
+      filter: brightness(1.2);
     }
   }
 
   code {
-    background-color: mix(#fff, $notice-color, 95%)
+    background-color: var(--notice-bg-#{$type});
+    filter: brightness(0.9);
+    color: var(--notice-text-#{$type});
   }
 
   ul {
@@ -66,35 +70,35 @@
 /* Default notice */
 
 .notice {
-  @include notice($notice-color);
+  @include notice(default);
 }
 
 /* Primary notice */
 
 .notice--primary {
-  @include notice($notice-color);
+  @include notice(default);
 }
 
 /* Info notice */
 
 .notice--info {
-  @include notice($info-color);
+  @include notice(info);
 }
 
 /* Warning notice */
 
 .notice--warning {
-  @include notice($warning-color);
+  @include notice(warning);
 }
 
 /* Success notice */
 
 .notice--success {
-  @include notice($success-color);
+  @include notice(success);
 }
 
 /* Danger notice */
 
 .notice--danger {
-  @include notice($danger-color);
+  @include notice(danger);
 }

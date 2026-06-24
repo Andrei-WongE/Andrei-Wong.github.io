@@ -33,6 +33,14 @@ td {
   border-right: 1px solid var(--global-border-color);
 }
 
+tbody tr {
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: var(--global-thead-color);
+  }
+}
+
 tr, td, th {
   vertical-align: middle;
 }

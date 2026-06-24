@@ -30,11 +30,11 @@ $calisto                    : "Calisto MT", serif;
 $garamond                   : Garamond, serif;
 
 /* Type scale */
-$type-size-1                : 2.441em;  // ~39.056px
-$type-size-2                : 1.953em;  // ~31.248px
-$type-size-3                : 1.563em;  // ~25.008px
-$type-size-4                : 1.25em;   // ~20px
-$type-size-5                : 1em;      // ~16px
+$type-size-1                : unquote("clamp(2rem, 5vw, 3rem)");  // Fluid title
+$type-size-2                : unquote("clamp(1.6rem, 4vw, 2.2rem)"); // Fluid display
+$type-size-3                : unquote("clamp(1.35rem, 2.5vw + 0.5rem, 1.75rem)"); // Fluid h1
+$type-size-4                : unquote("clamp(1.15rem, 1.8vw + 0.4rem, 1.45rem)"); // Fluid h2
+$type-size-5                : unquote("clamp(1rem, 1vw + 0.3rem, 1.15rem)"); // Fluid h3
 $type-size-6                : 0.75em;   // ~12px
 $type-size-7                : 0.6875em; // ~11px
 $type-size-8                : 0.625em;  // ~10px
