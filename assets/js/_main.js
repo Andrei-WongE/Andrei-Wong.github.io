@@ -6,41 +6,64 @@ $(document).ready(function () {
   // Set the theme on page load
   var setTheme = function (theme) {
     const localTheme = localStorage.getItem("theme");
-    const systemPrefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
     
     let use_theme = theme || localTheme;
     if (!use_theme) {
-      // If no local preference set, default to system preference, then default config attribute
-      use_theme = systemPrefersDark ? "dark" : ($("html").attr("data-theme") || "light");
+      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        use_theme = "dark";
+      } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+        use_theme = "light";
+      } else {
+        use_theme = document.documentElement.getAttribute("data-theme") || "light";
+      }
     }
 
-    if (use_theme === "dark") {
-      $("html").attr("data-theme", "dark");
-      $("#theme-icon").removeClass("fa-sun").addClass("fa-moon");
-    } else {
-      $("html").attr("data-theme", "light");
-      $("#theme-icon").removeClass("fa-moon").addClass("fa-sun");
+    console.log("[Theme System] Setting theme to:", use_theme);
+    document.documentElement.setAttribute("data-theme", use_theme);
+
+    const icon = document.getElementById("theme-icon");
+    if (icon) {
+      if (use_theme === "dark") {
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+      } else {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      }
     }
   }
   setTheme();
 
-  // Listen for system theme changes if user has no manual override
+  // Listen for system theme changes if user has no manual override (cross-browser safe)
   if (window.matchMedia) {
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
-      if (!localStorage.getItem("theme")) {
-        setTheme();
+    try {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      const handler = function () {
+        if (!localStorage.getItem("theme")) {
+          console.log("[Theme System] System color preference changed");
+          setTheme();
+        }
+      };
+      if (mediaQuery.addEventListener) {
+        mediaQuery.addEventListener("change", handler);
+      } else if (mediaQuery.addListener) {
+        mediaQuery.addListener(handler);
       }
-    });
+    } catch (e) {
+      console.warn("[Theme System] Failed to bind preference listener:", e);
+    }
   }
 
   // Toggle the theme
   var toggleTheme = function () {
-    const current_theme = $("html").attr("data-theme");
+    const current_theme = document.documentElement.getAttribute("data-theme") || "light";
     const new_theme = current_theme === "dark" ? "light" : "dark";
+    console.log("[Theme System] User toggling theme from", current_theme, "to", new_theme);
     localStorage.setItem("theme", new_theme);
     setTheme(new_theme);
   }
-  $('#theme-toggle').on('click', function () {
+  $('#theme-toggle, #theme-toggle a, #theme-icon').on('click', function (e) {
+    e.preventDefault();
     toggleTheme();
   });
 
