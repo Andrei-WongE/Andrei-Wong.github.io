@@ -82,7 +82,7 @@ layout: compress
         }
         var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         ctx.beginPath();
-        ctx.strokeStyle = isDark ? 'rgba(61,72,77,0.35)' : 'rgba(150,165,170,0.30)';
+        ctx.strokeStyle = isDark ? 'rgba(61,72,77,0.55)' : 'rgba(150,165,170,0.45)';
         ctx.lineWidth = 0.6;
         for (var r = 0; r < rows; r++) {
           for (var c = 0; c < cols; c++) {
@@ -93,7 +93,7 @@ layout: compress
         }
         ctx.stroke();
         ctx.beginPath();
-        ctx.strokeStyle = isDark ? 'rgba(133,146,137,0.18)' : 'rgba(100,130,140,0.18)';
+        ctx.strokeStyle = isDark ? 'rgba(133,146,137,0.35)' : 'rgba(100,130,140,0.30)';
         for (var r = 0; r < rows; r++) {
           for (var c = 0; c < cols; c++) {
             var p = points[r][c];
