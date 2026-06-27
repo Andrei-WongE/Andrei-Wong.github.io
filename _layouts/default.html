@@ -30,7 +30,9 @@ layout: compress
     {% include scripts.html %}
 
     <script>
-    /* Interactive Topographic Grid — Inline (bypasses bundle lock) */
+    /* Interactive Topographic Grid — Dual-preset comparison build
+       Press 1 = Option 1 (Grey1 contrast boost)
+       Press 2 = Option 2 (Full Everforest palette)                */
     (function() {
       var canvas = document.getElementById('topo-canvas');
       if (!canvas) return;
@@ -39,6 +41,76 @@ layout: compress
       var height = canvas.height = window.innerHeight;
       var mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000, active: false };
 
+      /* ── Presets ───────────────────────────────────────────── */
+      var presets = {
+        1: {
+          name: 'Option 1 — Grey1 Contrast Boost',
+          dark: {
+            gridStroke:      'rgba(133,146,137,0.25)',   /* #859289 grey1 */
+            gridWidth:       1,
+            crossStroke:     'rgba(167,192,128,0.15)',   /* #A7C080 sage hint */
+            ringStroke:      'rgba(167,192,128,0.12)',
+            gpsText:         'rgba(167,192,128,0.70)',
+            crosshairStroke: 'rgba(167,192,128,0.30)'
+          },
+          light: {
+            gridStroke:      'rgba(80,100,110,0.30)',
+            gridWidth:       1,
+            crossStroke:     'rgba(80,130,120,0.20)',
+            ringStroke:      'rgba(82,173,200,0.12)',
+            gpsText:         'rgba(47,127,147,0.70)',
+            crosshairStroke: 'rgba(82,173,200,0.30)'
+          }
+        },
+        2: {
+          name: 'Option 2 — Full Everforest Palette',
+          dark: {
+            gridStroke:      'rgba(71,82,88,0.45)',      /* #475258 bg3 */
+            gridWidth:       1,
+            crossStroke:     'rgba(122,132,120,0.20)',   /* #7A8478 grey0 */
+            ringStroke:      'rgba(167,192,128,0.15)',   /* #A7C080 green */
+            gpsText:         'rgba(167,192,128,0.70)',
+            crosshairStroke: 'rgba(167,192,128,0.25)'
+          },
+          light: {
+            gridStroke:      'rgba(120,140,150,0.35)',
+            gridWidth:       1,
+            crossStroke:     'rgba(90,120,110,0.20)',
+            ringStroke:      'rgba(82,173,200,0.15)',
+            gpsText:         'rgba(47,127,147,0.70)',
+            crosshairStroke: 'rgba(82,173,200,0.25)'
+          }
+        }
+      };
+
+      var activePreset = 2; /* default to Option 2 */
+
+      /* ── On-screen indicator badge ──────────────────────── */
+      var badge = document.createElement('div');
+      badge.setAttribute('style',
+        'position:fixed;bottom:12px;right:12px;z-index:9999;' +
+        'background:rgba(45,53,59,0.92);color:#A7C080;' +
+        'font:11px/1.4 monospace;padding:6px 12px;border-radius:4px;' +
+        'border:1px solid #475258;pointer-events:none;' +
+        'transition:opacity 0.3s ease;opacity:0.85;'
+      );
+      function updateBadge() {
+        badge.textContent = 'Grid: ' + presets[activePreset].name + '  [press 1 or 2]';
+      }
+      updateBadge();
+      document.body.appendChild(badge);
+
+      /* ── Keyboard toggle ────────────────────────────────── */
+      window.addEventListener('keydown', function(e) {
+        if (e.key === '1' || e.key === '2') {
+          activePreset = parseInt(e.key);
+          updateBadge();
+          badge.style.opacity = '1';
+          setTimeout(function() { badge.style.opacity = '0.85'; }, 600);
+        }
+      });
+
+      /* ── Resize / Mouse ─────────────────────────────────── */
       window.addEventListener('resize', function() {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
@@ -51,8 +123,11 @@ layout: compress
       var spacing = 50, warpRadius = 180, maxDisp = 25;
       mouse.x = window.innerWidth / 2; mouse.y = window.innerHeight / 2;
 
+      /* ── Draw loop ──────────────────────────────────────── */
       function draw() {
         ctx.clearRect(0, 0, width, height);
+
+        /* smooth mouse */
         if (mouse.active) {
           mouse.x += (mouse.targetX - mouse.x) * 0.1;
           mouse.y += (mouse.targetY - mouse.y) * 0.1;
@@ -60,6 +135,12 @@ layout: compress
           mouse.x += (-1000 - mouse.x) * 0.05;
           mouse.y += (-1000 - mouse.y) * 0.05;
         }
+
+        /* resolve active palette */
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        var p = isDark ? presets[activePreset].dark : presets[activePreset].light;
+
+        /* compute grid points with warp */
         var cols = Math.ceil(width / spacing) + 2;
         var rows = Math.ceil(height / spacing) + 2;
         var points = [];
@@ -80,46 +161,52 @@ layout: compress
             points[r][c] = { x: x, y: y };
           }
         }
-        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+        /* draw grid lines */
         ctx.beginPath();
-        ctx.strokeStyle = isDark ? 'rgba(61,72,77,0.55)' : 'rgba(150,165,170,0.45)';
-        ctx.lineWidth = 0.6;
+        ctx.strokeStyle = p.gridStroke;
+        ctx.lineWidth = p.gridWidth;
         for (var r = 0; r < rows; r++) {
           for (var c = 0; c < cols; c++) {
-            var p = points[r][c];
-            if (c < cols - 1) { ctx.moveTo(p.x, p.y); ctx.lineTo(points[r][c+1].x, points[r][c+1].y); }
-            if (r < rows - 1) { ctx.moveTo(p.x, p.y); ctx.lineTo(points[r+1][c].x, points[r+1][c].y); }
+            var pt = points[r][c];
+            if (c < cols - 1) { ctx.moveTo(pt.x, pt.y); ctx.lineTo(points[r][c+1].x, points[r][c+1].y); }
+            if (r < rows - 1) { ctx.moveTo(pt.x, pt.y); ctx.lineTo(points[r+1][c].x, points[r+1][c].y); }
           }
         }
         ctx.stroke();
+
+        /* draw crosshair markers (+) at intersections */
         ctx.beginPath();
-        ctx.strokeStyle = isDark ? 'rgba(133,146,137,0.35)' : 'rgba(100,130,140,0.30)';
+        ctx.strokeStyle = p.crossStroke;
         for (var r = 0; r < rows; r++) {
           for (var c = 0; c < cols; c++) {
-            var p = points[r][c];
-            ctx.moveTo(p.x - 3, p.y); ctx.lineTo(p.x + 3, p.y);
-            ctx.moveTo(p.x, p.y - 3); ctx.lineTo(p.x, p.y + 3);
+            var pt = points[r][c];
+            ctx.moveTo(pt.x - 3, pt.y); ctx.lineTo(pt.x + 3, pt.y);
+            ctx.moveTo(pt.x, pt.y - 3); ctx.lineTo(pt.x, pt.y + 3);
           }
         }
         ctx.stroke();
+
+        /* hover: contour rings + GPS readout + crosshair */
         if (mouse.active && mouse.x > 0 && mouse.x < width && mouse.y > 0 && mouse.y < height) {
-          ctx.strokeStyle = isDark ? 'rgba(167,192,128,0.12)' : 'rgba(82,173,200,0.12)';
+          ctx.strokeStyle = p.ringStroke;
           ctx.lineWidth = 1;
           for (var i = 1; i <= 3; i++) {
             ctx.beginPath(); ctx.arc(mouse.x, mouse.y, i * 45, 0, Math.PI * 2); ctx.stroke();
           }
           var lat = (51.5221 - (mouse.y / height) * 0.01).toFixed(5);
           var lon = (-0.1299 + (mouse.x / width) * 0.02).toFixed(5);
-          ctx.fillStyle = isDark ? 'rgba(167,192,128,0.7)' : 'rgba(47,127,147,0.7)';
+          ctx.fillStyle = p.gpsText;
           ctx.font = '9px monospace';
           ctx.fillText('LAT: ' + lat + '\u00B0 N', mouse.x + 15, mouse.y - 15);
           ctx.fillText('LON: ' + lon + '\u00B0 W', mouse.x + 15, mouse.y - 5);
-          ctx.strokeStyle = isDark ? 'rgba(167,192,128,0.3)' : 'rgba(82,173,200,0.3)';
+          ctx.strokeStyle = p.crosshairStroke;
           ctx.beginPath();
           ctx.moveTo(mouse.x - 10, mouse.y); ctx.lineTo(mouse.x + 10, mouse.y);
           ctx.moveTo(mouse.x, mouse.y - 10); ctx.lineTo(mouse.x, mouse.y + 10);
           ctx.stroke();
         }
+
         requestAnimationFrame(draw);
       }
 
