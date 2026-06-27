@@ -85,28 +85,75 @@ layout: compress
 
       var activePreset = 2; /* default to Option 2 */
 
-      /* ── On-screen indicator badge ──────────────────────── */
-      var badge = document.createElement('div');
-      badge.setAttribute('style',
+      /* ── On-screen interactive controls ──────────────────── */
+      var container = document.createElement('div');
+      container.setAttribute('style',
         'position:fixed;bottom:12px;right:12px;z-index:9999;' +
-        'background:rgba(45,53,59,0.92);color:#A7C080;' +
-        'font:11px/1.4 monospace;padding:6px 12px;border-radius:4px;' +
-        'border:1px solid #475258;pointer-events:none;' +
-        'transition:opacity 0.3s ease;opacity:0.85;'
+        'background:rgba(45,53,59,0.95);color:#A7C080;' +
+        'font:11px/1.4 monospace;padding:10px 12px;border-radius:4px;' +
+        'border:1px solid #475258;box-shadow:0 4px 12px rgba(0,0,0,0.4);' +
+        'display:flex;flex-direction:column;gap:6px;'
       );
-      function updateBadge() {
-        badge.textContent = 'Grid: ' + presets[activePreset].name + '  [press 1 or 2]';
+
+      var title = document.createElement('div');
+      title.style.fontWeight = 'bold';
+      title.style.color = '#D3C6AA';
+      title.textContent = 'Grid Comparison';
+      container.appendChild(title);
+
+      var btnGroup = document.createElement('div');
+      btnGroup.style.display = 'flex';
+      btnGroup.style.gap = '6px';
+      container.appendChild(btnGroup);
+
+      var btn1 = document.createElement('button');
+      btn1.textContent = 'Option 1 (Grey1)';
+      btnGroup.appendChild(btn1);
+
+      var btn2 = document.createElement('button');
+      btn2.textContent = 'Option 2 (Palette)';
+      btnGroup.appendChild(btn2);
+
+      var desc = document.createElement('div');
+      desc.style.color = '#859289';
+      desc.style.fontSize = '9px';
+      desc.style.maxWidth = '220px';
+      container.appendChild(desc);
+
+      function setPreset(presetNum) {
+        activePreset = presetNum;
+        
+        var activeBtn = presetNum === 1 ? btn1 : btn2;
+        var inactiveBtn = presetNum === 1 ? btn2 : btn1;
+
+        activeBtn.setAttribute('style',
+          'background:#A7C080;color:#2D353B;border:1px solid #A7C080;' +
+          'padding:4px 8px;cursor:pointer;font-family:monospace;font-size:10px;' +
+          'border-radius:2px;font-weight:bold;outline:none;'
+        );
+        inactiveBtn.setAttribute('style',
+          'background:#343F44;color:#D3C6AA;border:1px solid #475258;' +
+          'padding:4px 8px;cursor:pointer;font-family:monospace;font-size:10px;' +
+          'border-radius:2px;outline:none;'
+        );
+
+        if (presetNum === 1) {
+          desc.textContent = 'Option 1: Uses Grey1 (#859289) lines and Sage (#A7C080) intersection crosshairs.';
+        } else {
+          desc.textContent = 'Option 2: Uses Everforest bg3 (#475258) lines and grey0 (#7A8478) crosshairs.';
+        }
       }
-      updateBadge();
-      document.body.appendChild(badge);
+
+      btn1.addEventListener('click', function() { setPreset(1); });
+      btn2.addEventListener('click', function() { setPreset(2); });
+
+      setPreset(activePreset);
+      document.body.appendChild(container);
 
       /* ── Keyboard toggle ────────────────────────────────── */
       window.addEventListener('keydown', function(e) {
         if (e.key === '1' || e.key === '2') {
-          activePreset = parseInt(e.key);
-          updateBadge();
-          badge.style.opacity = '1';
-          setTimeout(function() { badge.style.opacity = '0.85'; }, 600);
+          setPreset(parseInt(e.key));
         }
       });
 
