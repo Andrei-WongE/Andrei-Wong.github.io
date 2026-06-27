@@ -58,54 +58,7 @@ $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
-/* Everforest theme for the site */
-html[data-theme="dark"] {
-    --global-base-color                 : #{$background};
-    --global-bg-color                   : #{$background};
-    --global-footer-bg-color            : #{$background-light};
-    --global-border-color               : #{$everforest-bg4};
-    --global-dark-border-color          : #{$everforest-bg3};
-    --global-code-background-color      : #{$everforest-bg1};
-    --global-code-text-color            : #{$everforest-fg};
-    --global-fig-caption-color          : #{$everforest-grey1};
-    --global-link-color                 : #{$link};
-    --global-link-color-hover           : #{$everforest-aqua};
-    --global-link-color-visited         : #{$everforest-blue};
-    --global-masthead-link-color        : #{$everforest-fg};
-    --global-masthead-link-color-hover  : #{$everforest-green};
-    --global-text-color                 : #{$everforest-fg};
-    --global-text-color-light           : #{$everforest-grey2};
-    --global-thead-color                : #{$everforest-bg2};
-
-    /* Button states */
-    --btn-bg                            : var(--global-link-color);
-    --btn-text                          : #2D353B;
-    --btn-border                        : var(--global-link-color);
-    --btn-hover-bg                      : var(--global-link-color-hover);
-    --btn-hover-text                    : #2D353B;
-    --btn-hover-border                  : var(--global-link-color-hover);
-
-    /* Notice box colors */
-    --notice-bg-default                 : #343F44;
-    --notice-text-default               : #D3C6AA;
-    --notice-border-default             : #475258;
-
-    --notice-bg-info                    : #354751;
-    --notice-text-info                  : #7FBBB3;
-    --notice-border-info                : #4c6472;
-
-    --notice-bg-warning                 : #4c463f;
-    --notice-text-warning               : #E69875;
-    --notice-border-warning             : #5c5246;
-
-    --notice-bg-success                 : #3c4b42;
-    --notice-text-success               : #A7C080;
-    --notice-border-success             : #495d4e;
-
-    --notice-bg-danger                  : #4a3e42;
-    --notice-text-danger                : #E67E80;
-    --notice-border-danger              : #5a4b50;
-    }
+/* Everforest theme variables have been moved to _unified.scss using light-dark() */
 
     /* Social Icon Accents */
     .social-icons {

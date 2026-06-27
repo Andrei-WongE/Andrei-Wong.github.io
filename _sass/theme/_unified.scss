@@ -1,0 +1,61 @@
+/* ==========================================================================
+   UNIFIED THEME USING CSS LIGHT-DARK()
+   ========================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  --global-base-color: #{'light-dark(' + $gray + ', ' + $everforest-bg0 + ')'};
+  --global-bg-color: #{'light-dark(#ffffff, ' + $everforest-bg0 + ')'};
+  --global-footer-bg-color: #{'light-dark(#f2f3f3, ' + $everforest-bg1 + ')'};
+  --global-border-color: #{'light-dark(' + $lighter-gray + ', ' + $everforest-bg4 + ')'};
+  --global-dark-border-color: #{'light-dark(#bdc1c4, ' + $everforest-bg3 + ')'};
+  --global-code-background-color: #{'light-dark(#fafafa, ' + $everforest-bg1 + ')'};
+  --global-code-text-color: #{'light-dark(' + $darker-gray + ', ' + $everforest-fg + ')'};
+  --global-fig-caption-color: #{'light-dark(' + mix(#fff, $dark-gray, 25%) + ', ' + $everforest-grey1 + ')'};
+  --global-link-color: #{'light-dark(#52adc8, ' + $everforest-green + ')'};
+  --global-link-color-hover: #{'light-dark(' + mix(#000, #2f7f93, 25%) + ', ' + $everforest-aqua + ')'};
+  --global-link-color-visited: #{'light-dark(' + mix(#fff, #2f7f93, 25%) + ', ' + $everforest-blue + ')'};
+  --global-masthead-link-color: #{'light-dark(' + $dark-gray + ', ' + $everforest-fg + ')'};
+  --global-masthead-link-color-hover: #{'light-dark(' + mix(#000, $gray, 25%) + ', ' + $everforest-green + ')'};
+  --global-text-color: #{'light-dark(' + $dark-gray + ', ' + $everforest-fg + ')'};
+  --global-text-color-light: #{'light-dark(' + $light-gray + ', ' + $everforest-grey2 + ')'};
+  --global-thead-color: #{'light-dark(' + $lighter-gray + ', ' + $everforest-bg2 + ')'};
+
+  /* Button states */
+  --btn-bg: var(--global-link-color);
+  --btn-text: #{'light-dark(#ffffff, #2D353B)'};
+  --btn-border: var(--global-link-color);
+  --btn-hover-bg: #{'light-dark(#2f7f93, ' + $everforest-aqua + ')'};
+  --btn-hover-text: #{'light-dark(#ffffff, #2D353B)'};
+  --btn-hover-border: #{'light-dark(#2f7f93, ' + $everforest-aqua + ')'};
+
+  /* Notice box colors */
+  --notice-bg-default: #{'light-dark(#f2f3f3, #343F44)'};
+  --notice-text-default: #{'light-dark(#474747, ' + $everforest-fg + ')'};
+  --notice-border-default: #{'light-dark(#bdc1c4, #475258)'};
+
+  --notice-bg-info: #{'light-dark(#e3f2fd, #354751)'};
+  --notice-text-info: #{'light-dark(#0d47a1, ' + $everforest-blue + ')'};
+  --notice-border-info: #{'light-dark(#90caf9, #4c6472)'};
+
+  --notice-bg-warning: #{'light-dark(#fff3e0, #4c463f)'};
+  --notice-text-warning: #{'light-dark(#e65100, ' + $everforest-orange + ')'};
+  --notice-border-warning: #{'light-dark(#ffe082, #5c5246)'};
+
+  --notice-bg-success: #{'light-dark(#e8f5e9, #3c4b42)'};
+  --notice-text-success: #{'light-dark(#1b5e20, ' + $everforest-green + ')'};
+  --notice-border-success: #{'light-dark(#a5d6a7, #495d4e)'};
+
+  --notice-bg-danger: #{'light-dark(#ffebee, #4a3e42)'};
+  --notice-text-danger: #{'light-dark(#b71c1c, ' + $everforest-red + ')'};
+  --notice-border-danger: #{'light-dark(#ef9a9a, #5a4b50)'};
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}

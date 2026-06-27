@@ -5,16 +5,33 @@
 $(document).ready(function () {
   // Set the theme on page load
   var setTheme = function (theme) {
-    const use_theme = theme || localStorage.getItem("theme") || $("html").attr("data-theme");
+    const localTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    
+    let use_theme = theme || localTheme;
+    if (!use_theme) {
+      // If no local preference set, default to system preference, then default config attribute
+      use_theme = systemPrefersDark ? "dark" : ($("html").attr("data-theme") || "light");
+    }
+
     if (use_theme === "dark") {
       $("html").attr("data-theme", "dark");
       $("#theme-icon").removeClass("fa-sun").addClass("fa-moon");
-    } else if (use_theme === "light") {
-      $("html").removeAttr("data-theme");
+    } else {
+      $("html").attr("data-theme", "light");
       $("#theme-icon").removeClass("fa-moon").addClass("fa-sun");
     }
   }
   setTheme();
+
+  // Listen for system theme changes if user has no manual override
+  if (window.matchMedia) {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+      if (!localStorage.getItem("theme")) {
+        setTheme();
+      }
+    });
+  }
 
   // Toggle the theme
   var toggleTheme = function () {
