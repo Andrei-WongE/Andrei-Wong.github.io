@@ -81,9 +81,8 @@ layout: compress
         }
         var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         ctx.beginPath();
-        // Use Everforest bg4 for the grid lines
-        ctx.strokeStyle = isDark ? 'rgba(79,88,94,0.45)' : 'rgba(180,188,192,0.40)';
-        ctx.lineWidth = 1.0;
+        ctx.strokeStyle = isDark ? 'rgba(61,72,77,0.55)' : 'rgba(150,165,170,0.45)';
+        ctx.lineWidth = 0.6;
         for (var r = 0; r < rows; r++) {
           for (var c = 0; c < cols; c++) {
             var p = points[r][c];
@@ -92,10 +91,8 @@ layout: compress
           }
         }
         ctx.stroke();
-        
         ctx.beginPath();
-        // Crosshairs use subtle grey1
-        ctx.strokeStyle = isDark ? 'rgba(133,146,137,0.20)' : 'rgba(122,130,136,0.20)';
+        ctx.strokeStyle = isDark ? 'rgba(133,146,137,0.35)' : 'rgba(100,130,140,0.30)';
         for (var r = 0; r < rows; r++) {
           for (var c = 0; c < cols; c++) {
             var p = points[r][c];
@@ -104,26 +101,19 @@ layout: compress
           }
         }
         ctx.stroke();
-        
         if (mouse.active && mouse.x > 0 && mouse.x < width && mouse.y > 0 && mouse.y < height) {
-          // Radar target rings in Sage green
-          ctx.strokeStyle = isDark ? 'rgba(167,192,128,0.18)' : 'rgba(131,192,146,0.18)';
-          ctx.lineWidth = 1.0;
+          ctx.strokeStyle = isDark ? 'rgba(167,192,128,0.12)' : 'rgba(82,173,200,0.12)';
+          ctx.lineWidth = 1;
           for (var i = 1; i <= 3; i++) {
             ctx.beginPath(); ctx.arc(mouse.x, mouse.y, i * 45, 0, Math.PI * 2); ctx.stroke();
           }
-          
           var lat = (51.5221 - (mouse.y / height) * 0.01).toFixed(5);
           var lon = (-0.1299 + (mouse.x / width) * 0.02).toFixed(5);
-          
-          // Sage green for GPS readout text
-          ctx.fillStyle = isDark ? 'rgba(167,192,128,0.85)' : 'rgba(93,160,105,0.90)';
+          ctx.fillStyle = isDark ? 'rgba(167,192,128,0.7)' : 'rgba(47,127,147,0.7)';
           ctx.font = '9px monospace';
           ctx.fillText('LAT: ' + lat + '\u00B0 N', mouse.x + 15, mouse.y - 15);
           ctx.fillText('LON: ' + lon + '\u00B0 W', mouse.x + 15, mouse.y - 5);
-          
-          // Sage green for target crosshair center
-          ctx.strokeStyle = isDark ? 'rgba(167,192,128,0.45)' : 'rgba(131,192,146,0.45)';
+          ctx.strokeStyle = isDark ? 'rgba(167,192,128,0.3)' : 'rgba(82,173,200,0.3)';
           ctx.beginPath();
           ctx.moveTo(mouse.x - 10, mouse.y); ctx.lineTo(mouse.x + 10, mouse.y);
           ctx.moveTo(mouse.x, mouse.y - 10); ctx.lineTo(mouse.x, mouse.y + 10);
