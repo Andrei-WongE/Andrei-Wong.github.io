@@ -321,7 +321,20 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
+    z-index: 0;          /* above body bg, below page content */
     pointer-events: none;
-    opacity: 0.8;
+    opacity: 1;
+}
+
+/* Ensure all page content stacks above the canvas (z-index:0) */
+.masthead,
+#main,
+.page,
+.page__content,
+.sidebar,
+.page__footer,
+.nav__list,
+.author__urls-wrapper {
+    position: relative;
+    z-index: 1;
 }
