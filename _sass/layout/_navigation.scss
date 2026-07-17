@@ -261,62 +261,77 @@
   }
 
   .hidden-links {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 15px;
-    padding: 5px;
-    border: 1px solid var(--global-border-color);
-    border-radius: $border-radius;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(#000, 0.25);
+  position: absolute;
+  top: calc(100% + 4px); /* 4px aligns to baseline grid */
+  right: 0;
+  margin-top: 0;
+  padding: 5px;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  background: var(--global-panel-color, #343F44); /* dark‑mode‑first panel colour */
+  z-index: 20;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  pointer-events: none;
 
-    a {
-      margin: 0;
-      padding: 10px 20px;
-      font-size: $type-size-5;
-
-      &:hover {
-        color: var(--global-masthead-link-color-hover);
-        background: var(--global-border-color);
-      }
-    }
-
-    &:before {
-      content: "";
-      position: absolute;
-      top: -11px;
-      right: 10px;
-      width: 0;
-      border-style: solid;
-      border-width: 0 10px 10px;
-      border-color: var(--global-border-color) transparent;
-      display: block;
-      z-index: 0;
-    }
-
-    &:after {
-      content: "";
-      position: absolute;
-      top: -10px;
-      right: 10px;
-      width: 0;
-      border-style: solid;
-      border-width: 0 10px 10px;
-      border-color: #fff transparent;
-      display: block;
-      z-index: 1;
-    }
-
-    li {
-      display: block;
-      border-bottom: 1px solid var(--global-border-color);
-
-      &:last-child {
-        border-bottom: none;
-      }
+  a {
+    margin: 0;
+    padding: 10px 20px;
+    font-size: $type-size-5;
+    color: var(--global-masthead-link-color);
+    &:hover {
+      color: var(--global-masthead-link-color-hover);
+      background: var(--global-border-color);
     }
   }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -11px;
+    right: 10px;
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: var(--global-border-color) transparent;
+    display: block;
+    z-index: 0;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: var(--global-panel-color, #343F44) transparent;
+    display: block;
+    z-index: 1;
+  }
+
+  li {
+    display: block;
+    border-bottom: 1px solid var(--global-border-color);
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer‑events: auto;
+  }
+
+  @media (max-width: 600px) {
+    left: 0;
+    right: 0;
+    width: 100vw;
+  }
+}
 }
 
 

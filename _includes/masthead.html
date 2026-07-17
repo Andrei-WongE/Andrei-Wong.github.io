@@ -4,7 +4,7 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
+        <button aria-controls="hidden-links" aria-expanded="false" id="nav-toggle"><div class="navicon"></div></button>
         <ul class="visible-links">
           <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="{{ base_path }}/">{{ site.title }}</a></li>
           {% for link in site.data.navigation.main %}
@@ -19,8 +19,28 @@
             <a><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
           </li>
         </ul>
-        <ul class="hidden-links hidden"></ul>
+        <ul class="hidden-links hidden" id="hidden-links" role="menu" aria-hidden="true"></ul>
       </nav>
+<script>
+  // Mobile menu toggle
+  document.getElementById('nav-toggle').addEventListener('click', function () {
+    const menu = document.getElementById('hidden-links');
+    const isOpen = menu.classList.toggle('open');
+    this.setAttribute('aria-expanded', isOpen);
+    menu.setAttribute('aria-hidden', !isOpen);
+  });
+  // Close menu on Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      const menu = document.getElementById('hidden-links');
+      if (menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        document.getElementById('nav-toggle').setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+    }
+  });
+</script>
     </div>
   </div>
 </div>
