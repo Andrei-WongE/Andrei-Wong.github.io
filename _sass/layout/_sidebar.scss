@@ -9,6 +9,7 @@
 .sidebar {
   -webkit-transform: translate3d(0, 0 , 0);
           transform: translate3d(0, 0 , 0);
+  z-index: 2; /* raised to render dropdown on top of .page (z-index: 1) on mobile */
 
   @include clearfix();
   margin-bottom: 1em;
@@ -26,6 +27,7 @@
 
   @include breakpoint($large) {
     @include span(2 of 12);
+    z-index: 1; /* reset on desktop */
     opacity: 1;
     -webkit-transition: opacity 0.2s ease-in-out;
             transition: opacity 0.2s ease-in-out;
@@ -159,11 +161,11 @@
 
 .author__urls-wrapper {
   position: relative;
-  display: table-cell;
-  vertical-align: middle;
+  display: block; /* changed from table-cell to stack below bio card on mobile */
+  width: 100%;
+  margin-top: 15px;
   font-family: $sans-serif;
-  z-index: 10;
-  position: relative;
+  z-index: 21; /* raised to render dropdown above masthead on mobile */
   cursor: pointer;
 
   li:last-child {
@@ -174,10 +176,14 @@
 
   @include breakpoint($large) {
     display: block;
+    width: auto;
+    margin-top: 0;
+    z-index: 10;
   }
 
   button {
     margin-bottom: 0;
+    width: 100%; /* full width on mobile */
 
     @include breakpoint($large) {
       display: none;
@@ -188,6 +194,7 @@
 .author__urls {
   display: none;
   position: absolute;
+  left: 0; /* full-width mobile dropdown positioning */
   right: 0;
   margin-top: 15px;
   padding: 10px;
@@ -195,13 +202,15 @@
   border: 1px solid var(--global-border-color);
   border-radius: $border-radius;
   background: var(--global-panel-color);
-  z-index: 20;
+  z-index: 22; /* sits above wrapper */
   box-shadow: 0 0 10px rgba(#000, 0.25);
   cursor: default;
 
   @include breakpoint($large) {
     display: block;
     position: relative;
+    left: auto;
+    right: auto;
     margin: 0;
     padding: 0;
     border: 0;
