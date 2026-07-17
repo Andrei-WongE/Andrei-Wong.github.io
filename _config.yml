@@ -188,8 +188,6 @@ exclude:
   - README
   - tmp
   - vendor
-  - agent
-  - .agents
 keep_files:
   - .git
   - .svn
