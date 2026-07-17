@@ -162,8 +162,7 @@
   display: table-cell;
   vertical-align: middle;
   font-family: $sans-serif;
-  z-index: 10;
-  position: relative;
+  z-index: 21; /* raised to render dropdown above masthead (z-index: 20) on mobile */
   cursor: pointer;
 
   li:last-child {
@@ -174,6 +173,7 @@
 
   @include breakpoint($large) {
     display: block;
+    z-index: 10;
   }
 
   button {

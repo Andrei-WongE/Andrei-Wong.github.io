@@ -40,8 +40,7 @@
 
           document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
-              menu.classList.add('hidden');
-              sync();
+              toggle.click();
             }
           });
 
