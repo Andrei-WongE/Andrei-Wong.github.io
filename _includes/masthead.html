@@ -4,7 +4,7 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <button type="button" aria-controls="hidden-links" aria-expanded="false" aria-label="Toggle navigation menu" id="nav-toggle"><div class="navicon"></div></button>
+        <button type="button" aria-controls="hidden-links" aria-expanded="false" aria-label="Toggle navigation menu" id="nav-toggle" class="hidden"><div class="navicon"></div></button>
         <ul class="visible-links">
           <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="{{ base_path }}/">{{ site.title }}</a></li>
           {% for link in site.data.navigation.main %}
@@ -40,8 +40,7 @@
 
           document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
-              menu.classList.add('hidden');
-              sync();
+              toggle.click();
             }
           });
 
