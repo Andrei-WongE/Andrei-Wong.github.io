@@ -37,6 +37,16 @@
     }
   }
 
+  [itemscope] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    @include breakpoint($large) {
+      display: block;
+    }
+  }
+
   @include breakpoint($x-large) {
     max-width: $sidebar-link-max-width;
     padding-right: 0;
@@ -83,14 +93,12 @@
    ========================================================================== */
 
 .author__avatar {
-  display: table-cell;
-  vertical-align: top;
+  display: block;
   width: 36px;
   // set width only, for non-square avatars
   // height: 36px;
 
   @include breakpoint($large) {
-    display: block;
     width: auto;
     height: auto;
   }
@@ -107,17 +115,15 @@
 }
 
 .author__content {
-  display: table-cell;
-  vertical-align: top;
+  display: block;
+  flex: 1;
   padding-left: 15px;
-  padding-right: 25px;
+  padding-right: 0;
   line-height: 1;
 
   @include breakpoint($large) {
-    display: block;
     width: 100%;
     padding-left: 0;
-    padding-right: 0;
   }
 }
 
