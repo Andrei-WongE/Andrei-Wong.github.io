@@ -7,10 +7,25 @@
    ========================================================================== */
 
 .sidebar {
-  display: contents;
+  /* Option A: Mobile Ledger Panel */
+  display: block;
+  width: 100%;
+  order: 1; /* top of #main on mobile */
+  background: var(--global-panel-color, #343F44);
+  border: 1px solid var(--global-border-color, #3D484D);
+  border-radius: $border-radius;
+  padding: 1.25em;
+  margin-bottom: 2em;
+  box-shadow: none; /* Cartographer's Ledger: flat tonal layering */
 
   @include breakpoint($large) {
     display: block;
+    width: auto;
+    order: initial;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-bottom: 1em;
     -webkit-transform: translate3d(0, 0 , 0);
             transform: translate3d(0, 0 , 0);
     z-index: 1; /* reset on desktop */
@@ -19,7 +34,6 @@
             transition: opacity 0.2s ease-in-out;
 
     @include clearfix();
-    margin-bottom: 1em;
 
     @media (orientation: portrait) {
       margin-top: 1em;
@@ -40,17 +54,21 @@
   }
 
   [itemscope] {
-    display: contents;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
 
     @include breakpoint($large) {
       display: block;
+      gap: 0;
     }
   }
 
   > *:not([itemscope]) {
-    order: 5;
+    margin-top: 16px;
     @include breakpoint($large) {
-      order: initial;
+      margin-top: 0;
     }
   }
 
@@ -101,10 +119,9 @@
 
 .author__avatar {
   display: block;
-  width: 36px;
+  width: 64px; /* clean 64px circular avatar on mobile inside ledger panel */
+  flex-shrink: 0;
   order: 1;
-  // set width only, for non-square avatars
-  // height: 36px;
 
   @include breakpoint($large) {
     width: auto;
@@ -115,6 +132,7 @@
   img {
     max-width: 175px;
     border-radius: 50%;
+    border: 1px solid var(--global-border-color);
 
     @include breakpoint($large) {
       padding: 5px;
@@ -126,15 +144,17 @@
 .author__content {
   display: block;
   flex: 1;
-  padding-left: 15px;
+  min-width: 180px;
+  padding-left: 0;
   padding-right: 0;
-  line-height: 1;
+  line-height: 1.4;
   order: 2;
 
   @include breakpoint($large) {
     width: 100%;
     padding-left: 0;
     order: initial;
+    line-height: 1;
   }
 }
 
@@ -178,13 +198,13 @@
 
 .author__urls-wrapper {
   position: relative;
-  display: block; /* changed from table-cell to stack below bio card on mobile */
+  display: block;
   width: 100%;
-  margin-top: 15px;
+  margin-top: 0;
   font-family: $sans-serif;
-  z-index: 21; /* raised to render dropdown above masthead on mobile */
+  z-index: 21;
   cursor: pointer;
-  order: 4;
+  order: 3; /* directly under avatar and bio inside the ledger panel on mobile */
 
   li:last-child {
     a {
