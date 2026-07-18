@@ -281,7 +281,7 @@
   border: 1px solid var(--global-border-color);
   border-radius: $border-radius;
   background: var(--global-panel-color, #343F44); /* dark‑mode‑first panel colour */
-  z-index: 101;
+  z-index: 501;
   opacity: 0;
   transform: translateY(-0.5rem);
   transition: opacity 0.18s ease, transform 0.18s ease;

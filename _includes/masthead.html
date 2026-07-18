@@ -35,7 +35,10 @@
             toggle.classList.toggle('close', isOpen);
           };
 
-          // Greedy Navigation's jQuery handler toggles `.hidden` on click; sync after it runs.
+          // Sync when greedy-nav toggles .hidden on click or during resize/updateNav
+          const observer = new MutationObserver(sync);
+          observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
+
           toggle.addEventListener('click', () => window.setTimeout(sync, 0));
 
           document.addEventListener('keydown', (e) => {
