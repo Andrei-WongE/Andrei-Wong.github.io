@@ -338,3 +338,13 @@
     position: relative;
     z-index: 1;
 }
+
+.masthead {
+  z-index: 20;
+}
+
+@media (max-width: 924px) {
+  .sidebar {
+    z-index: 10;
+  }
+}

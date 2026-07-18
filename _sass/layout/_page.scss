@@ -11,13 +11,24 @@
   animation: intro 0.3s both;
   animation-delay: 0.35s;
 
+  display: flex;
+  flex-wrap: wrap;
+
+  @include breakpoint($large) {
+    display: block;
+  }
+
   @include breakpoint($x-large) {
     max-width: $x-large;
   }
 }
 
 .page {
+  order: 3;
+  width: 100%;
+
   @include breakpoint($large) {
+    order: initial;
     @include span(10 of 12 last);
     @include prefix(0.5 of 12);
     @include suffix(2 of 12);
