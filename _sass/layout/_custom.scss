@@ -327,7 +327,6 @@
 }
 
 /* Ensure all page content stacks above the canvas (z-index:0) */
-.masthead,
 #main,
 .page,
 .page__content,
@@ -337,10 +336,6 @@
 .author__urls-wrapper {
     position: relative;
     z-index: 1;
-}
-
-.masthead {
-  z-index: 20;
 }
 
 @media (max-width: 924px) {
