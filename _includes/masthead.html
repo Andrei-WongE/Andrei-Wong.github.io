@@ -39,9 +39,9 @@
           if (window.MutationObserver) {
             const observer = new MutationObserver(sync);
             observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
-          } else {
-            toggle.addEventListener('click', () => window.setTimeout(sync, 0));
           }
+          // Always attach click fallback so mobile touch devices and zoom reflows sync reliably
+          toggle.addEventListener('click', () => window.setTimeout(sync, 0));
 
           document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
