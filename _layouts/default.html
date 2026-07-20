@@ -42,10 +42,26 @@ layout: compress
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
       });
+      function updatePointer(x, y) {
+        mouse.targetX = x;
+        mouse.targetY = y;
+        mouse.active = true;
+      }
       window.addEventListener('mousemove', function(e) {
-        mouse.targetX = e.clientX; mouse.targetY = e.clientY; mouse.active = true;
+        updatePointer(e.clientX, e.clientY);
       });
+      window.addEventListener('touchmove', function(e) {
+        if (e.touches && e.touches[0]) {
+          updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: true });
+      window.addEventListener('touchstart', function(e) {
+        if (e.touches && e.touches[0]) {
+          updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: true });
       window.addEventListener('mouseleave', function() { mouse.active = false; });
+      window.addEventListener('touchend', function() { mouse.active = false; });
 
       var spacing = 50, warpRadius = 180, maxDisp = 25;
       mouse.x = window.innerWidth / 2; mouse.y = window.innerHeight / 2;
@@ -122,8 +138,41 @@ layout: compress
         requestAnimationFrame(draw);
       }
 
-      var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-      if (!mq.matches) { requestAnimationFrame(draw); }
+      function drawStatic() {
+        ctx.clearRect(0, 0, width, height);
+        var cols = Math.ceil(width / spacing) + 2;
+        var rows = Math.ceil(height / spacing) + 2;
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        ctx.beginPath();
+        ctx.strokeStyle = isDark ? 'rgba(61,72,77,0.55)' : 'rgba(150,165,170,0.45)';
+        ctx.lineWidth = 0.6;
+        for (var r = 0; r < rows; r++) {
+          for (var c = 0; c < cols; c++) {
+            var posX = (c - 1) * spacing, posY = (r - 1) * spacing;
+            if (c < cols - 1) { ctx.moveTo(posX, posY); ctx.lineTo((c) * spacing, posY); }
+            if (r < rows - 1) { ctx.moveTo(posX, posY); ctx.lineTo(posX, (r) * spacing); }
+          }
+        }
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = isDark ? 'rgba(133,146,137,0.35)' : 'rgba(100,130,140,0.30)';
+        for (var r = 0; r < rows; r++) {
+          for (var c = 0; c < cols; c++) {
+            var posX = (c - 1) * spacing, posY = (r - 1) * spacing;
+            ctx.moveTo(posX - 3, posY); ctx.lineTo(posX + 3, posY);
+            ctx.moveTo(posX, posY - 3); ctx.lineTo(posX, posY + 3);
+          }
+        }
+        ctx.stroke();
+      }
+
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        drawStatic();
+        window.addEventListener('resize', drawStatic);
+      } else {
+        requestAnimationFrame(draw);
+      }
     })();
     </script>
 
