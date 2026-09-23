@@ -313,20 +313,21 @@ permalink: /social-boundaries-framework/
     </div>
   </div>
 
-  <div class="bridge" style="--i:1">
-    <p>
-      A central question this graph begets is "How can we scientifically measure social boundaries?". Their degree of intensity of transition, length and with, and how to quantify exposure to a boundary?  
+  <div class="bridge animate" style="--i:3; font-family: var(--font-body); font-size: 16px; margin-bottom: 40px; text-align: justify; column-count: 2; column-gap: 40px;">
+    <p style="margin-bottom: 20px;">
+      A central question this graph begets is "How can we scientifically measure social boundaries?". Their degree of intensity of transition, length and width, and how to quantify exposure to a boundary?
     </p>
-     <p>
-     Quantitative methods have been proposed to achieve this aim, although most focus primarily on measuring boundary intensity. More on this in the next [section](). I promise you will pick up a few bruises along this intellectual journey.     </p>
+    <p style="margin-bottom: 20px;">
+      Quantitative methods have been proposed to achieve this aim, although most focus primarily on measuring boundary intensity. More on this in the next <a href="{{ '/files/Spatial_bayesian_models.html' | relative_url }}" style="color: var(--primary); font-weight: 600; text-decoration: underline;">section</a>. I promise you will pick up a few bruises along this intellectual journey.
     </p>
   </div>
   
-  <footer class="animate" style="--i:3">
+  <footer class="animate" style="--i:4">
     Version 1.0 &copy; 2026
   </footer>
 
 </div>
+
 
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
