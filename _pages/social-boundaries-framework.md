@@ -313,8 +313,17 @@ permalink: /social-boundaries-framework/
     </div>
   </div>
 
+  <div class="bridge" style="--i:1">
+    <p>
+      A central question this graph begets is "How can we scientifically measure social boundaries?". Their degree of intensity of transition, length and with, and how to quantify exposure to a boundary?  
+    </p>
+     <p>
+     Quantitative methods have been proposed to achieve this aim, although most focus primarily on measuring boundary intensity. More on this in the next [section](). I promise you will pick up a few bruises along this intellectual journey.     </p>
+    </p>
+  </div>
+  
   <footer class="animate" style="--i:3">
-    Synthesized for Research Protocol &copy; 2026
+    Version 1.0 &copy; 2026
   </footer>
 
 </div>
