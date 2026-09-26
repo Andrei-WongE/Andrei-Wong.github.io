@@ -164,7 +164,7 @@ permalink: /social-boundaries-framework/
 
   .mermaid-wrap {
     position: relative;
-    background: var(--surface);
+    background: #ffffff;
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 40px;
@@ -333,24 +333,12 @@ permalink: /social-boundaries-framework/
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
   import elkLayouts from 'https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk/dist/mermaid-layout-elk.esm.min.mjs';
 
-  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
   mermaid.registerLayoutLoaders(elkLayouts);
   mermaid.initialize({
     startOnLoad: true,
-    theme: 'base',
+    theme: 'default',
     look: 'classic',
-    layout: 'elk',
-    themeVariables: {
-      primaryColor: isDark ? '#2d2622' : '#fdfbf7',
-      primaryBorderColor: isDark ? '#e68a6a' : '#c16645',
-      primaryTextColor: isDark ? '#f4f1ea' : '#2b1e16',
-      lineColor: isDark ? '#b8a99a' : '#5c4b40',
-      fontSize: '15px',
-      fontFamily: "'Source Sans Pro', sans-serif",
-      clusterBkg: isDark ? '#251f1c' : '#f4f1ea',
-      clusterBorder: isDark ? '#433934' : '#dcd7cc',
-    }
+    layout: 'elk'
   });
 </script>
 <script>
