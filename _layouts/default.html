@@ -27,9 +27,112 @@ layout: compress
       </footer>
     </div>
 
+    {% include contact-modal.html %}
     {% include scripts.html %}
 
     <script>
+    /* Cartographer Audio Engine — Web Audio API synthesized tactile sounds (krishnagupta-inspired) */
+    window.CartographerAudio = (function() {
+      var ctx = null;
+      var isMuted = localStorage.getItem('cartographer-sound') === 'disabled' ? true : false;
+
+      function initCtx() {
+        if (!ctx) {
+          var AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) ctx = new AudioContext();
+        }
+        if (ctx && ctx.state === 'suspended') ctx.resume();
+      }
+
+      function playTick(freq, duration, type, vol) {
+        if (isMuted) return;
+        try {
+          initCtx();
+          if (!ctx) return;
+          var osc = ctx.createOscillator();
+          var gain = ctx.createGain();
+          osc.type = type || 'sine';
+          osc.frequency.setValueAtTime(freq || 700, ctx.currentTime);
+          gain.gain.setValueAtTime(vol || 0.03, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + (duration || 0.03));
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + (duration || 0.03));
+        } catch(e) {}
+      }
+
+      function updateIcon() {
+        var icon = document.getElementById('sound-icon');
+        if (icon) {
+          icon.className = isMuted ? 'fa-solid fa-volume-xmark' : 'fa-solid fa-volume-high';
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateIcon);
+      } else {
+        updateIcon();
+      }
+
+      return {
+        click: function() { playTick(750, 0.025, 'sine', 0.04); },
+        pop: function() { playTick(1050, 0.035, 'triangle', 0.05); },
+        toggle: function() {
+          initCtx();
+          isMuted = !isMuted;
+          localStorage.setItem('cartographer-sound', isMuted ? 'disabled' : 'enabled');
+          updateIcon();
+          if (!isMuted) playTick(880, 0.04, 'sine', 0.06);
+          return !isMuted;
+        },
+        isMuted: function() { return isMuted; }
+      };
+    })();
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var soundToggle = document.getElementById('sound-toggle');
+      if (soundToggle) {
+        soundToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.CartographerAudio.toggle();
+        });
+      }
+
+      var themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+          if (window.CartographerAudio) window.CartographerAudio.pop();
+        });
+      }
+
+      // Attach tactile click to buttons and interactive cards
+      document.addEventListener('click', function(e) {
+        var target = e.target.closest('.btn-island, .button-nested, .modal-action-btn, .work-ledger-row, .spotlight-card, .tag-label');
+        if (target && window.CartographerAudio) {
+          window.CartographerAudio.click();
+        }
+
+        var citeBtn = e.target.closest('.copy-citation-btn');
+        if (citeBtn) {
+          var citation = citeBtn.getAttribute('data-citation');
+          if (citation) {
+            navigator.clipboard.writeText(citation).then(function() {
+              var span = citeBtn.querySelector('span');
+              var originalText = span ? span.textContent : 'Copy Citation';
+              if (span) span.textContent = 'Copied ✓';
+              citeBtn.classList.add('copied');
+              if (window.CartographerAudio) window.CartographerAudio.click();
+              setTimeout(function() {
+                if (span) span.textContent = originalText;
+                citeBtn.classList.remove('copied');
+              }, 2200);
+            });
+          }
+        }
+      });
+    });
+
     /* Interactive Topographic Grid — Inline (bypasses bundle lock) */
     (function() {
       var canvas = document.getElementById('topo-canvas');

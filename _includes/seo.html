@@ -87,6 +87,26 @@
   <meta property="og:image" content="{% if page.header.image contains "://" %}{{ page.header.image }}{% else %}{{ page.header.image | prepend: "/images/" | prepend: base_path }}{% endif %}">
 {% elsif page.header.overlay_image %}
   <meta property="og:image" content="{% if page.header.overlay_image contains "://" %}{{ page.header.overlay_image }}{% else %}{{ page.header.overlay_image | prepend: "/images/" | prepend: base_path }}{% endif %}">
+{% elsif site.og_image %}
+  <meta property="og:image" content="{{ site.og_image | prepend: "/images/" | prepend: base_path }}">
+{% endif %}
+
+<!-- Google Scholar Highwire Press & Dublin Core Metadata -->
+{% if page.collection == 'publications' or page.citation %}
+  <meta name="citation_title" content="{{ page.title | strip_html | escape }}">
+  <meta name="citation_author" content="{{ site.author.name }}">
+  {% if page.date %}
+    <meta name="citation_publication_date" content="{{ page.date | date: '%Y/%m/%d' }}">
+  {% endif %}
+  {% if page.venue %}
+    <meta name="citation_journal_title" content="{{ page.venue | strip_html | escape }}">
+  {% endif %}
+  {% if page.paperurl %}
+    <meta name="citation_pdf_url" content="{{ page.paperurl }}">
+  {% endif %}
+  <meta name="dc.title" content="{{ page.title | strip_html | escape }}">
+  <meta name="dc.creator" content="{{ site.author.name }}">
+  <meta name="dc.date" content="{{ page.date | date: '%Y-%m-%d' }}">
 {% endif %}
 
 {% if page.date %}

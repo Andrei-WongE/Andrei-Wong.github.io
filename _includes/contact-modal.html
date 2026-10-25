@@ -1,0 +1,116 @@
+<div id="contact-modal" class="contact-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+  <div class="contact-modal-card">
+    <div class="contact-modal-header">
+      <div class="modal-badge"><span class="pulse-dot"></span> DIRECT ACADEMIC INQUIRY</div>
+      <button id="contact-modal-close" class="modal-close-btn" aria-label="Close modal">&times;</button>
+    </div>
+    
+    <div class="contact-modal-body">
+      <h3 id="modal-title">Connect & Collaborate</h3>
+      <p class="modal-desc">
+        I welcome discussions on spatial boundaries, urban segregation, GeoAI, Bayesian modeling, and collaborative research initiatives.
+      </p>
+
+      <div class="email-reveal-box">
+        <span class="email-label">INSTITUTIONAL EMAIL</span>
+        <div class="email-address-display">
+          <span id="revealed-email">awonge01&#64;student&#46;bbk&#46;ac&#46;uk</span>
+        </div>
+        <div class="email-action-row">
+          <button id="copy-email-btn" class="modal-action-btn primary" title="Copy email address to clipboard">
+            <i class="fa-regular fa-copy"></i> <span id="copy-btn-text">Copy Address</span>
+          </button>
+          <a id="mailto-link" href="mailto:awonge01@student.bbk.ac.uk?subject=%5BResearch%20Inquiry%5D%20Spatial%20Data%20Science%20%26%20Urban%20Geography" class="modal-action-btn secondary" title="Open mail client">
+            <i class="fa-regular fa-envelope"></i> Open Mail Client ↗
+          </a>
+        </div>
+      </div>
+
+      <div class="modal-profiles">
+        <span class="profiles-label">SCHOLARLY DIRECTORIES</span>
+        <div class="profiles-grid">
+          {% if site.author.googlescholar %}
+          <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener noreferrer" class="profile-link">
+            <i class="ai ai-google-scholar"></i> Google Scholar
+          </a>
+          {% endif %}
+          {% if site.author.orcid %}
+          <a href="{{ site.author.orcid }}" target="_blank" rel="noopener noreferrer" class="profile-link">
+            <i class="ai ai-orcid"></i> ORCID
+          </a>
+          {% endif %}
+          {% if site.author.github %}
+          <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer" class="profile-link">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          {% endif %}
+          {% if site.author.bluesky %}
+          <a href="https://bsky.app/profile/{{ site.author.bluesky }}" target="_blank" rel="noopener noreferrer" class="profile-link">
+            <i class="fab fa-bluesky"></i> Bluesky
+          </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="modal-privacy-note">
+        <i class="fa-solid fa-shield-halved"></i> 100% Privacy-Preserving: Client-side only. Zero third-party tracking or telemetry.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var modal = document.getElementById('contact-modal');
+  var closeBtn = document.getElementById('contact-modal-close');
+  var copyBtn = document.getElementById('copy-email-btn');
+  var copyText = document.getElementById('copy-btn-text');
+  var rawEmail = 'awonge01' + '@' + 'student.bbk.ac.uk';
+
+  window.openContactModal = function() {
+    if (!modal) return;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    if (window.CartographerAudio) window.CartographerAudio.pop();
+  };
+
+  window.closeContactModal = function() {
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (window.CartographerAudio) window.CartographerAudio.click();
+  };
+
+  if (closeBtn) closeBtn.addEventListener('click', window.closeContactModal);
+
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) window.closeContactModal();
+    });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+      window.closeContactModal();
+    }
+  });
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+      navigator.clipboard.writeText(rawEmail).then(function() {
+        if (copyText) copyText.textContent = 'Copied to Clipboard ✓';
+        copyBtn.classList.add('copied');
+        if (window.CartographerAudio) window.CartographerAudio.click();
+        setTimeout(function() {
+          if (copyText) copyText.textContent = 'Copy Address';
+          copyBtn.classList.remove('copied');
+        }, 2500);
+      }).catch(function() {
+        if (copyText) copyText.textContent = rawEmail;
+      });
+    });
+  }
+})();
+</script>

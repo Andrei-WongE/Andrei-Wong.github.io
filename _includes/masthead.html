@@ -15,6 +15,9 @@
             {% endif %}
             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
+          <li id="sound-toggle" class="masthead__menu-item persist" title="Toggle tactile audio">
+            <a><i id="sound-icon" class="fa-solid fa-volume-high" aria-hidden="true"></i></a>
+          </li>
           <li id="theme-toggle" class="masthead__menu-item persist tail">
             <a><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
           </li>
@@ -35,12 +38,10 @@
             toggle.classList.toggle('close', isOpen);
           };
 
-          // Sync when greedy-nav toggles .hidden on click or during resize/updateNav
           if (window.MutationObserver) {
             const observer = new MutationObserver(sync);
             observer.observe(menu, { attributes: true, attributeFilter: ['class'] });
           }
-          // Always attach click fallback so mobile touch devices and zoom reflows sync reliably
           toggle.addEventListener('click', () => window.setTimeout(sync, 0));
 
           document.addEventListener('keydown', (e) => {

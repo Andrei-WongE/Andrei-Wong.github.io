@@ -68,7 +68,7 @@ author:
   steam            : # Username
   telegram         : # URL
   tumblr           : # Username
-  twitter          : # Username for X / Twitter
+  twitter          : "Andrei_WongE"
   vine             : # Username
   weibo            : # Username
   wikipedia        : # Username
@@ -88,7 +88,8 @@ publication_category:
     title: 'Datasets'
 
 # Site Settings
-teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
+teaser                   : "og-card-cartographer.png"
+og_image                 : "og-card-cartographer.png"
 breadcrumbs              : true # true, false (default)
 words_per_minute         : 160
 future                   : true

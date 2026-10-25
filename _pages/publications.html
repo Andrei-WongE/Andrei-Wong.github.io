@@ -1,38 +1,33 @@
 ---
 layout: archive
-title: "Publications"
+title: "Publications & Working Papers"
 permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-<div class="archive-grid">
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
+<div class="publications-lead-banner">
+  <div class="lead-text">
+    Peer-reviewed manuscripts, working papers, and policy evaluation studies across urban geography, spatial data science, and development economics.
+  </div>
+  {% if site.author.googlescholar %}
+    <div class="scholar-badge">
+      <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener noreferrer">
+        <i class="ai ai-google-scholar"></i> Google Scholar Profile ↗
+      </a>
+      {% if site.author.orcid %}
+        <a href="{{ site.author.orcid }}" target="_blank" rel="noopener noreferrer">
+          <i class="ai ai-orcid"></i> ORCID Record ↗
+        </a>
       {% endif %}
-      {% unless title_shown %}
-        </div><h2>{{ category[1].title }}</h2><hr /><div class="archive-grid">
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
+    </div>
+  {% endif %}
+</div>
+
+<!-- Single Chronological Stream -->
+<div class="archive-stream">
   {% for post in site.publications reversed %}
     {% include archive-single.html %}
   {% endfor %}
-{% endif %}
 </div>
-
-
-
