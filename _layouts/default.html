@@ -34,32 +34,58 @@ layout: compress
     /* Cartographer Audio Engine — Web Audio API synthesized tactile sounds (krishnagupta-inspired) */
     window.CartographerAudio = (function() {
       var ctx = null;
-      var isMuted = localStorage.getItem('cartographer-sound') === 'disabled' ? true : false;
+      var isMuted = localStorage.getItem('cartographer-sound') === 'disabled';
 
-      function initCtx() {
-        if (!ctx) {
-          var AudioContext = window.AudioContext || window.webkitAudioContext;
-          if (AudioContext) ctx = new AudioContext();
-        }
-        if (ctx && ctx.state === 'suspended') ctx.resume();
+      function getContext(callback) {
+        try {
+          if (!ctx) {
+            var AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (AudioContext) ctx = new AudioContext();
+          }
+          if (!ctx) return;
+          if (ctx.state === 'suspended') {
+            ctx.resume().then(function() {
+              if (callback) callback(ctx);
+            }).catch(function() {});
+          } else {
+            if (callback) callback(ctx);
+          }
+        } catch(e) {}
       }
 
-      function playTick(freq, duration, type, vol) {
+      // Unlock on first user gesture
+      function unlock() {
+        getContext();
+        document.removeEventListener('pointerdown', unlock);
+        document.removeEventListener('keydown', unlock);
+      }
+      document.addEventListener('pointerdown', unlock, { once: true });
+      document.addEventListener('keydown', unlock, { once: true });
+
+      function playTone(freqStart, freqEnd, duration, type, vol) {
         if (isMuted) return;
-        try {
-          initCtx();
-          if (!ctx) return;
-          var osc = ctx.createOscillator();
-          var gain = ctx.createGain();
-          osc.type = type || 'sine';
-          osc.frequency.setValueAtTime(freq || 700, ctx.currentTime);
-          gain.gain.setValueAtTime(vol || 0.03, ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + (duration || 0.03));
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start();
-          osc.stop(ctx.currentTime + (duration || 0.03));
-        } catch(e) {}
+        getContext(function(ac) {
+          try {
+            var now = ac.currentTime;
+            var osc = ac.createOscillator();
+            var gain = ac.createGain();
+
+            osc.type = type || 'triangle';
+            osc.frequency.setValueAtTime(freqStart, now);
+            if (freqEnd && freqEnd !== freqStart) {
+              osc.frequency.exponentialRampToValueAtTime(Math.max(10, freqEnd), now + duration);
+            }
+
+            gain.gain.setValueAtTime(vol || 0.18, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+            osc.connect(gain);
+            gain.connect(ac.destination);
+
+            osc.start(now);
+            osc.stop(now + duration);
+          } catch(e) {}
+        });
       }
 
       function updateIcon() {
@@ -76,14 +102,29 @@ layout: compress
       }
 
       return {
-        click: function() { playTick(750, 0.025, 'sine', 0.04); },
-        pop: function() { playTick(1050, 0.035, 'triangle', 0.05); },
+        click: function() {
+          // Tactile mechanical key switch click (downward pitch drop)
+          playTone(850, 320, 0.045, 'triangle', 0.20);
+        },
+        pop: function() {
+          // Upward bubble pop for toggles and modal triggers
+          playTone(550, 1100, 0.065, 'sine', 0.22);
+        },
+        chime: function() {
+          // Double-tap chime for audio activation confirmation
+          playTone(700, 700, 0.05, 'sine', 0.18);
+          setTimeout(function() {
+            playTone(1050, 1050, 0.08, 'sine', 0.22);
+          }, 60);
+        },
         toggle: function() {
-          initCtx();
           isMuted = !isMuted;
           localStorage.setItem('cartographer-sound', isMuted ? 'disabled' : 'enabled');
           updateIcon();
-          if (!isMuted) playTick(880, 0.04, 'sine', 0.06);
+          if (!isMuted) {
+            // Play confirmation chime when unmuted
+            this.chime();
+          }
           return !isMuted;
         },
         isMuted: function() { return isMuted; }
@@ -95,6 +136,7 @@ layout: compress
       if (soundToggle) {
         soundToggle.addEventListener('click', function(e) {
           e.preventDefault();
+          e.stopPropagation();
           window.CartographerAudio.toggle();
         });
       }
@@ -106,10 +148,11 @@ layout: compress
         });
       }
 
-      // Attach tactile click to buttons and interactive cards
+      // Universal interactive audio feedback (buttons, links, cards, ledger rows)
       document.addEventListener('click', function(e) {
-        var target = e.target.closest('.btn-island, .button-nested, .modal-action-btn, .work-ledger-row, .spotlight-card, .tag-label');
-        if (target && window.CartographerAudio) {
+        if (!window.CartographerAudio || window.CartographerAudio.isMuted()) return;
+        var interactive = e.target.closest('a, button, .button-nested, .work-ledger-row, .double-bezel-outer, .spotlight-link, .modal-action-btn, .tag-label');
+        if (interactive && !e.target.closest('#sound-toggle, #theme-toggle')) {
           window.CartographerAudio.click();
         }
 
@@ -122,7 +165,7 @@ layout: compress
               var originalText = span ? span.textContent : 'Copy Citation';
               if (span) span.textContent = 'Copied ✓';
               citeBtn.classList.add('copied');
-              if (window.CartographerAudio) window.CartographerAudio.click();
+              if (window.CartographerAudio) window.CartographerAudio.pop();
               setTimeout(function() {
                 if (span) span.textContent = originalText;
                 citeBtn.classList.remove('copied');

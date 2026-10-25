@@ -12,15 +12,18 @@
       </p>
 
       <div class="email-reveal-box">
-        <span class="email-label">INSTITUTIONAL EMAIL</span>
+        <span class="email-label">INSTITUTIONAL EMAIL (PROTECTED)</span>
         <div class="email-address-display">
-          <span id="revealed-email">awonge01&#64;student&#46;bbk&#46;ac&#46;uk</span>
+          <span id="revealed-email" class="masked-email">••••••••••••••••••••••••••••</span>
         </div>
         <div class="email-action-row">
           <button id="copy-email-btn" class="modal-action-btn primary" title="Copy email address to clipboard">
             <i class="fa-regular fa-copy"></i> <span id="copy-btn-text">Copy Address</span>
           </button>
-          <a id="mailto-link" href="mailto:awonge01@student.bbk.ac.uk?subject=%5BResearch%20Inquiry%5D%20Spatial%20Data%20Science%20%26%20Urban%20Geography" class="modal-action-btn secondary" title="Open mail client">
+          <button id="reveal-email-btn" class="modal-action-btn secondary" title="Reveal institutional email address">
+            <i class="fa-regular fa-eye"></i> <span id="reveal-btn-text">Reveal Address</span>
+          </button>
+          <a id="mailto-link" href="#" style="display: none;" class="modal-action-btn secondary" title="Open mail client">
             <i class="fa-regular fa-envelope"></i> Open Mail Client ↗
           </a>
         </div>
@@ -53,7 +56,7 @@
       </div>
 
       <div class="modal-privacy-note">
-        <i class="fa-solid fa-shield-halved"></i> 100% Privacy-Preserving: Client-side only. Zero third-party tracking or telemetry.
+        <i class="fa-solid fa-shield-halved"></i> 100% Privacy-Preserving: Obfuscated client-side assembly. Zero bot harvesting.
       </div>
     </div>
   </div>
@@ -65,7 +68,31 @@
   var closeBtn = document.getElementById('contact-modal-close');
   var copyBtn = document.getElementById('copy-email-btn');
   var copyText = document.getElementById('copy-btn-text');
-  var rawEmail = 'awonge01' + '@' + 'student.bbk.ac.uk';
+  var revealBtn = document.getElementById('reveal-email-btn');
+  var revealText = document.getElementById('reveal-btn-text');
+  var mailtoLink = document.getElementById('mailto-link');
+  var emailDisplay = document.getElementById('revealed-email');
+
+  /* Obfuscated email reconstruction in client memory */
+  function getAddress() {
+    var user = 'awonge01';
+    var domain = 'bbk.ac.uk';
+    var sub = 'student';
+    return user + '@' + sub + '.' + domain;
+  }
+
+  function revealAddress() {
+    var addr = getAddress();
+    if (emailDisplay) {
+      emailDisplay.textContent = addr;
+      emailDisplay.classList.remove('masked-email');
+    }
+    if (revealBtn) revealBtn.style.display = 'none';
+    if (mailtoLink) {
+      mailtoLink.href = 'mailto:' + addr + '?subject=' + encodeURIComponent('[Academic Inquiry] Spatial Data Science & Urban Geography');
+      mailtoLink.style.display = 'inline-flex';
+    }
+  }
 
   window.openContactModal = function() {
     if (!modal) return;
@@ -97,10 +124,19 @@
     }
   });
 
+  if (revealBtn) {
+    revealBtn.addEventListener('click', function() {
+      revealAddress();
+      if (window.CartographerAudio) window.CartographerAudio.click();
+    });
+  }
+
   if (copyBtn) {
     copyBtn.addEventListener('click', function() {
-      navigator.clipboard.writeText(rawEmail).then(function() {
-        if (copyText) copyText.textContent = 'Copied to Clipboard ✓';
+      var addr = getAddress();
+      revealAddress();
+      navigator.clipboard.writeText(addr).then(function() {
+        if (copyText) copyText.textContent = 'Copied to Clipboard! ✓';
         copyBtn.classList.add('copied');
         if (window.CartographerAudio) window.CartographerAudio.click();
         setTimeout(function() {
@@ -108,7 +144,7 @@
           copyBtn.classList.remove('copied');
         }, 2500);
       }).catch(function() {
-        if (copyText) copyText.textContent = rawEmail;
+        if (copyText) copyText.textContent = 'Failed to copy';
       });
     });
   }

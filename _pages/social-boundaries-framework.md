@@ -34,9 +34,29 @@ permalink: /social-boundaries-framework/
     --accent: #8b4513; /* saddle brown */
   }
 
-  /* Support both system preference and site-wide toggle */
+  /* Explicit light theme support */
+  :root,
+  html[data-theme="light"] {
+    --bg: #fdfbf7;
+    --surface: #ffffff;
+    --surface2: #f4f1ea;
+    --border: rgba(43, 30, 22, 0.1);
+    --border-bright: rgba(43, 30, 22, 0.2);
+    --text: #2b1e16;
+    --text-dim: #5c4b40;
+
+    --primary: #c16645; /* terracotta */
+    --primary-dim: rgba(193, 102, 69, 0.1);
+    --secondary: #6b8e23; /* olive/sage */
+    --secondary-dim: rgba(107, 142, 35, 0.1);
+    --tertiary: #4682b4; /* steel blue */
+    --tertiary-dim: rgba(70, 130, 180, 0.1);
+    --accent: #8b4513; /* saddle brown */
+  }
+
+  /* Support system preference only when user has not explicitly chosen light */
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
       --bg: #2D353B;
       --surface: #343F44;
       --surface2: #3D484D;
@@ -217,11 +237,8 @@ permalink: /social-boundaries-framework/
   }
 
   .mermaid .cluster rect {
-    rx: 8 !important;
-    ry: 8 !important;
-    fill: var(--surface2) !important;
-    stroke: var(--border) !important;
-    stroke-dasharray: 5,5 !important;
+    rx: 6;
+    ry: 6;
   }
 
   /* ============ FOOTER ============ */

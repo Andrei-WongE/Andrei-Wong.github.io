@@ -86,7 +86,7 @@ Featured Research Initiatives
         </div>
       </div>
       <a href="{{ site.baseurl }}/social-boundaries-framework/" class="spotlight-link">
-        Explore Interactive Framework & Graph ↗
+        Explore Theoretical Framework & Graph ↗
       </a>
     </div>
   </div>
@@ -112,7 +112,7 @@ Featured Research Initiatives
         </div>
       </div>
       <a href="{{ site.baseurl }}/files/Spatial_bayesian_models.html" target="_blank" rel="noopener noreferrer" class="spotlight-link">
-        Open Interactive Model Notebook ↗
+        Open Spatial Bayesian Models Notebook ↗
       </a>
     </div>
   </div>
@@ -228,8 +228,8 @@ Open-Source Tools & Spatial Notebooks
   </li>
 </ul>
 
-Computational Research Stack & Credentials
-------------------------------------------
+Computational Stack & Credential
+--------------------------------
 <div class="computational-ledger">
   <div class="ledger-grid-3col">
     <div class="ledger-box">

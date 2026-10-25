@@ -1,62 +1,164 @@
 /* ==========================================================================
-   UNIFIED THEME USING CSS LIGHT-DARK()
+   UNIFIED THEME SYSTEM (Explicit Light & Dark Properties for Reliable Toggling)
    ========================================================================== */
 
-:root {
-  color-scheme: light dark;
+/* 1. Default Light Theme / Fallback */
+:root,
+html[data-theme="light"] {
+  color-scheme: light;
 
-  --global-base-color: #{'light-dark(' + $gray + ', ' + $everforest-bg0 + ')'};
-  --global-bg-color: #{'light-dark(#ffffff, ' + $everforest-bg0 + ')'};
-  --global-panel-color: #{'light-dark(#fafafa, ' + $everforest-bg1 + ')'};
-  --global-footer-bg-color: #{'light-dark(#f2f3f3, ' + $everforest-bg1 + ')'};
-  --global-border-color: #{'light-dark(' + $lighter-gray + ', ' + $everforest-bg4 + ')'};
-  --global-dark-border-color: #{'light-dark(#bdc1c4, ' + $everforest-bg3 + ')'};
-  --global-code-background-color: #{'light-dark(#fafafa, ' + $everforest-bg1 + ')'};
-  --global-code-text-color: #{'light-dark(' + $darker-gray + ', ' + $everforest-fg + ')'};
-  --global-fig-caption-color: #{'light-dark(' + mix(#fff, $dark-gray, 25%) + ', ' + $everforest-grey1 + ')'};
-  --global-link-color: #{'light-dark(#52adc8, ' + $everforest-green + ')'};
-  --global-link-color-hover: #{'light-dark(' + mix(#000, #2f7f93, 25%) + ', ' + $everforest-aqua + ')'};
-  --global-link-color-visited: #{'light-dark(' + mix(#fff, #2f7f93, 25%) + ', ' + $everforest-blue + ')'};
-  --global-masthead-link-color: #{'light-dark(' + $dark-gray + ', ' + $everforest-fg + ')'};
-  --global-masthead-link-color-hover: #{'light-dark(' + mix(#000, $gray, 25%) + ', ' + $everforest-green + ')'};
-  --global-text-color: #{'light-dark(' + $dark-gray + ', ' + $everforest-fg + ')'};
-  --global-text-color-light: #{'light-dark(' + $light-gray + ', ' + $everforest-grey2 + ')'};
-  --global-thead-color: #{'light-dark(' + $lighter-gray + ', ' + $everforest-bg2 + ')'};
+  --global-base-color: #68736B;
+  --global-bg-color: #FDFBF7; /* warm cartographer paper */
+  --global-panel-color: #F4F1EA; /* warm panel surface */
+  --global-footer-bg-color: #EFECE4;
+  --global-border-color: #E2DED4;
+  --global-dark-border-color: #D3CEBE;
+  --global-code-background-color: #F4F1EA;
+  --global-code-text-color: #2D353B;
+  --global-fig-caption-color: #68736B;
+  --global-link-color: #3A7D6E; /* Everforest light forest sage */
+  --global-link-color-hover: #2D6357;
+  --global-link-color-visited: #3A7D6E;
+  --global-masthead-link-color: #2D353B;
+  --global-masthead-link-color-hover: #3A7D6E;
+  --global-text-color: #2D353B;
+  --global-text-color-light: #5C6A62;
+  --global-thead-color: #EAE6DC;
+  --font-mono: Monaco, Consolas, "Lucida Console", monospace;
+  --hero-subtitle-color: #9d6800;
 
   /* Button states */
-  --btn-bg: var(--global-link-color);
-  --btn-text: #{'light-dark(#ffffff, #2D353B)'};
-  --btn-border: var(--global-link-color);
-  --btn-hover-bg: #{'light-dark(#2f7f93, ' + $everforest-aqua + ')'};
-  --btn-hover-text: #{'light-dark(#ffffff, #2D353B)'};
-  --btn-hover-border: #{'light-dark(#2f7f93, ' + $everforest-aqua + ')'};
+  --btn-bg: #3A7D6E;
+  --btn-text: #FFFFFF;
+  --btn-border: #3A7D6E;
+  --btn-hover-bg: #2D6357;
+  --btn-hover-text: #FFFFFF;
+  --btn-hover-border: #2D6357;
 
   /* Notice box colors */
-  --notice-bg-default: #{'light-dark(#f2f3f3, #343F44)'};
-  --notice-text-default: #{'light-dark(#474747, ' + $everforest-fg + ')'};
-  --notice-border-default: #{'light-dark(#bdc1c4, #475258)'};
+  --notice-bg-default: #F4F1EA;
+  --notice-text-default: #2D353B;
+  --notice-border-default: #D3CEBE;
 
-  --notice-bg-info: #{'light-dark(#e3f2fd, #354751)'};
-  --notice-text-info: #{'light-dark(#0d47a1, ' + $everforest-blue + ')'};
-  --notice-border-info: #{'light-dark(#90caf9, #4c6472)'};
+  --notice-bg-info: #E8F2F5;
+  --notice-text-info: #235866;
+  --notice-border-info: #B8D6DF;
 
-  --notice-bg-warning: #{'light-dark(#fff3e0, #4c463f)'};
-  --notice-text-warning: #{'light-dark(#e65100, ' + $everforest-orange + ')'};
-  --notice-border-warning: #{'light-dark(#ffe082, #5c5246)'};
+  --notice-bg-warning: #FCF4E5;
+  --notice-text-warning: #945B0E;
+  --notice-border-warning: #F0D7A8;
 
-  --notice-bg-success: #{'light-dark(#e8f5e9, #3c4b42)'};
-  --notice-text-success: #{'light-dark(#1b5e20, ' + $everforest-green + ')'};
-  --notice-border-success: #{'light-dark(#a5d6a7, #495d4e)'};
+  --notice-bg-success: #EFF5EB;
+  --notice-text-success: #2C6639;
+  --notice-border-success: #BEDCB7;
 
-  --notice-bg-danger: #{'light-dark(#ffebee, #4a3e42)'};
-  --notice-text-danger: #{'light-dark(#b71c1c, ' + $everforest-red + ')'};
-  --notice-border-danger: #{'light-dark(#ef9a9a, #5a4b50)'};
+  --notice-bg-danger: #FDF0F0;
+  --notice-text-danger: #962828;
+  --notice-border-danger: #F5BCBC;
 }
 
-:root[data-theme="light"] {
-  color-scheme: light;
+/* 2. System Dark Preference (when no explicit light theme set) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --global-base-color: #859289;
+    --global-bg-color: #2D353B;
+    --global-panel-color: #343F44;
+    --global-footer-bg-color: #343F44;
+    --global-border-color: #3D484D;
+    --global-dark-border-color: #475258;
+    --global-code-background-color: #343F44;
+    --global-code-text-color: #D3C6AA;
+    --global-fig-caption-color: #859289;
+    --global-link-color: #A7C080;
+    --global-link-color-hover: #83C092;
+    --global-link-color-visited: #7FBBB3;
+    --global-masthead-link-color: #D3C6AA;
+    --global-masthead-link-color-hover: #A7C080;
+    --global-text-color: #D3C6AA;
+    --global-text-color-light: #9DA9A0;
+    --global-thead-color: #3D484D;
+    --font-mono: Monaco, Consolas, "Lucida Console", monospace;
+    --hero-subtitle-color: #DBBC7F;
+
+    --btn-bg: #A7C080;
+    --btn-text: #2D353B;
+    --btn-border: #A7C080;
+    --btn-hover-bg: #83C092;
+    --btn-hover-text: #2D353B;
+    --btn-hover-border: #83C092;
+
+    --notice-bg-default: #343F44;
+    --notice-text-default: #D3C6AA;
+    --notice-border-default: #475258;
+
+    --notice-bg-info: #354751;
+    --notice-text-info: #7FBBB3;
+    --notice-border-info: #4c6472;
+
+    --notice-bg-warning: #4c463f;
+    --notice-text-warning: #E69875;
+    --notice-border-warning: #5c5246;
+
+    --notice-bg-success: #3c4b42;
+    --notice-text-success: #A7C080;
+    --notice-border-success: #495d4e;
+
+    --notice-bg-danger: #4a3e42;
+    --notice-text-danger: #E67E80;
+    --notice-border-danger: #5a4b50;
+  }
 }
 
-:root[data-theme="dark"] {
+/* 3. Explicit Dark Theme (Active by default or when toggled to dark) */
+html[data-theme="dark"] {
   color-scheme: dark;
+
+  --global-base-color: #859289;
+  --global-bg-color: #2D353B;
+  --global-panel-color: #343F44;
+  --global-footer-bg-color: #343F44;
+  --global-border-color: #3D484D;
+  --global-dark-border-color: #475258;
+  --global-code-background-color: #343F44;
+  --global-code-text-color: #D3C6AA;
+  --global-fig-caption-color: #859289;
+  --global-link-color: #A7C080;
+  --global-link-color-hover: #83C092;
+  --global-link-color-visited: #7FBBB3;
+  --global-masthead-link-color: #D3C6AA;
+  --global-masthead-link-color-hover: #A7C080;
+  --global-text-color: #D3C6AA;
+  --global-text-color-light: #9DA9A0;
+  --global-thead-color: #3D484D;
+  --font-mono: Monaco, Consolas, "Lucida Console", monospace;
+  --hero-subtitle-color: #DBBC7F;
+
+  --btn-bg: #A7C080;
+  --btn-text: #2D353B;
+  --btn-border: #A7C080;
+  --btn-hover-bg: #83C092;
+  --btn-hover-text: #2D353B;
+  --btn-hover-border: #83C092;
+
+  --notice-bg-default: #343F44;
+  --notice-text-default: #D3C6AA;
+  --notice-border-default: #475258;
+
+  --notice-bg-info: #354751;
+  --notice-text-info: #7FBBB3;
+  --notice-border-info: #4c6472;
+
+  --notice-bg-warning: #4c463f;
+  --notice-text-warning: #E69875;
+  --notice-border-warning: #5c5246;
+
+  --notice-bg-success: #3c4b42;
+  --notice-text-success: #A7C080;
+  --notice-border-success: #495d4e;
+
+  --notice-bg-danger: #4a3e42;
+  --notice-text-danger: #E67E80;
+  --notice-border-danger: #5a4b50;
 }

@@ -46,7 +46,9 @@
       padding-top: $masthead-height;
     }
 
-    @include span(2 of 12);
+    @include span(2.5 of 12);
+    min-width: 220px;
+    max-width: 260px;
 
     &:hover {
       opacity: 1;
@@ -292,7 +294,8 @@
   }
 
   li {
-    white-space: nowrap;
+    white-space: normal;
+    word-break: normal;
     font-size: $type-size-5;
     padding-top: 2px;
     padding-bottom: 2px;
