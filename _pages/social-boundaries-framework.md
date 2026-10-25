@@ -314,45 +314,60 @@ permalink: /social-boundaries-framework/
   }
 
   /* --- LIGHT THEME (Cartographer's Ledger) --- */
+  html[data-theme="light"] .mermaid-wrap {
+    background: #FAF7F0 !important;
+    border-color: #D3CEBE !important;
+  }
+
   html[data-theme="light"] .mermaid .cluster rect {
-    fill: #F4F1EA !important;
+    fill: #EAE3D5 !important;
     stroke: #859289 !important;
+    stroke-width: 2px !important;
   }
   html[data-theme="light"] .mermaid .cluster text,
   html[data-theme="light"] .mermaid .cluster-label span,
   html[data-theme="light"] .mermaid .cluster-label text {
     fill: #3A7D6E !important;
     color: #3A7D6E !important;
+    font-weight: 700 !important;
   }
   html[data-theme="light"] .mermaid .node rect {
-    fill: #FFFFFF !important;
+    fill: #F4F1EA !important;
   }
   html[data-theme="light"] .mermaid .node text,
-  html[data-theme="light"] .mermaid .node .label {
+  html[data-theme="light"] .mermaid .node .label,
+  html[data-theme="light"] .mermaid .node .label *,
+  html[data-theme="light"] .mermaid .node foreignObject,
+  html[data-theme="light"] .mermaid .node foreignObject *,
+  html[data-theme="light"] .mermaid .node .nodeLabel,
+  html[data-theme="light"] .mermaid .node span,
+  html[data-theme="light"] .mermaid .node p {
     fill: #2D353B !important;
     color: #2D353B !important;
+    font-weight: 500 !important;
   }
   /* Category Borders (Light) */
   html[data-theme="light"] .mermaid [id*="flowchart-S-"] rect,
   html[data-theme="light"] .mermaid [id*="flowchart-A-"] rect,
-  html[data-theme="light"] .mermaid [id*="flowchart-LM-"] rect { stroke: #3B758C !important; }
+  html[data-theme="light"] .mermaid [id*="flowchart-LM-"] rect { stroke: #3B758C !important; stroke-width: 2px !important; }
 
   html[data-theme="light"] .mermaid [id*="flowchart-T-"] rect,
-  html[data-theme="light"] .mermaid [id*="flowchart-BW-"] rect { stroke: #3A7D6E !important; }
+  html[data-theme="light"] .mermaid [id*="flowchart-BW-"] rect { stroke: #3A7D6E !important; stroke-width: 2px !important; }
 
   html[data-theme="light"] .mermaid [id*="flowchart-PB-"] rect,
   html[data-theme="light"] .mermaid [id*="flowchart-SF-"] rect,
   html[data-theme="light"] .mermaid [id*="flowchart-Ai-"] rect,
-  html[data-theme="light"] .mermaid [id*="flowchart-IP-"] rect { stroke: #9D6800 !important; }
+  html[data-theme="light"] .mermaid [id*="flowchart-IP-"] rect { stroke: #9D6800 !important; stroke-width: 2px !important; }
 
-  html[data-theme="light"] .mermaid [id*="flowchart-R-"] rect { stroke: #7D4E72 !important; }
+  html[data-theme="light"] .mermaid [id*="flowchart-R-"] rect { stroke: #7D4E72 !important; stroke-width: 2px !important; }
 
   html[data-theme="light"] .mermaid [id*="flowchart-C-"] rect,
   html[data-theme="light"] .mermaid [id*="flowchart-H-"] rect,
-  html[data-theme="light"] .mermaid [id*="flowchart-M-"] rect { stroke: #A34D3D !important; }
+  html[data-theme="light"] .mermaid [id*="flowchart-M-"] rect { stroke: #A34D3D !important; stroke-width: 2px !important; }
 
   html[data-theme="light"] .mermaid [id*="flowchart-V-"] rect {
     stroke: #357B62 !important;
+    stroke-width: 2px !important;
     stroke-dasharray: 4, 3 !important;
   }
 
@@ -360,52 +375,99 @@ permalink: /social-boundaries-framework/
     stroke: #68736B !important;
     stroke-width: 2px !important;
   }
-  html[data-theme="light"] .mermaid .edgeLabel {
+  html[data-theme="light"] .mermaid .edgeLabel,
+  html[data-theme="light"] .mermaid .edgeLabel *,
+  html[data-theme="light"] .mermaid .edgeLabel foreignObject,
+  html[data-theme="light"] .mermaid .edgeLabel foreignObject * {
+    background: #EAE6DC !important;
     background-color: #EAE6DC !important;
+    fill: #EAE6DC !important;
     color: #2D353B !important;
+  }
+  html[data-theme="light"] .mermaid .edgeLabel rect {
+    fill: #EAE6DC !important;
+    opacity: 1 !important;
+  }
+  html[data-theme="light"] .mermaid .edgeLabel {
     border: 1px solid #D3CEBE !important;
+    border-radius: 4px !important;
+    padding: 3px 8px !important;
   }
 
-  /* --- DARK THEME (Everforest Medium Dark) --- */
+  /* --- DARK THEME (Everforest Medium Dark - Calibrated Deep Slate) --- */
+  html[data-theme="dark"] .mermaid-wrap {
+    background: #252D32 !important;
+    border-color: #3D484E !important;
+  }
+
   html[data-theme="dark"] .mermaid .cluster rect {
-    fill: #2D353B !important;
-    stroke: #475258 !important;
+    fill: #1E2529 !important;
+    stroke: #47545B !important;
+    stroke-width: 2px !important;
   }
   html[data-theme="dark"] .mermaid .cluster text,
   html[data-theme="dark"] .mermaid .cluster-label span,
   html[data-theme="dark"] .mermaid .cluster-label text {
     fill: #A7C080 !important;
     color: #A7C080 !important;
+    font-weight: 700 !important;
   }
-  html[data-theme="dark"] .mermaid .node rect {
-    fill: #3D484D !important;
+  html[data-theme="dark"] .mermaid .node rect,
+  html[data-theme="dark"] .mermaid .node polygon {
+    fill: #344046 !important;
   }
+
+  /* Universal high-contrast text fix across all nested elements */
   html[data-theme="dark"] .mermaid .node text,
-  html[data-theme="dark"] .mermaid .node .label {
-    fill: #D3C6AA !important;
-    color: #D3C6AA !important;
+  html[data-theme="dark"] .mermaid .node .label,
+  html[data-theme="dark"] .mermaid .node .label *,
+  html[data-theme="dark"] .mermaid .node foreignObject,
+  html[data-theme="dark"] .mermaid .node foreignObject *,
+  html[data-theme="dark"] .mermaid .node .nodeLabel,
+  html[data-theme="dark"] .mermaid .node span,
+  html[data-theme="dark"] .mermaid .node p {
+    fill: #FDFBF7 !important;
+    color: #FDFBF7 !important;
+    font-weight: 500 !important;
   }
+
   /* Category Borders (Dark) */
   html[data-theme="dark"] .mermaid [id*="flowchart-S-"] rect,
   html[data-theme="dark"] .mermaid [id*="flowchart-A-"] rect,
-  html[data-theme="dark"] .mermaid [id*="flowchart-LM-"] rect { stroke: #7FBBB3 !important; }
+  html[data-theme="dark"] .mermaid [id*="flowchart-LM-"] rect {
+    stroke: #7FBBB3 !important;
+    stroke-width: 2px !important;
+  }
 
   html[data-theme="dark"] .mermaid [id*="flowchart-T-"] rect,
-  html[data-theme="dark"] .mermaid [id*="flowchart-BW-"] rect { stroke: #A7C080 !important; }
+  html[data-theme="dark"] .mermaid [id*="flowchart-BW-"] rect {
+    stroke: #A7C080 !important;
+    stroke-width: 2px !important;
+  }
 
   html[data-theme="dark"] .mermaid [id*="flowchart-PB-"] rect,
   html[data-theme="dark"] .mermaid [id*="flowchart-SF-"] rect,
   html[data-theme="dark"] .mermaid [id*="flowchart-Ai-"] rect,
-  html[data-theme="dark"] .mermaid [id*="flowchart-IP-"] rect { stroke: #DBBC7F !important; }
+  html[data-theme="dark"] .mermaid [id*="flowchart-IP-"] rect {
+    stroke: #DBBC7F !important;
+    stroke-width: 2px !important;
+  }
 
-  html[data-theme="dark"] .mermaid [id*="flowchart-R-"] rect { stroke: #D699B6 !important; }
+  html[data-theme="dark"] .mermaid [id*="flowchart-R-"] rect {
+    stroke: #D699B6 !important;
+    stroke-width: 2px !important;
+  }
 
   html[data-theme="dark"] .mermaid [id*="flowchart-C-"] rect,
   html[data-theme="dark"] .mermaid [id*="flowchart-H-"] rect,
-  html[data-theme="dark"] .mermaid [id*="flowchart-M-"] rect { stroke: #E67E80 !important; }
+  html[data-theme="dark"] .mermaid [id*="flowchart-M-"] rect {
+    stroke: #E67E80 !important;
+    stroke-width: 2px !important;
+  }
 
   html[data-theme="dark"] .mermaid [id*="flowchart-V-"] rect {
     stroke: #83C092 !important;
+    stroke-width: 2px !important;
     stroke-dasharray: 4, 3 !important;
   }
 
@@ -413,10 +475,25 @@ permalink: /social-boundaries-framework/
     stroke: #859289 !important;
     stroke-width: 2px !important;
   }
-  html[data-theme="dark"] .mermaid .edgeLabel {
-    background-color: #2D353B !important;
+
+  /* Edge Labels without white boxes or H-glitches */
+  html[data-theme="dark"] .mermaid .edgeLabel,
+  html[data-theme="dark"] .mermaid .edgeLabel *,
+  html[data-theme="dark"] .mermaid .edgeLabel foreignObject,
+  html[data-theme="dark"] .mermaid .edgeLabel foreignObject * {
+    background: #1E2529 !important;
+    background-color: #1E2529 !important;
+    fill: #1E2529 !important;
     color: #A7C080 !important;
-    border: 1px solid #475258 !important;
+  }
+  html[data-theme="dark"] .mermaid .edgeLabel rect {
+    fill: #1E2529 !important;
+    opacity: 1 !important;
+  }
+  html[data-theme="dark"] .mermaid .edgeLabel {
+    border: 1px solid #47545B !important;
+    border-radius: 4px !important;
+    padding: 3px 8px !important;
   }
 
   /* ============ FOOTER ============ */
