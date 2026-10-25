@@ -267,7 +267,7 @@ permalink: /social-boundaries-framework/
     background: var(--primary-dim);
   }
 
-  /* ============ MERMAID SVG OVERRIDES (THE CARTOGRAPHER'S LEDGER) ============ */
+  /* ============ PURE CSS-DRIVEN MERMAID SVG OVERRIDES ============ */
   .mermaid svg {
     max-width: 100%;
     height: auto;
@@ -313,7 +313,7 @@ permalink: /social-boundaries-framework/
     border-radius: 3px !important;
   }
 
-  /* Light Theme Specific SVG Overrides */
+  /* --- LIGHT THEME (Cartographer's Ledger) --- */
   html[data-theme="light"] .mermaid .cluster rect {
     fill: #F4F1EA !important;
     stroke: #859289 !important;
@@ -332,12 +332,30 @@ permalink: /social-boundaries-framework/
     fill: #2D353B !important;
     color: #2D353B !important;
   }
-  html[data-theme="light"] .mermaid .cFoundations rect { stroke: #3B758C !important; }
-  html[data-theme="light"] .mermaid .cMechanisms rect { stroke: #3A7D6E !important; }
-  html[data-theme="light"] .mermaid .cSpatial rect { stroke: #9D6800 !important; }
-  html[data-theme="light"] .mermaid .cRelational rect { stroke: #7D4E72 !important; }
-  html[data-theme="light"] .mermaid .cOutcomes rect { stroke: #A34D3D !important; }
-  html[data-theme="light"] .mermaid .cValidation rect { stroke: #357B62 !important; }
+  /* Category Borders (Light) */
+  html[data-theme="light"] .mermaid [id*="flowchart-S-"] rect,
+  html[data-theme="light"] .mermaid [id*="flowchart-A-"] rect,
+  html[data-theme="light"] .mermaid [id*="flowchart-LM-"] rect { stroke: #3B758C !important; }
+
+  html[data-theme="light"] .mermaid [id*="flowchart-T-"] rect,
+  html[data-theme="light"] .mermaid [id*="flowchart-BW-"] rect { stroke: #3A7D6E !important; }
+
+  html[data-theme="light"] .mermaid [id*="flowchart-PB-"] rect,
+  html[data-theme="light"] .mermaid [id*="flowchart-SF-"] rect,
+  html[data-theme="light"] .mermaid [id*="flowchart-Ai-"] rect,
+  html[data-theme="light"] .mermaid [id*="flowchart-IP-"] rect { stroke: #9D6800 !important; }
+
+  html[data-theme="light"] .mermaid [id*="flowchart-R-"] rect { stroke: #7D4E72 !important; }
+
+  html[data-theme="light"] .mermaid [id*="flowchart-C-"] rect,
+  html[data-theme="light"] .mermaid [id*="flowchart-H-"] rect,
+  html[data-theme="light"] .mermaid [id*="flowchart-M-"] rect { stroke: #A34D3D !important; }
+
+  html[data-theme="light"] .mermaid [id*="flowchart-V-"] rect {
+    stroke: #357B62 !important;
+    stroke-dasharray: 4, 3 !important;
+  }
+
   html[data-theme="light"] .mermaid .edgePath path {
     stroke: #68736B !important;
     stroke-width: 2px !important;
@@ -348,7 +366,7 @@ permalink: /social-boundaries-framework/
     border: 1px solid #D3CEBE !important;
   }
 
-  /* Dark Theme Specific SVG Overrides */
+  /* --- DARK THEME (Everforest Medium Dark) --- */
   html[data-theme="dark"] .mermaid .cluster rect {
     fill: #2D353B !important;
     stroke: #475258 !important;
@@ -367,12 +385,30 @@ permalink: /social-boundaries-framework/
     fill: #D3C6AA !important;
     color: #D3C6AA !important;
   }
-  html[data-theme="dark"] .mermaid .cFoundations rect { stroke: #7FBBB3 !important; }
-  html[data-theme="dark"] .mermaid .cMechanisms rect { stroke: #A7C080 !important; }
-  html[data-theme="dark"] .mermaid .cSpatial rect { stroke: #DBBC7F !important; }
-  html[data-theme="dark"] .mermaid .cRelational rect { stroke: #D699B6 !important; }
-  html[data-theme="dark"] .mermaid .cOutcomes rect { stroke: #E67E80 !important; }
-  html[data-theme="dark"] .mermaid .cValidation rect { stroke: #83C092 !important; }
+  /* Category Borders (Dark) */
+  html[data-theme="dark"] .mermaid [id*="flowchart-S-"] rect,
+  html[data-theme="dark"] .mermaid [id*="flowchart-A-"] rect,
+  html[data-theme="dark"] .mermaid [id*="flowchart-LM-"] rect { stroke: #7FBBB3 !important; }
+
+  html[data-theme="dark"] .mermaid [id*="flowchart-T-"] rect,
+  html[data-theme="dark"] .mermaid [id*="flowchart-BW-"] rect { stroke: #A7C080 !important; }
+
+  html[data-theme="dark"] .mermaid [id*="flowchart-PB-"] rect,
+  html[data-theme="dark"] .mermaid [id*="flowchart-SF-"] rect,
+  html[data-theme="dark"] .mermaid [id*="flowchart-Ai-"] rect,
+  html[data-theme="dark"] .mermaid [id*="flowchart-IP-"] rect { stroke: #DBBC7F !important; }
+
+  html[data-theme="dark"] .mermaid [id*="flowchart-R-"] rect { stroke: #D699B6 !important; }
+
+  html[data-theme="dark"] .mermaid [id*="flowchart-C-"] rect,
+  html[data-theme="dark"] .mermaid [id*="flowchart-H-"] rect,
+  html[data-theme="dark"] .mermaid [id*="flowchart-M-"] rect { stroke: #E67E80 !important; }
+
+  html[data-theme="dark"] .mermaid [id*="flowchart-V-"] rect {
+    stroke: #83C092 !important;
+    stroke-dasharray: 4, 3 !important;
+  }
+
   html[data-theme="dark"] .mermaid .edgePath path {
     stroke: #859289 !important;
     stroke-width: 2px !important;
@@ -440,7 +476,42 @@ permalink: /social-boundaries-framework/
         <button onclick="zoomDiagram(this, 0.8)" title="Zoom out">&minus;</button>
         <button onclick="resetZoom(this)" title="Reset zoom">&#8634;</button>
       </div>
-      <div class="mermaid" id="diagram-container"></div>
+      <pre class="mermaid">
+        flowchart TD
+          subgraph Foundations ["1. Ontological Foundations"]
+              S["Simmel 2007: Social Fact"] --> A["Abbott 1995: Boundaries precede Entities"]
+              A --> LM["Lamont & Molnár 2002: Symbolic vs. Social"]
+          end
+
+          subgraph Mechanisms ["2. Generative Mechanisms"]
+              T["Tilly 2004: Encounter, Imposition, Activation"]
+              BW["Boundary Work & Social Closure"]
+          end
+
+          subgraph Spatial ["3. Physical & Spatial Expression"]
+              PB["Physical Barriers: Highways/Railroads"] --> SF["Social Frontiers: Abrupt Discontinuities"]
+              Ai["Aiello 2024/Chyn 2023"] --> PB
+              IP["Iyer & Pryce 2024/Legewie 2018"] --> SF
+          end
+
+          subgraph Relational ["4. Theoretical Lens"]
+              R["Relational Space: Löw 2017"]
+          end
+
+          subgraph Outcomes ["5. Empirical Consequences"]
+              C["Crime & Conflict: Legewie 2018"]
+              H["Health & Wellbeing: Lee 2025"]
+              M["Mobility & Capital: Chyn 2023"]
+          end
+
+          Foundations --> Mechanisms
+          Mechanisms --> Spatial
+          Spatial --> Outcomes
+          Relational -. Informs .-> Foundations
+          Relational -. Informs .-> Spatial
+          
+          V["Validation: Zhang 2024 Areal Wombling"] -. Checks .-> Spatial
+      </pre>
     </div>
   </div>
 
@@ -459,56 +530,17 @@ permalink: /social-boundaries-framework/
 
 </div>
 
-<!-- Raw Diagram Source Template -->
-<template id="mermaid-raw">
-flowchart TD
-  subgraph Foundations ["1. Ontological Foundations"]
-      S["Simmel 2007: Social Fact"]:::cFoundations --> A["Abbott 1995: Boundaries precede Entities"]:::cFoundations
-      A --> LM["Lamont & Molnár 2002: Symbolic vs. Social"]:::cFoundations
-  end
-
-  subgraph Mechanisms ["2. Generative Mechanisms"]
-      T["Tilly 2004: Encounter, Imposition, Activation"]:::cMechanisms
-      BW["Boundary Work & Social Closure"]:::cMechanisms
-  end
-
-  subgraph Spatial ["3. Physical & Spatial Expression"]
-      PB["Physical Barriers: Highways/Railroads"]:::cSpatial --> SF["Social Frontiers: Abrupt Discontinuities"]:::cSpatial
-      Ai["Aiello 2024 / Chyn 2023"]:::cSpatial --> PB
-      IP["Iyer & Pryce 2024 / Legewie 2018"]:::cSpatial --> SF
-  end
-
-  subgraph Relational ["4. Theoretical Lens"]
-      R["Relational Space: Löw 2017"]:::cRelational
-  end
-
-  subgraph Outcomes ["5. Empirical Consequences"]
-      C["Crime & Conflict: Legewie 2018"]:::cOutcomes
-      H["Health & Wellbeing: Lee 2025"]:::cOutcomes
-      M["Mobility & Capital: Chyn 2023"]:::cOutcomes
-  end
-
-  Foundations --> Mechanisms
-  Mechanisms --> Spatial
-  Spatial --> Outcomes
-  Relational -. Informs .-> Foundations
-  Relational -. Informs .-> Spatial
-  
-  V["Validation: Zhang 2024 Areal Wombling"]:::cValidation -. Checks .-> Spatial
-
-  classDef cFoundations stroke:#7FBBB3,stroke-width:2px;
-  classDef cMechanisms stroke:#A7C080,stroke-width:2px;
-  classDef cSpatial stroke:#DBBC7F,stroke-width:2px;
-  classDef cRelational stroke:#D699B6,stroke-width:2px;
-  classDef cOutcomes stroke:#E67E80,stroke-width:2px;
-  classDef cValidation stroke:#83C092,stroke-width:2px,stroke-dasharray: 4 3;
-</template>
-
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
   import elkLayouts from 'https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk/dist/mermaid-layout-elk.esm.min.mjs';
 
   mermaid.registerLayoutLoaders(elkLayouts);
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'default',
+    look: 'classic',
+    layout: 'elk'
+  });
 
   // Synchronize site theme from localStorage or system preference
   function getPreferredTheme() {
@@ -528,70 +560,7 @@ flowchart TD
   var currentTheme = getPreferredTheme();
   applyTheme(currentTheme);
 
-  // Dynamic Theme-Calibrated Mermaid Renderer
-  async function renderDiagram() {
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    var container = document.getElementById('diagram-container');
-    var rawTpl = document.getElementById('mermaid-raw');
-    if (!container || !rawTpl) return;
-
-    var rawSrc = rawTpl.innerHTML.trim();
-    container.removeAttribute('data-processed');
-    container.innerHTML = '';
-
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: 'base',
-      look: 'classic',
-      layout: 'elk',
-      themeVariables: isDark ? {
-        darkMode: true,
-        background: 'transparent',
-        primaryColor: '#3D484D',
-        primaryBorderColor: '#475258',
-        primaryTextColor: '#D3C6AA',
-        lineColor: '#859289',
-        edgeLabelBackground: '#2D353B',
-        clusterBkg: '#2D353B',
-        clusterBorder: '#475258',
-        titleColor: '#A7C080',
-        textColor: '#D3C6AA',
-        fontFamily: 'Inter, -apple-system, sans-serif',
-        fontSize: '12.5px'
-      } : {
-        darkMode: false,
-        background: 'transparent',
-        primaryColor: '#FFFFFF',
-        primaryBorderColor: '#D3CEBE',
-        primaryTextColor: '#2D353B',
-        lineColor: '#68736B',
-        edgeLabelBackground: '#EAE6DC',
-        clusterBkg: '#F4F1EA',
-        clusterBorder: '#859289',
-        titleColor: '#3A7D6E',
-        textColor: '#2D353B',
-        fontFamily: 'Inter, -apple-system, sans-serif',
-        fontSize: '12.5px'
-      }
-    });
-
-    try {
-      var renderId = 'mermaid-' + Math.random().toString(36).substring(2, 9);
-      var result = await mermaid.render(renderId, rawSrc);
-      container.innerHTML = result.svg;
-    } catch (err) {
-      console.error('Mermaid rendering error:', err);
-    }
-  }
-
-  // Initial render
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', renderDiagram);
-  } else {
-    renderDiagram();
-  }
-
-  // Theme Toggle Button Handler
+  // Theme Toggle Button Handler (instant CSS update, zero graph re-parsing)
   var toggleBtn = document.getElementById('theme-toggle');
   if (toggleBtn) {
     toggleBtn.addEventListener('click', function() {
@@ -599,7 +568,6 @@ flowchart TD
       var nextTheme = nowDark ? 'light' : 'dark';
       localStorage.setItem('theme', nextTheme);
       applyTheme(nextTheme);
-      renderDiagram();
     });
   }
 
@@ -609,7 +577,6 @@ flowchart TD
       if (!localStorage.getItem('theme')) {
         var sysTheme = e.matches ? 'dark' : 'light';
         applyTheme(sysTheme);
-        renderDiagram();
       }
     });
   }
