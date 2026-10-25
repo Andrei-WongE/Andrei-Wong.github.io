@@ -245,10 +245,10 @@ Computational Stack & Credential
     <div class="ledger-box">
       <h4>Economics & Policy</h4>
       <ul>
-        <li><span class="stack-label">Econometrics</span><span class="stack-detail">STATA, Panel Diff-in-Diff</span></li>
-        <li><span class="stack-label">Evaluations</span><span class="stack-detail">Quasi-Experimental RCTs</span></li>
-        <li><span class="stack-label">Surveys</span><span class="stack-detail">Complex Sampling Frameworks</span></li>
-        <li><span class="stack-label">Governance</span><span class="stack-detail">Social Data Governance</span></li>
+        <li><span class="stack-label">Econometrics</span><span class="stack-detail">STATA, Panel DiD</span></li>
+        <li><span class="stack-label">Evaluations</span><span class="stack-detail">Quasi-Experimental, RCTs</span></li>
+        <li><span class="stack-label">Surveys</span><span class="stack-detail">Complex Sampling</span></li>
+        <li><span class="stack-label">Governance</span><span class="stack-detail">Data Governance</span></li>
       </ul>
     </div>
 

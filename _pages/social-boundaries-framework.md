@@ -353,7 +353,7 @@ permalink: /social-boundaries-framework/
   mermaid.registerLayoutLoaders(elkLayouts);
   mermaid.initialize({
     startOnLoad: true,
-    theme: 'default',
+    theme: 'neutral',
     look: 'classic',
     layout: 'elk'
   });

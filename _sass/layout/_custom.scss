@@ -466,7 +466,7 @@
 
     .ledger-grid-3col {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
         gap: 1.25rem;
         margin-top: 1rem;
     }
@@ -492,12 +492,13 @@
             margin: 0 !important;
 
             li {
-                font-size: 0.85em;
-                padding: 0.4rem 0;
+                font-size: 0.84em;
+                padding: 0.45rem 0;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.04);
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
+                align-items: baseline;
+                gap: 0.75rem;
 
                 &:last-child {
                     border-bottom: none;
@@ -506,12 +507,15 @@
                 .stack-label {
                     font-weight: 600;
                     color: var(--global-text-color);
+                    flex-shrink: 0;
                 }
 
                 .stack-detail {
                     color: var(--global-text-color-light);
                     font-family: var(--font-mono, monospace);
                     font-size: 0.85em;
+                    text-align: right;
+                    white-space: nowrap;
                 }
             }
         }
