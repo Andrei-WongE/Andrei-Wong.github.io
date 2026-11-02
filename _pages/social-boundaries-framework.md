@@ -9,7 +9,7 @@ permalink: /social-boundaries-framework/
 <title>Conceptual Framework: Social Boundaries</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   /* ============ THEME: THE CARTOGRAPHER'S LEDGER (EVERFOREST UNIFIED) ============ */
   :root,
@@ -17,10 +17,12 @@ permalink: /social-boundaries-framework/
     --bg: #FDFBF7;
     --surface: #FFFFFF;
     --surface2: #F4F1EA;
+    --surface3: #EAE6DC;
     --border: #D3CEBE;
-    --border-bright: #E2DED4;
+    --border-subtle: #E2DED4;
     --text: #2D353B;
     --text-dim: #5C6A62;
+    --text-muted: #859289;
 
     --primary: #3A7D6E; /* Light forest sage */
     --primary-dim: rgba(58, 125, 110, 0.12);
@@ -29,21 +31,36 @@ permalink: /social-boundaries-framework/
     --tertiary: #3B758C; /* Blue */
     --tertiary-dim: rgba(59, 117, 140, 0.12);
     --accent: #9D6800; /* Ochre / Amber */
+    --accent-coral: #A34D3D;
+    --accent-plum: #7D4E72;
+
+    --diagram-bg: #FAF7F0;
+    --compartment-bg: #F4F1EA;
+    --compartment-border: #D3CEBE;
+    --compartment-header-bg: #EAE6DC;
+    --card-bg: #FFFFFF;
+    --card-border: #D3CEBE;
+    --rail-color: #68736B;
+    --badge-bg: #EAE6DC;
+    --badge-text: #2D353B;
+    --badge-border: #D3CEBE;
 
     --font-heading: 'Playfair Display', serif;
-    --font-body: 'Inter', -apple-system, sans-serif;
-    --font-mono: 'JetBrains Mono', Consolas, monospace;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg: #2D353B;
       --surface: #343F44;
-      --surface2: #3D484D;
+      --surface2: #2B3439;
+      --surface3: #22292D;
       --border: #3D484D;
-      --border-bright: #475258;
+      --border-subtle: #475258;
       --text: #D3C6AA;
-      --text-dim: #859289;
+      --text-dim: #9DA9A0;
+      --text-muted: #859289;
 
       --primary: #A7C080; /* Forest Sage */
       --primary-dim: rgba(167, 192, 128, 0.15);
@@ -52,17 +69,32 @@ permalink: /social-boundaries-framework/
       --tertiary: #7FBBB3; /* Blue */
       --tertiary-dim: rgba(127, 187, 179, 0.15);
       --accent: #DBBC7F; /* Amber */
+      --accent-coral: #E67E80;
+      --accent-plum: #D699B6;
+
+      --diagram-bg: #242C30;
+      --compartment-bg: #2A3338;
+      --compartment-border: #3D484D;
+      --compartment-header-bg: #1E2528;
+      --card-bg: #344046;
+      --card-border: #475258;
+      --rail-color: #859289;
+      --badge-bg: #1E2528;
+      --badge-text: #A7C080;
+      --badge-border: #475258;
     }
   }
 
   html[data-theme="dark"] {
     --bg: #2D353B;
     --surface: #343F44;
-    --surface2: #3D484D;
+    --surface2: #2B3439;
+    --surface3: #22292D;
     --border: #3D484D;
-    --border-bright: #475258;
+    --border-subtle: #475258;
     --text: #D3C6AA;
-    --text-dim: #859289;
+    --text-dim: #9DA9A0;
+    --text-muted: #859289;
 
     --primary: #A7C080;
     --primary-dim: rgba(167, 192, 128, 0.15);
@@ -71,6 +103,19 @@ permalink: /social-boundaries-framework/
     --tertiary: #7FBBB3;
     --tertiary-dim: rgba(127, 187, 179, 0.15);
     --accent: #DBBC7F;
+    --accent-coral: #E67E80;
+    --accent-plum: #D699B6;
+
+    --diagram-bg: #242C30;
+    --compartment-bg: #2A3338;
+    --compartment-border: #3D484D;
+    --compartment-header-bg: #1E2528;
+    --card-bg: #344046;
+    --card-border: #475258;
+    --rail-color: #859289;
+    --badge-bg: #1E2528;
+    --badge-text: #A7C080;
+    --badge-border: #475258;
   }
 
   /* ============ RESET + BASE ============ */
@@ -88,7 +133,7 @@ permalink: /social-boundaries-framework/
 
   /* ============ TOP NAV BAR ============ */
   .top-nav {
-    max-width: 960px;
+    max-width: 1040px;
     margin: 0 auto 30px;
     display: flex;
     justify-content: space-between;
@@ -120,14 +165,14 @@ permalink: /social-boundaries-framework/
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 12px;
+    padding: 6px 14px;
     border: 1px solid var(--border);
     background: var(--surface2);
     color: var(--text);
     font-family: var(--font-mono);
     font-size: 12px;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 4px;
     transition: all 0.2s ease;
   }
 
@@ -149,15 +194,15 @@ permalink: /social-boundaries-framework/
 
   /* ============ LAYOUT ============ */
   .container {
-    max-width: 960px;
+    max-width: 1040px;
     margin: 0 auto;
   }
 
   header {
-    margin-bottom: 50px;
+    margin-bottom: 45px;
     text-align: center;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 36px;
+    padding-bottom: 32px;
   }
 
   h1 {
@@ -178,7 +223,7 @@ permalink: /social-boundaries-framework/
     color: var(--primary);
   }
 
-  /* ============ CONTENT ============ */
+  /* ============ CONTENT SUMMARY ============ */
   .summary {
     column-count: 2;
     column-gap: 40px;
@@ -195,12 +240,12 @@ permalink: /social-boundaries-framework/
   .summary p { margin-bottom: 18px; }
   .summary b { font-weight: 600; color: var(--primary); }
 
-  /* ============ MERMAID CONTAINER ============ */
-  .mermaid-section {
+  /* ============ CARTOGRAPHER'S LEDGER FRAMEWORK CONTAINER ============ */
+  .ledger-section {
     margin-bottom: 60px;
   }
 
-  .mermaid-section h2 {
+  .ledger-section h2 {
     font-family: var(--font-heading);
     font-size: 28px;
     margin-bottom: 24px;
@@ -209,7 +254,7 @@ permalink: /social-boundaries-framework/
     color: var(--text);
   }
 
-  .mermaid-section h2::after {
+  .ledger-section h2::after {
     content: '';
     display: block;
     width: 60px;
@@ -218,43 +263,62 @@ permalink: /social-boundaries-framework/
     margin: 12px auto 0;
   }
 
-  .mermaid-wrap {
+  .ledger-canvas {
     position: relative;
-    background: var(--surface);
+    background: var(--diagram-bg);
     border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 36px 24px;
+    border-radius: 6px;
+    padding: 36px 28px;
     overflow: auto;
     transition: background-color 0.25s ease, border-color 0.25s ease;
   }
 
-  .mermaid-wrap .mermaid {
+  .ledger-toolbar {
     display: flex;
-    justify-content: center;
-    min-height: 480px;
-    transition: transform 0.2s ease;
-    transform-origin: top center;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--border);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+
+  .ledger-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .legend-pip {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
   }
 
   .zoom-controls {
-    position: absolute;
-    top: 12px;
-    right: 12px;
     display: flex;
     gap: 4px;
-    z-index: 10;
   }
 
   .zoom-controls button {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     border: 1px solid var(--border);
     background: var(--surface2);
     color: var(--text-dim);
     font-family: var(--font-mono);
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
-    border-radius: 2px;
+    border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -267,233 +331,267 @@ permalink: /social-boundaries-framework/
     background: var(--primary-dim);
   }
 
-  /* ============ PURE CSS-DRIVEN MERMAID SVG OVERRIDES ============ */
-  .mermaid svg {
-    max-width: 100%;
-    height: auto;
-    font-family: var(--font-body) !important;
+  /* ============ ARCHITECTURAL LEDGER SPINE ============ */
+  .ledger-spine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
+    transition: transform 0.2s ease;
+    transform-origin: top center;
   }
 
-  .mermaid .node rect,
-  .mermaid .node polygon {
-    rx: 3px !important;
-    ry: 3px !important;
-    stroke-width: 2px !important;
-    transition: fill 0.25s ease, stroke 0.25s ease;
+  /* Compartment Shells */
+  .compartment {
+    width: 100%;
+    background: var(--compartment-bg);
+    border: 1px solid var(--compartment-border);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    transition: all 0.25s ease;
   }
 
-  .mermaid .cluster rect {
-    rx: 4px !important;
-    ry: 4px !important;
-    stroke-width: 2px !important;
-    transition: fill 0.25s ease, stroke 0.25s ease;
+  .compartment-header {
+    background: var(--compartment-header-bg);
+    border-bottom: 1px solid var(--compartment-border);
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
   }
 
-  .mermaid .cluster text,
-  .mermaid .cluster-label span,
-  .mermaid .cluster-label text {
-    font-family: var(--font-body) !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.04em !important;
-    font-size: 13px !important;
+  .compartment-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
-  .mermaid .node text,
-  .mermaid .node .label {
-    font-family: var(--font-body) !important;
-    font-size: 12.5px !important;
-    line-height: 1.4 !important;
+  .compartment-coord {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    font-weight: 400;
   }
 
-  .mermaid .edgeLabel {
-    font-family: var(--font-mono) !important;
-    font-size: 11px !important;
-    font-weight: 500 !important;
-    padding: 3px 7px !important;
-    border-radius: 3px !important;
+  .compartment-body {
+    padding: 20px;
   }
 
-  /* --- LIGHT THEME (Cartographer's Ledger) --- */
-  html[data-theme="light"] .mermaid-wrap {
-    background: #FAF7F0 !important;
-    border-color: #D3CEBE !important;
+  /* Academic Citation Cards */
+  .card-grid {
+    display: grid;
+    gap: 16px;
   }
 
-  html[data-theme="light"] .mermaid .cluster rect {
-    fill: #EAE3D5 !important;
-    stroke: #859289 !important;
-    stroke-width: 2px !important;
-  }
-  html[data-theme="light"] .mermaid .cluster text,
-  html[data-theme="light"] .mermaid .cluster-label span,
-  html[data-theme="light"] .mermaid .cluster-label text {
-    fill: #3A7D6E !important;
-    color: #3A7D6E !important;
-    font-weight: 700 !important;
-  }
-  html[data-theme="light"] .mermaid .node rect {
-    fill: #F4F1EA !important;
-  }
-  html[data-theme="light"] .mermaid .node text,
-  html[data-theme="light"] .mermaid .node .label,
-  html[data-theme="light"] .mermaid .node .label *,
-  html[data-theme="light"] .mermaid .node foreignObject,
-  html[data-theme="light"] .mermaid .node foreignObject *,
-  html[data-theme="light"] .mermaid .node .nodeLabel,
-  html[data-theme="light"] .mermaid .node span,
-  html[data-theme="light"] .mermaid .node p {
-    fill: #2D353B !important;
-    color: #2D353B !important;
-    font-weight: 500 !important;
-  }
-  /* Category Borders (Light) */
-  html[data-theme="light"] .mermaid [id*="flowchart-S-"] rect,
-  html[data-theme="light"] .mermaid [id*="flowchart-A-"] rect,
-  html[data-theme="light"] .mermaid [id*="flowchart-LM-"] rect { stroke: #3B758C !important; stroke-width: 2px !important; }
+  .card-grid-1 { grid-template-columns: 1fr; }
+  .card-grid-2 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .card-grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 
-  html[data-theme="light"] .mermaid [id*="flowchart-T-"] rect,
-  html[data-theme="light"] .mermaid [id*="flowchart-BW-"] rect { stroke: #3A7D6E !important; stroke-width: 2px !important; }
-
-  html[data-theme="light"] .mermaid [id*="flowchart-PB-"] rect,
-  html[data-theme="light"] .mermaid [id*="flowchart-SF-"] rect,
-  html[data-theme="light"] .mermaid [id*="flowchart-Ai-"] rect,
-  html[data-theme="light"] .mermaid [id*="flowchart-IP-"] rect { stroke: #9D6800 !important; stroke-width: 2px !important; }
-
-  html[data-theme="light"] .mermaid [id*="flowchart-R-"] rect { stroke: #7D4E72 !important; stroke-width: 2px !important; }
-
-  html[data-theme="light"] .mermaid [id*="flowchart-C-"] rect,
-  html[data-theme="light"] .mermaid [id*="flowchart-H-"] rect,
-  html[data-theme="light"] .mermaid [id*="flowchart-M-"] rect { stroke: #A34D3D !important; stroke-width: 2px !important; }
-
-  html[data-theme="light"] .mermaid [id*="flowchart-V-"] rect {
-    stroke: #357B62 !important;
-    stroke-width: 2px !important;
-    stroke-dasharray: 4, 3 !important;
+  .scholar-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    padding: 14px 16px;
+    position: relative;
+    transition: all 0.2s ease;
   }
 
-  html[data-theme="light"] .mermaid .edgePath path {
-    stroke: #68736B !important;
-    stroke-width: 2px !important;
-  }
-  html[data-theme="light"] .mermaid .edgeLabel,
-  html[data-theme="light"] .mermaid .edgeLabel *,
-  html[data-theme="light"] .mermaid .edgeLabel foreignObject,
-  html[data-theme="light"] .mermaid .edgeLabel foreignObject * {
-    background: #EAE6DC !important;
-    background-color: #EAE6DC !important;
-    fill: #EAE6DC !important;
-    color: #2D353B !important;
-  }
-  html[data-theme="light"] .mermaid .edgeLabel rect {
-    fill: #EAE6DC !important;
-    opacity: 1 !important;
-  }
-  html[data-theme="light"] .mermaid .edgeLabel {
-    border: 1px solid #D3CEBE !important;
-    border-radius: 4px !important;
-    padding: 3px 8px !important;
+  .scholar-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   }
 
-  /* --- DARK THEME (Everforest Medium Dark - Calibrated Deep Slate) --- */
-  html[data-theme="dark"] .mermaid-wrap {
-    background: #252D32 !important;
-    border-color: #3D484E !important;
+  /* Accent Borders by Phase */
+  .accent-blue { border-left: 3px solid var(--tertiary); }
+  .accent-sage { border-left: 3px solid var(--primary); }
+  .accent-amber { border-left: 3px solid var(--accent); }
+  .accent-plum { border-left: 3px solid var(--accent-plum); }
+  .accent-coral { border-left: 3px solid var(--accent-coral); }
+  .accent-aqua { border-left: 3px solid var(--secondary); }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
   }
 
-  html[data-theme="dark"] .mermaid .cluster rect {
-    fill: #1E2529 !important;
-    stroke: #47545B !important;
-    stroke-width: 2px !important;
-  }
-  html[data-theme="dark"] .mermaid .cluster text,
-  html[data-theme="dark"] .mermaid .cluster-label span,
-  html[data-theme="dark"] .mermaid .cluster-label text {
-    fill: #A7C080 !important;
-    color: #A7C080 !important;
-    font-weight: 700 !important;
-  }
-  html[data-theme="dark"] .mermaid .node rect,
-  html[data-theme="dark"] .mermaid .node polygon {
-    fill: #344046 !important;
+  .author-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
   }
 
-  /* Universal high-contrast text fix across all nested elements */
-  html[data-theme="dark"] .mermaid .node text,
-  html[data-theme="dark"] .mermaid .node .label,
-  html[data-theme="dark"] .mermaid .node .label *,
-  html[data-theme="dark"] .mermaid .node foreignObject,
-  html[data-theme="dark"] .mermaid .node foreignObject *,
-  html[data-theme="dark"] .mermaid .node .nodeLabel,
-  html[data-theme="dark"] .mermaid .node span,
-  html[data-theme="dark"] .mermaid .node p {
-    fill: #FDFBF7 !important;
-    color: #FDFBF7 !important;
-    font-weight: 500 !important;
+  .theme-chip {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    background: var(--surface2);
+    color: var(--text-muted);
   }
 
-  /* Category Borders (Dark) */
-  html[data-theme="dark"] .mermaid [id*="flowchart-S-"] rect,
-  html[data-theme="dark"] .mermaid [id*="flowchart-A-"] rect,
-  html[data-theme="dark"] .mermaid [id*="flowchart-LM-"] rect {
-    stroke: #7FBBB3 !important;
-    stroke-width: 2px !important;
+  .concept-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    line-height: 1.35;
   }
 
-  html[data-theme="dark"] .mermaid [id*="flowchart-T-"] rect,
-  html[data-theme="dark"] .mermaid [id*="flowchart-BW-"] rect {
-    stroke: #A7C080 !important;
-    stroke-width: 2px !important;
+  .concept-desc {
+    font-size: 12.5px;
+    color: var(--text-dim);
+    line-height: 1.45;
   }
 
-  html[data-theme="dark"] .mermaid [id*="flowchart-PB-"] rect,
-  html[data-theme="dark"] .mermaid [id*="flowchart-SF-"] rect,
-  html[data-theme="dark"] .mermaid [id*="flowchart-Ai-"] rect,
-  html[data-theme="dark"] .mermaid [id*="flowchart-IP-"] rect {
-    stroke: #DBBC7F !important;
-    stroke-width: 2px !important;
+  /* Connector Channels */
+  .channel-track {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 48px;
+    position: relative;
+    justify-content: center;
   }
 
-  html[data-theme="dark"] .mermaid [id*="flowchart-R-"] rect {
-    stroke: #D699B6 !important;
-    stroke-width: 2px !important;
+  .channel-line {
+    width: 2px;
+    height: 100%;
+    background: var(--rail-color);
   }
 
-  html[data-theme="dark"] .mermaid [id*="flowchart-C-"] rect,
-  html[data-theme="dark"] .mermaid [id*="flowchart-H-"] rect,
-  html[data-theme="dark"] .mermaid [id*="flowchart-M-"] rect {
-    stroke: #E67E80 !important;
-    stroke-width: 2px !important;
+  .channel-line-dashed {
+    width: 2px;
+    height: 100%;
+    background: repeating-linear-gradient(to bottom, var(--rail-color) 0, var(--rail-color) 4px, transparent 4px, transparent 8px);
   }
 
-  html[data-theme="dark"] .mermaid [id*="flowchart-V-"] rect {
-    stroke: #83C092 !important;
-    stroke-width: 2px !important;
-    stroke-dasharray: 4, 3 !important;
+  .channel-badge {
+    position: absolute;
+    background: var(--badge-bg);
+    border: 1px solid var(--badge-border);
+    color: var(--badge-text);
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    white-space: nowrap;
   }
 
-  html[data-theme="dark"] .mermaid .edgePath path {
-    stroke: #859289 !important;
-    stroke-width: 2px !important;
+  .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--rail-color);
+    position: absolute;
+    bottom: -1px;
   }
 
-  /* Edge Labels without white boxes or H-glitches */
-  html[data-theme="dark"] .mermaid .edgeLabel,
-  html[data-theme="dark"] .mermaid .edgeLabel *,
-  html[data-theme="dark"] .mermaid .edgeLabel foreignObject,
-  html[data-theme="dark"] .mermaid .edgeLabel foreignObject * {
-    background: #1E2529 !important;
-    background-color: #1E2529 !important;
-    fill: #1E2529 !important;
-    color: #A7C080 !important;
+  /* Specialized Sub-Flow within Phase 1 */
+  .internal-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
   }
-  html[data-theme="dark"] .mermaid .edgeLabel rect {
-    fill: #1E2529 !important;
-    opacity: 1 !important;
+
+  .internal-step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
   }
-  html[data-theme="dark"] .mermaid .edgeLabel {
-    border: 1px solid #47545B !important;
-    border-radius: 4px !important;
-    padding: 3px 8px !important;
+
+  .step-index {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .step-connector {
+    width: 2px;
+    height: 16px;
+    background: var(--rail-color);
+    margin-left: 23px;
+    position: relative;
+  }
+
+  .step-connector::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -3px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--rail-color);
+  }
+
+  /* Two-column Spatial Grid with Integrated Validation Track */
+  .spatial-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  @media (max-width: 800px) {
+    .spatial-layout { grid-template-columns: 1fr; }
+  }
+
+  .spatial-main {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .validation-rail {
+    background: var(--card-bg);
+    border: 1px dashed var(--secondary);
+    border-radius: 4px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .validation-tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .bridge-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--secondary);
   }
 
   /* ============ FOOTER ============ */
@@ -506,11 +604,10 @@ permalink: /social-boundaries-framework/
     text-align: center;
   }
 
-  /* ============ OVERFLOW & ZOOM ============ */
-  .mermaid-wrap::-webkit-scrollbar { width: 8px; height: 8px; }
-  .mermaid-wrap::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 4px; }
-  .mermaid-wrap.is-zoomed { cursor: grab; }
-  .mermaid-wrap.is-panning { cursor: grabbing; user-select: none; }
+  .ledger-canvas::-webkit-scrollbar { width: 8px; height: 8px; }
+  .ledger-canvas::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .ledger-canvas.is-zoomed { cursor: grab; }
+  .ledger-canvas.is-panning { cursor: grabbing; user-select: none; }
 </style>
 </head>
 <body>
@@ -545,50 +642,258 @@ permalink: /social-boundaries-framework/
     </p>
   </div>
 
-  <div class="mermaid-section animate" style="--i:2">
+  <div class="ledger-section animate" style="--i:2">
     <h2>Conceptual Framework</h2>
-    <div class="mermaid-wrap">
-      <div class="zoom-controls">
-        <button onclick="zoomDiagram(this, 1.2)" title="Zoom in">+</button>
-        <button onclick="zoomDiagram(this, 0.8)" title="Zoom out">&minus;</button>
-        <button onclick="resetZoom(this)" title="Reset zoom">&#8634;</button>
+    
+    <div class="ledger-canvas" id="ledger-viewport">
+      
+      <div class="ledger-toolbar">
+        <div class="ledger-legend">
+          <span class="legend-item"><span class="legend-pip" style="background: var(--tertiary);"></span> Ontology</span>
+          <span class="legend-item"><span class="legend-pip" style="background: var(--primary);"></span> Mechanisms</span>
+          <span class="legend-item"><span class="legend-pip" style="background: var(--accent);"></span> Spatial</span>
+          <span class="legend-item"><span class="legend-pip" style="background: var(--accent-plum);"></span> Lens</span>
+          <span class="legend-item"><span class="legend-pip" style="background: var(--accent-coral);"></span> Outcomes</span>
+          <span class="legend-item"><span class="legend-pip" style="background: var(--secondary);"></span> Validation</span>
+        </div>
+        <div class="zoom-controls">
+          <button onclick="zoomLedger(1.2)" title="Zoom in">+</button>
+          <button onclick="zoomLedger(0.8)" title="Zoom out">&minus;</button>
+          <button onclick="resetLedger()" title="Reset zoom">&#8634;</button>
+        </div>
       </div>
-      <pre class="mermaid">
-        flowchart TD
-          subgraph Foundations ["1. Ontological Foundations"]
-              S["Simmel 2007: Social Fact"] --> A["Abbott 1995: Boundaries precede Entities"]
-              A --> LM["Lamont & Molnár 2002: Symbolic vs. Social"]
-          end
 
-          subgraph Mechanisms ["2. Generative Mechanisms"]
-              T["Tilly 2004: Encounter, Imposition, Activation"]
-              BW["Boundary Work & Social Closure"]
-          end
+      <div class="ledger-spine" id="ledger-graph">
 
-          subgraph Spatial ["3. Physical & Spatial Expression"]
-              PB["Physical Barriers: Highways/Railroads"] --> SF["Social Frontiers: Abrupt Discontinuities"]
-              Ai["Aiello 2024/Chyn 2023"] --> PB
-              IP["Iyer & Pryce 2024/Legewie 2018"] --> SF
-          end
+        <!-- PHASE 04: THEORETICAL LENS -->
+        <div class="compartment" style="max-width: 680px;">
+          <div class="compartment-header">
+            <span class="compartment-title" style="color: var(--accent-plum);">
+              PHASE 04 // THEORETICAL LENS
+            </span>
+            <span class="compartment-coord">REF. LÖW-2017</span>
+          </div>
+          <div class="compartment-body">
+            <div class="scholar-card accent-plum">
+              <div class="card-meta">
+                <span class="author-tag" style="color: var(--accent-plum);">Löw (2017)</span>
+                <span class="theme-chip">Constitution of Space</span>
+              </div>
+              <div class="concept-title">Relational Space</div>
+              <div class="concept-desc">Space is continuously constituted through the spacing of social goods and living entities, acting as an active medium rather than a static container.</div>
+            </div>
+          </div>
+        </div>
 
-          subgraph Relational ["4. Theoretical Lens"]
-              R["Relational Space: Löw 2017"]
-          end
+        <!-- CONNECTOR 1 -->
+        <div class="channel-track">
+          <div class="channel-line-dashed"></div>
+          <span class="channel-badge">Informs Ontological Grounding</span>
+          <div class="arrow-down"></div>
+        </div>
 
-          subgraph Outcomes ["5. Empirical Consequences"]
-              C["Crime & Conflict: Legewie 2018"]
-              H["Health & Wellbeing: Lee 2025"]
-              M["Mobility & Capital: Chyn 2023"]
-          end
+        <!-- PHASE 01: ONTOLOGICAL FOUNDATIONS -->
+        <div class="compartment">
+          <div class="compartment-header">
+            <span class="compartment-title" style="color: var(--tertiary);">
+              PHASE 01 // ONTOLOGICAL FOUNDATIONS
+            </span>
+            <span class="compartment-coord">AXIS. SIMMEL &rarr; ABBOTT &rarr; LAMONT</span>
+          </div>
+          <div class="compartment-body">
+            <div class="internal-flow">
+              
+              <div class="scholar-card accent-blue">
+                <div class="card-meta">
+                  <span class="author-tag" style="color: var(--tertiary);">Simmel (1908/2007)</span>
+                  <span class="theme-chip">Primary Axiom</span>
+                </div>
+                <div class="concept-title">Boundary as Social Fact</div>
+                <div class="concept-desc">The boundary is not a spatial fact with sociological consequences, but a social fact that projects itself spatially to perform mutual identity 'othering'.</div>
+              </div>
 
-          Foundations --> Mechanisms
-          Mechanisms --> Spatial
-          Spatial --> Outcomes
-          Relational -. Informs .-> Foundations
-          Relational -. Informs .-> Spatial
-          
-          V["Validation: Zhang 2024 Areal Wombling"] -. Checks .-> Spatial
-      </pre>
+              <div class="step-connector"></div>
+
+              <div class="scholar-card accent-blue">
+                <div class="card-meta">
+                  <span class="author-tag" style="color: var(--tertiary);">Abbott (1995)</span>
+                  <span class="theme-chip">Sequential Priority</span>
+                </div>
+                <div class="concept-title">Boundaries Precede Entities</div>
+                <div class="concept-desc">It is wrong to look for entities first and boundaries later; social boundaries and sites of difference crystallize before coherent group entities emerge.</div>
+              </div>
+
+              <div class="step-connector"></div>
+
+              <div class="scholar-card accent-blue">
+                <div class="card-meta">
+                  <span class="author-tag" style="color: var(--tertiary);">Lamont &amp; Molnár (2002)</span>
+                  <span class="theme-chip">Categorical Shift</span>
+                </div>
+                <div class="concept-title">Symbolic vs. Social Boundaries</div>
+                <div class="concept-desc">Symbolic boundaries (conceptual categorizations &amp; cultural lines) become objectified patterns of exclusion and durable inequality (social boundaries).</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- CONNECTOR 2 -->
+        <div class="channel-track">
+          <div class="channel-line"></div>
+          <span class="channel-badge">Generative Activation</span>
+          <div class="arrow-down"></div>
+        </div>
+
+        <!-- PHASE 02: GENERATIVE MECHANISMS -->
+        <div class="compartment">
+          <div class="compartment-header">
+            <span class="compartment-title" style="color: var(--primary);">
+              PHASE 02 // GENERATIVE MECHANISMS
+            </span>
+            <span class="compartment-coord">RELATIONAL WORK &amp; CLOSURE</span>
+          </div>
+          <div class="compartment-body">
+            <div class="card-grid card-grid-2">
+              
+              <div class="scholar-card accent-sage">
+                <div class="card-meta">
+                  <span class="author-tag" style="color: var(--primary);">Tilly (2004)</span>
+                  <span class="theme-chip">Relational Processes</span>
+                </div>
+                <div class="concept-title">Encounter, Imposition &amp; Activation</div>
+                <div class="concept-desc">Durable boundaries are continuously produced and re-enacted through site encounter, boundary imposition, and selective categorical activation.</div>
+              </div>
+
+              <div class="scholar-card accent-sage">
+                <div class="card-meta">
+                  <span class="author-tag" style="color: var(--primary);">Weberian / Gieryn</span>
+                  <span class="theme-chip">Institutionalization</span>
+                </div>
+                <div class="concept-title">Boundary Work &amp; Social Closure</div>
+                <div class="concept-desc">Actors monopolize social, economic, and locational advantages by turning subjective cultural distinctions into hard physical barriers to entry.</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- CONNECTOR 3 -->
+        <div class="channel-track">
+          <div class="channel-line"></div>
+          <span class="channel-badge">Spatial Manifestation</span>
+          <div class="arrow-down"></div>
+        </div>
+
+        <!-- PHASE 03: PHYSICAL & SPATIAL EXPRESSION (WITH VALIDATION RAIL) -->
+        <div class="compartment">
+          <div class="compartment-header">
+            <span class="compartment-title" style="color: var(--accent);">
+              PHASE 03 // PHYSICAL &amp; SPATIAL EXPRESSION
+            </span>
+            <span class="compartment-coord">FRONTIERS &amp; BOUNDARY WOMBLING</span>
+          </div>
+          <div class="compartment-body">
+            
+            <div class="spatial-layout">
+              
+              <!-- Main Spatial Track -->
+              <div class="spatial-main">
+                
+                <div class="scholar-card accent-amber">
+                  <div class="card-meta">
+                    <span class="author-tag" style="color: var(--accent);">Aiello (2024) / Chyn (2023)</span>
+                    <span class="theme-chip">Infrastructure Anchoring</span>
+                  </div>
+                  <div class="concept-title">Physical Barriers: Highways &amp; Railroads</div>
+                  <div class="concept-desc">Large-scale infrastructural divides act as historical urban anchors, constraining everyday traversal and locking in geographic polarization.</div>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                  <div style="width: 2px; height: 16px; background: var(--rail-color); position: relative;">
+                    <div style="position: absolute; bottom: 0; left: -3px; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid var(--rail-color);"></div>
+                  </div>
+                </div>
+
+                <div class="scholar-card accent-amber">
+                  <div class="card-meta">
+                    <span class="author-tag" style="color: var(--accent);">Iyer &amp; Pryce (2024) / Legewie (2018)</span>
+                    <span class="theme-chip">Sharp Discontinuities</span>
+                  </div>
+                  <div class="concept-title">Social Frontiers: Abrupt Discontinuities</div>
+                  <div class="concept-desc">Boundaries characterized by steep, step-level transitions in socioeconomic composition between adjacent neighborhoods, intensifying social tension.</div>
+                </div>
+
+              </div>
+
+              <!-- Verification Track -->
+              <div class="validation-rail">
+                <span class="validation-tag">Methodological Validation</span>
+                <div class="concept-title" style="font-size: 13.5px; margin-bottom: 4px;">Zhang et al. (2024)</div>
+                <div class="concept-desc" style="font-size: 12px; margin-bottom: 10px;">
+                  <b>Areal Wombling Detection</b> statistically pinpoints boundary intensity, verifying algorithmic borders against qualitative resident boundary perceptions.
+                </div>
+                <div class="bridge-indicator">
+                  <span>&larr; Validates &amp; Calibrates Detected Frontiers</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CONNECTOR 4 -->
+        <div class="channel-track">
+          <div class="channel-line"></div>
+          <span class="channel-badge">Precipitates Measurable Outcomes</span>
+          <div class="arrow-down"></div>
+        </div>
+
+        <!-- PHASE 05: EMPIRICAL CONSEQUENCES -->
+        <div class="compartment">
+          <div class="compartment-header">
+            <span class="compartment-title" style="color: var(--accent-coral);">
+              PHASE 05 // EMPIRICAL CONSEQUENCES
+            </span>
+            <span class="compartment-coord">INDIVIDUAL &amp; SYSTEMIC OUTCOMES</span>
+          </div>
+          <div class="compartment-body">
+            <div class="card-grid card-grid-3">
+              
+              <div class="scholar-card accent-coral">
+                <div class="card-meta">
+                  <span class="author-tag" style="color: var(--accent-coral);">Chyn (2023)</span>
+                  <span class="theme-chip">Mobility Decay</span>
+                </div>
+                <div class="concept-title">Mobility &amp; Capital</div>
+                <div class="concept-desc">Sharp boundaries sever local movement networks, suppressing intergenerational mobility and network capital accumulation.</div>
+              </div>
+
+              <div class="scholar-card accent-coral">
+                <div class="card-meta">
+                  <span class="author-tag" style="color: var(--accent-coral);">Legewie (2018)</span>
+                  <span class="theme-chip">Inter-Group Friction</span>
+                </div>
+                <div class="concept-title">Crime &amp; Conflict</div>
+                <div class="concept-desc">Discontinuous demographic edges act as localized friction points, driving statistically elevated rates of conflict and racial policing.</div>
+              </div>
+
+              <div class="scholar-card accent-coral">
+                <div class="card-meta">
+                  <span class="author-tag" style="color: var(--accent-coral);">Lee et al. (2025)</span>
+                  <span class="theme-chip">Psychosocial Cost</span>
+                </div>
+                <div class="concept-title">Health &amp; Wellbeing</div>
+                <div class="concept-desc">Living in close proximity to entrenched social frontiers correlates with elevated chronic depressive symptoms and neighborhood distress.</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </div>
 
@@ -607,19 +912,8 @@ permalink: /social-boundaries-framework/
 
 </div>
 
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-  import elkLayouts from 'https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk/dist/mermaid-layout-elk.esm.min.mjs';
-
-  mermaid.registerLayoutLoaders(elkLayouts);
-  mermaid.initialize({
-    startOnLoad: true,
-    theme: 'default',
-    look: 'classic',
-    layout: 'elk'
-  });
-
-  // Synchronize site theme from localStorage or system preference
+<script>
+  // Theme Toggle Engine
   function getPreferredTheme() {
     var stored = localStorage.getItem('theme');
     if (stored === 'dark' || stored === 'light') return stored;
@@ -637,7 +931,6 @@ permalink: /social-boundaries-framework/
   var currentTheme = getPreferredTheme();
   applyTheme(currentTheme);
 
-  // Theme Toggle Button Handler (instant CSS update, zero graph re-parsing)
   var toggleBtn = document.getElementById('theme-toggle');
   if (toggleBtn) {
     toggleBtn.addEventListener('click', function() {
@@ -648,75 +941,72 @@ permalink: /social-boundaries-framework/
     });
   }
 
-  // System preference change listener
   if (window.matchMedia) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
       if (!localStorage.getItem('theme')) {
-        var sysTheme = e.matches ? 'dark' : 'light';
-        applyTheme(sysTheme);
+        applyTheme(e.matches ? 'dark' : 'light');
       }
     });
   }
-</script>
 
-<script>
-  function updateZoomState(wrap) {
-    var target = wrap.querySelector('.mermaid');
-    if (!target) return;
-    var zoom = parseFloat(target.dataset.zoom || '1');
-    wrap.classList.toggle('is-zoomed', zoom > 1);
+  // Interactive Zoom & Pan Engine for the Ledger Viewport
+  var currentScale = 1;
+  var graph = document.getElementById('ledger-graph');
+  var viewport = document.getElementById('ledger-viewport');
+
+  function updateZoomUI() {
+    if (viewport) {
+      viewport.classList.toggle('is-zoomed', currentScale > 1);
+    }
   }
-  function zoomDiagram(btn, factor) {
-    var wrap = btn.closest('.mermaid-wrap');
-    var target = wrap.querySelector('.mermaid');
-    if (!target) return;
-    var current = parseFloat(target.dataset.zoom || '1');
-    var next = Math.min(Math.max(current * factor, 0.3), 5);
-    target.dataset.zoom = next;
-    target.style.transform = 'scale(' + next + ')';
-    updateZoomState(wrap);
+
+  function zoomLedger(factor) {
+    if (!graph) return;
+    currentScale = Math.min(Math.max(currentScale * factor, 0.6), 2.0);
+    graph.style.transform = 'scale(' + currentScale + ')';
+    updateZoomUI();
   }
-  function resetZoom(btn) {
-    var wrap = btn.closest('.mermaid-wrap');
-    var target = wrap.querySelector('.mermaid');
-    if (!target) return;
-    target.dataset.zoom = '1';
-    target.style.transform = 'scale(1)';
-    updateZoomState(wrap);
+
+  function resetLedger() {
+    if (!graph) return;
+    currentScale = 1;
+    graph.style.transform = 'scale(1)';
+    updateZoomUI();
   }
-  document.querySelectorAll('.mermaid-wrap').forEach(function(wrap) {
-    wrap.addEventListener('wheel', function(e) {
+
+  if (viewport) {
+    viewport.addEventListener('wheel', function(e) {
       if (!e.ctrlKey && !e.metaKey) return;
       e.preventDefault();
-      var target = wrap.querySelector('.mermaid');
-      if (!target) return;
-      var current = parseFloat(target.dataset.zoom || '1');
       var factor = e.deltaY < 0 ? 1.1 : 0.9;
-      var next = Math.min(Math.max(current * factor, 0.3), 5);
-      target.dataset.zoom = next;
-      target.style.transform = 'scale(' + next + ')';
-      updateZoomState(wrap);
+      zoomLedger(factor);
     }, { passive: false });
+
+    var isPanning = false;
     var startX, startY, scrollL, scrollT;
-    wrap.addEventListener('mousedown', function(e) {
-      if (e.target.closest('.zoom-controls')) return;
-      var target = wrap.querySelector('.mermaid');
-      if (!target || parseFloat(target.dataset.zoom || '1') <= 1) return;
-      wrap.classList.add('is-panning');
+
+    viewport.addEventListener('mousedown', function(e) {
+      if (e.target.closest('.zoom-controls, .theme-toggle-btn')) return;
+      if (currentScale <= 1) return;
+      isPanning = true;
+      viewport.classList.add('is-panning');
       startX = e.clientX;
       startY = e.clientY;
-      scrollL = wrap.scrollLeft;
-      scrollT = wrap.scrollTop;
+      scrollL = viewport.scrollLeft;
+      scrollT = viewport.scrollTop;
     });
+
     window.addEventListener('mousemove', function(e) {
-      if (!wrap.classList.contains('is-panning')) return;
-      wrap.scrollLeft = scrollL - (e.clientX - startX);
-      wrap.scrollTop = scrollT - (e.clientY - startY);
+      if (!isPanning) return;
+      viewport.scrollLeft = scrollL - (e.clientX - startX);
+      viewport.scrollTop = scrollT - (e.clientY - startY);
     });
+
     window.addEventListener('mouseup', function() {
-      wrap.classList.remove('is-panning');
+      isPanning = false;
+      if (viewport) viewport.classList.remove('is-panning');
     });
-  });
+  }
 </script>
 </body>
 </html>
