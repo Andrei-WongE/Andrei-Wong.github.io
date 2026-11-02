@@ -867,7 +867,7 @@ permalink: /social-boundaries-framework/
                   <span class="theme-chip">Mobility Decay</span>
                 </div>
                 <div class="concept-title">Mobility &amp; Capital</div>
-                <div class="concept-desc">Sharp boundaries sever local movement networks, suppressing intergenerational mobility and network capital accumulation.</div>
+                <div class="concept-desc">Sharp boundaries sever local movement networks, suppressing mobility and network capital accumulation.</div>
               </div>
 
               <div class="scholar-card accent-coral">
