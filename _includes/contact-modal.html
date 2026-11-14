@@ -1,8 +1,8 @@
-<div id="contact-modal" class="contact-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+<div id="contact-modal" class="contact-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="contact-modal-card">
     <div class="contact-modal-header">
-      <div class="modal-badge"><span class="pulse-dot"></span> DIRECT ACADEMIC INQUIRY</div>
-      <button id="contact-modal-close" class="modal-close-btn" aria-label="Close modal">&times;</button>
+      <div class="modal-badge"><span class="pulse-dot" aria-hidden="true"></span> DIRECT ACADEMIC INQUIRY</div>
+      <button type="button" id="contact-modal-close" class="modal-close-btn" aria-label="Close modal">&times;</button>
     </div>
     
     <div class="contact-modal-body">
@@ -17,14 +17,14 @@
           <span id="revealed-email" class="masked-email">••••••••••••••••••••••••••••</span>
         </div>
         <div class="email-action-row">
-          <button id="copy-email-btn" class="modal-action-btn primary" title="Copy email address to clipboard">
-            <i class="fa-regular fa-copy"></i> <span id="copy-btn-text">Copy Address</span>
+          <button type="button" id="copy-email-btn" class="modal-action-btn primary" title="Copy email address to clipboard">
+            <i class="fa-regular fa-copy" aria-hidden="true"></i> <span id="copy-btn-text">Copy Address</span>
           </button>
-          <button id="reveal-email-btn" class="modal-action-btn secondary" title="Reveal institutional email address">
-            <i class="fa-regular fa-eye"></i> <span id="reveal-btn-text">Reveal Address</span>
+          <button type="button" id="reveal-email-btn" class="modal-action-btn secondary" title="Reveal institutional email address">
+            <i class="fa-regular fa-eye" aria-hidden="true"></i> <span id="reveal-btn-text">Reveal Address</span>
           </button>
           <a id="mailto-link" href="#" style="display: none;" class="modal-action-btn secondary" title="Open mail client">
-            <i class="fa-regular fa-envelope"></i> Open Mail Client ↗
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i> Open Mail Client ↗
           </a>
         </div>
       </div>
@@ -34,29 +34,29 @@
         <div class="profiles-grid">
           {% if site.author.googlescholar %}
           <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener noreferrer" class="profile-link">
-            <i class="ai ai-google-scholar"></i> Google Scholar
+            <i class="ai ai-google-scholar" aria-hidden="true"></i> Google Scholar
           </a>
           {% endif %}
           {% if site.author.orcid %}
           <a href="{{ site.author.orcid }}" target="_blank" rel="noopener noreferrer" class="profile-link">
-            <i class="ai ai-orcid"></i> ORCID
+            <i class="ai ai-orcid" aria-hidden="true"></i> ORCID
           </a>
           {% endif %}
           {% if site.author.github %}
           <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer" class="profile-link">
-            <i class="fab fa-github"></i> GitHub
+            <i class="fab fa-github" aria-hidden="true"></i> GitHub
           </a>
           {% endif %}
           {% if site.author.bluesky %}
           <a href="https://bsky.app/profile/{{ site.author.bluesky }}" target="_blank" rel="noopener noreferrer" class="profile-link">
-            <i class="fab fa-bluesky"></i> Bluesky
+            <i class="fab fa-bluesky" aria-hidden="true"></i> Bluesky
           </a>
           {% endif %}
         </div>
       </div>
 
       <div class="modal-privacy-note">
-        <i class="fa-solid fa-shield-halved"></i> 100% Privacy-Preserving: Obfuscated client-side assembly. Zero bot harvesting.
+        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> 100% Privacy-Preserving: Obfuscated client-side assembly. Zero bot harvesting.
       </div>
     </div>
   </div>
@@ -72,6 +72,14 @@
   var revealText = document.getElementById('reveal-btn-text');
   var mailtoLink = document.getElementById('mailto-link');
   var emailDisplay = document.getElementById('revealed-email');
+  var lastFocusedElement = null;
+
+  function setBackgroundInert(isInert) {
+    var nodes = document.querySelectorAll('.masthead, #main, .page__footer');
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].inert = isInert;
+    }
+  }
 
   /* Obfuscated email reconstruction in client memory */
   function getAddress() {
@@ -96,9 +104,12 @@
 
   window.openContactModal = function() {
     if (!modal) return;
+    lastFocusedElement = document.activeElement;
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
+    setBackgroundInert(true);
+    if (closeBtn) closeBtn.focus();
     if (window.CartographerAudio) window.CartographerAudio.pop();
   };
 
@@ -107,6 +118,10 @@
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
+    setBackgroundInert(false);
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus();
+    }
     if (window.CartographerAudio) window.CartographerAudio.click();
   };
 

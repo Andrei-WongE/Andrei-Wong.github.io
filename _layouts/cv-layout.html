@@ -5,26 +5,24 @@ layout: compress
 {% include base_path %}
 
 <!doctype html>
-<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
+<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js"{% if site.site_theme %} data-theme="{{ site.site_theme }}"{% endif %}>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %} | {{ site.name | default: site.title }}</title>
+    {% include analytics.html %}
     {% include head.html %}
     {% include head/custom.html %}
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/cv-layout.css">
+    <link rel="stylesheet" href="{{ base_path }}/assets/css/cv-layout.css">
   </head>
 
   <body class="cv-layout">
+    <a href="#main" class="skip-link">Skip to main content</a>
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 
-    <div id="main" role="main">
+    <main id="main">
       <div class="container">
         {{ content }}
       </div>
-    </div>
+    </main>
 
     <div class="page__footer">
       <footer>
@@ -33,6 +31,7 @@ layout: compress
       </footer>
     </div>
 
+    {% include contact-modal.html %}
     {% include scripts.html %}
 
   </body>

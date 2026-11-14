@@ -38,23 +38,23 @@ redirect_from:
       </div>
       <table class="coords-table">
         <tr>
-          <td>Coordinates</td>
+          <th scope="row">Coordinates</th>
           <td class="val">51.5221° N, 0.1299° W</td>
         </tr>
         <tr>
-          <td>Institution</td>
+          <th scope="row">Institution</th>
           <td class="val">Birkbeck, London</td>
         </tr>
         <tr>
-          <td>Focus</td>
+          <th scope="row">Focus</th>
           <td class="val">Urban Segregation</td>
         </tr>
         <tr>
-          <td>Core Methods</td>
+          <th scope="row">Core Methods</th>
           <td class="val">Spatial ML &bull; H3 &bull; INLA</td>
         </tr>
         <tr>
-          <td>Languages</td>
+          <th scope="row">Languages</th>
           <td class="val">EN &bull; ES &bull; FR &bull; NL</td>
         </tr>
       </table>

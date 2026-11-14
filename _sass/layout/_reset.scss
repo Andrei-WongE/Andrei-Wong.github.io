@@ -8,10 +8,10 @@ html {
   /* apply a natural box layout model to all elements */
   box-sizing: border-box;
   background-color: var(--global-bg-color);
-  font-size: 16px;
+  font-size: 100%;
 
   @include breakpoint($medium) {
-    font-size: 18px;
+    font-size: 112.5%;
   }
 
   -webkit-text-size-adjust: 100%;
@@ -25,13 +25,13 @@ body { margin: 0; }
 /* Selected elements */
 
 ::-moz-selection {
-  color: #fff;
-  background: #000;
+  color: var(--global-bg-color);
+  background: var(--global-link-color);
 }
 
 ::selection {
-  color: #fff;
-  background: #000;
+  color: var(--global-bg-color);
+  background: var(--global-link-color);
 }
 
 /* Display HTML5 elements in IE6-9 and FF3 */

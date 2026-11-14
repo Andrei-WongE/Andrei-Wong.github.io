@@ -8,7 +8,7 @@
 var $nav = $('#site-nav');
 var $btn = $('#site-nav button');
 var $vlinks = $('#site-nav .visible-links');
-var $vlinks_persist_tail = $vlinks.children("*.persist.tail");
+var $vlinks_persist_tail = $vlinks.children("*.persist.tail").first();
 var $hlinks = $('#site-nav .hidden-links');
 
 var breaks = [];

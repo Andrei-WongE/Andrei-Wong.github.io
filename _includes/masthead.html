@@ -1,9 +1,9 @@
 {% include base_path %}
 
-<div class="masthead">
+<header class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary">
         <button type="button" aria-controls="hidden-links" aria-expanded="false" aria-label="Toggle navigation menu" id="nav-toggle" class="hidden"><div class="navicon"></div></button>
         <ul class="visible-links">
           <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="{{ base_path }}/">{{ site.title }}</a></li>
@@ -15,11 +15,11 @@
             {% endif %}
             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
-          <li id="sound-toggle" class="masthead__menu-item persist" title="Toggle tactile audio">
-            <a><i id="sound-icon" class="fa-solid fa-volume-high" aria-hidden="true"></i></a>
+          <li id="sound-toggle" class="masthead__menu-item persist tail" title="Toggle tactile audio">
+            <a href="#" role="button" aria-label="Toggle tactile audio" aria-pressed="false"><i id="sound-icon" class="fa-solid fa-volume-xmark" aria-hidden="true"></i></a>
           </li>
           <li id="theme-toggle" class="masthead__menu-item persist tail">
-            <a><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
+            <a href="#" role="button" aria-label="Toggle color theme"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="Toggle theme"></i></a>
           </li>
         </ul>
         <ul id="hidden-links" class="hidden-links hidden" aria-hidden="true"></ul>
@@ -50,9 +50,24 @@
             }
           });
 
+          const roleButtons = document.querySelectorAll('#sound-toggle a[role="button"], #theme-toggle a[role="button"]');
+          roleButtons.forEach((btn) => {
+            btn.addEventListener('keydown', (e) => {
+              if (e.key === ' ') {
+                e.preventDefault();
+              }
+            });
+            btn.addEventListener('keyup', (e) => {
+              if (e.key === ' ') {
+                e.preventDefault();
+                btn.click();
+              }
+            });
+          });
+
           sync();
         })();
       </script>
     </div>
   </div>
-</div>
+</header>
