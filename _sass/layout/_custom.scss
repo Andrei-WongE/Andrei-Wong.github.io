@@ -110,18 +110,6 @@ h1, h2, h3 {
     border-bottom: 1px solid var(--global-dark-border-color);
     position: relative;
 
-    .hero-grid {
-        display: grid;
-        grid-template-columns: 1fr 290px;
-        gap: 1.75rem;
-        align-items: center;
-
-        @media (max-width: 950px) {
-            grid-template-columns: 1fr;
-            gap: 1.25rem;
-        }
-    }
-
     .hero-content {
         .hero-kicker {
             font-family: var(--font-mono, monospace);
@@ -155,7 +143,7 @@ h1, h2, h3 {
             font-size: 0.90em;
             line-height: 1.55;
             color: var(--global-text-color-light);
-            max-width: 58ch;
+            max-width: 65ch;
             text-wrap: pretty;
         }
 
@@ -164,60 +152,6 @@ h1, h2, h3 {
             align-items: center;
             gap: 0.6rem;
             flex-wrap: wrap;
-        }
-    }
-
-    /* Cartographer Coordinates Ledger Panel */
-    .hero-coords-card {
-        background: var(--global-panel-color);
-        border: 1px solid var(--global-border-color);
-        border-radius: 6px;
-        padding: 0.95rem 1.1rem;
-
-        .coords-header {
-            font-family: var(--font-mono, monospace);
-            font-size: 0.68em;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--global-link-color);
-            border-bottom: 1px solid var(--global-dark-border-color);
-            padding-bottom: 0.35rem;
-            margin-bottom: 0.45rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .coords-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.78em;
-
-            tr {
-                border-bottom: 1px solid var(--global-border-color);
-                &:last-child { border-bottom: none; }
-            }
-
-            th,
-            td {
-                padding: 0.3rem 0;
-                color: var(--global-text-color-light);
-            }
-
-            th {
-                text-align: left;
-                font-weight: normal;
-            }
-
-            td {
-                &.val {
-                    text-align: right;
-                    font-family: var(--font-mono, monospace);
-                    color: var(--global-text-color);
-                    font-weight: 600;
-                    white-space: nowrap;
-                }
-            }
         }
     }
 }

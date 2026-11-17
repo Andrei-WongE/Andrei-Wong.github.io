@@ -8,54 +8,23 @@ redirect_from:
 ---
 
 <div class="home-hero-v2">
-  <div class="hero-grid">
-    <div class="hero-content">
-      <div class="hero-kicker">Birkbeck, University of London &bull; PhD Candidate</div>
-      <h1 class="hero-title">Andrei Wong Espejo</h1>
-      <div class="hero-subtitle">Spatial Data Science &amp; Urban Geography</div>
-      <p class="hero-thesis">
-        Investigating social boundaries, relational segregation, and spatial statistics using Bayesian workflows and GeoAI across metropolitan regions.
-      </p>
-      <div class="hero-cta-group">
-        <a href="{{ site.baseurl }}/social-boundaries-framework/" class="button-nested primary">
-          Explore Framework <span class="icon-circle" aria-hidden="true">↗</span>
-        </a>
-        <a href="{{ site.baseurl }}/cv/" class="button-nested secondary">
-          Academic CV <span class="icon-circle" aria-hidden="true">↓</span>
-        </a>
-        <button type="button" onclick="openContactModal()" class="hero-link-action">
-          Connect &amp; Collaborate <span aria-hidden="true">✉</span>
-        </button>
-      </div>
-    </div>
-    
-    <div class="hero-coords-card">
-      <div class="coords-header">
-        <span>Cartographic Ledger</span>
-        <span>BBK &bull; UK</span>
-      </div>
-      <table class="coords-table">
-        <tr>
-          <th scope="row">Coordinates</th>
-          <td class="val">51.5221° N, 0.1299° W</td>
-        </tr>
-        <tr>
-          <th scope="row">Institution</th>
-          <td class="val">Birkbeck, London</td>
-        </tr>
-        <tr>
-          <th scope="row">Focus</th>
-          <td class="val">Urban Segregation</td>
-        </tr>
-        <tr>
-          <th scope="row">Core Methods</th>
-          <td class="val">Spatial ML &bull; H3 &bull; INLA</td>
-        </tr>
-        <tr>
-          <th scope="row">Languages</th>
-          <td class="val">EN &bull; ES &bull; FR &bull; NL</td>
-        </tr>
-      </table>
+  <div class="hero-content">
+    <div class="hero-kicker">Birkbeck, University of London &bull; PhD Candidate</div>
+    <h1 class="hero-title">Andrei Wong Espejo</h1>
+    <div class="hero-subtitle">Spatial Data Science &amp; Urban Geography</div>
+    <p class="hero-thesis">
+      Investigating social boundaries, relational segregation, and spatial statistics using Bayesian workflows and GeoAI across metropolitan regions.
+    </p>
+    <div class="hero-cta-group">
+      <a href="{{ site.baseurl }}/social-boundaries-framework/" class="button-nested primary">
+        Explore Framework <span class="icon-circle" aria-hidden="true">↗</span>
+      </a>
+      <a href="{{ site.baseurl }}/cv/" class="button-nested secondary">
+        Academic CV <span class="icon-circle" aria-hidden="true">↓</span>
+      </a>
+      <button type="button" onclick="openContactModal()" class="hero-link-action">
+        Connect &amp; Collaborate <span aria-hidden="true">✉</span>
+      </button>
     </div>
   </div>
 </div>
