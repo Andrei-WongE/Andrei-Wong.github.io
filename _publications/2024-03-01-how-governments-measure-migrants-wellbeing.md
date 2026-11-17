@@ -6,6 +6,7 @@ permalink: /publication/2024-03-01-how-governments-measure-migrants-wellbeing
 excerpt: 'A comprehensive systematic review assessing how national governments collect, structure, and govern data related to migrant well-being, identifying critical empirical gaps and spatial data asymmetries.'
 date: 2024-03-01
 venue: 'Wellbeing, Space and Society (Under Review)'
+hide_venue: true
 citation: 'Wong Espejo, A. (2024). &quot;How do governments measure migrants’ well-being? A systematic data availability and datasets review.&quot; <i>Wellbeing, Space and Society</i> (Under Review).'
 ---
 

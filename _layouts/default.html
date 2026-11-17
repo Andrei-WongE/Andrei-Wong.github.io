@@ -107,7 +107,7 @@ layout: compress
       /* Universal tactile click on interactive elements and citation copy handler */
       document.addEventListener('click', function(e) {
         if (window.CartographerAudio && !window.CartographerAudio.isMuted()) {
-          var target = e.target.closest('a, button, .button-nested, .work-ledger-row, .double-bezel-outer, .spotlight-link, .modal-action-btn, .tag-label');
+          var target = e.target.closest('a, button, .button-nested, .work-ledger-row, .spotlight-card, .spotlight-link, .modal-action-btn, .tag-label');
           if (target && !e.target.closest('#sound-toggle, #theme-toggle')) {
             window.CartographerAudio.click();
           }

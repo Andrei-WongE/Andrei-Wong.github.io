@@ -6,6 +6,7 @@ permalink: /publication/2020-09-01-economic-impact-covid19-global-value-chain-pe
 excerpt: 'Quantitative investigation into supply chain interruptions, trade shocks, and firm-level impacts across export sectors during the onset of the COVID-19 pandemic.'
 date: 2020-09-01
 venue: 'The World Bank'
+hide_published_in: true
 citation: 'Wong Espejo, A. et al. (2020). &quot;Economic Impact of COVID-19 in the Global Value Chain of Peru.&quot; <i>The World Bank Group</i>.'
 ---
 

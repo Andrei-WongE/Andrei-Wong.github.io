@@ -10,24 +10,22 @@ redirect_from:
 <div class="home-hero-v2">
   <div class="hero-grid">
     <div class="hero-content">
-      <div class="status-pill">
-        <span class="pulse-dot"></span> Doctoral Researcher &bull; Birkbeck, University of London
-      </div>
+      <div class="hero-kicker">Birkbeck, University of London &bull; PhD Candidate</div>
       <h1 class="hero-title">Andrei Wong Espejo</h1>
-      <div class="hero-subtitle">PhD Candidate in Geography, Environment and Development</div>
+      <div class="hero-subtitle">Spatial Data Science &amp; Urban Geography</div>
       <p class="hero-thesis">
         Investigating social boundaries, relational segregation, and spatial statistics using Bayesian workflows and GeoAI across metropolitan regions.
       </p>
       <div class="hero-cta-group">
         <a href="{{ site.baseurl }}/social-boundaries-framework/" class="button-nested primary">
-          Explore Framework <span class="icon-circle">↗</span>
+          Explore Framework <span class="icon-circle" aria-hidden="true">↗</span>
         </a>
-        <button onclick="openContactModal()" class="button-nested secondary">
-          Connect & Collaborate <span class="icon-circle">✉</span>
-        </button>
         <a href="{{ site.baseurl }}/cv/" class="button-nested secondary">
-          Academic CV <span class="icon-circle">↓</span>
+          Academic CV <span class="icon-circle" aria-hidden="true">↓</span>
         </a>
+        <button type="button" onclick="openContactModal()" class="hero-link-action">
+          Connect &amp; Collaborate <span aria-hidden="true">✉</span>
+        </button>
       </div>
     </div>
     
@@ -66,56 +64,44 @@ Featured Research Initiatives
 ------------------------------
 <div class="spotlight-grid">
   <!-- Spotlight 1: Social Boundaries Framework -->
-  <div class="double-bezel-outer">
-    <div class="double-bezel-inner">
-      <div>
-        <div class="spotlight-eyebrow">
-          <span class="pulse-dot"></span> THEORETICAL & EMPIRICAL FRAMEWORK
-        </div>
-        <h3 class="spotlight-title">
-          <a href="{{ site.baseurl }}/social-boundaries-framework/">Social Boundaries & Urban Economic Inequalities</a>
-        </h3>
-        <p class="spotlight-desc">
-          A relational perspective of segregation advancing a boundary-based approach. Investigates how sharp socioeconomic transitions between adjacent areas correspond to network discontinuities and firm distribution across London.
-        </p>
-        <div class="spotlight-tags">
-          <span class="spotlight-tag">Areal Edge Detection</span>
-          <span class="spotlight-tag">London Business Cadastre</span>
-          <span class="spotlight-tag">RGS-IBG 2025</span>
-          <span class="spotlight-tag">Relational Segregation</span>
-        </div>
+  <article class="spotlight-card">
+    <div>
+      <div class="spotlight-category">Theoretical &amp; Empirical Framework</div>
+      <h3 class="spotlight-title">Social Boundaries &amp; Urban Economic Inequalities</h3>
+      <p class="spotlight-desc">
+        A relational perspective of segregation advancing a boundary-based approach. Investigates how sharp socioeconomic transitions between adjacent areas correspond to network discontinuities and firm distribution across London.
+      </p>
+      <div class="spotlight-tags">
+        <span class="spotlight-tag">Areal Edge Detection</span>
+        <span class="spotlight-tag">London Business Cadastre</span>
+        <span class="spotlight-tag">RGS-IBG 2025</span>
+        <span class="spotlight-tag">Relational Segregation</span>
       </div>
-      <a href="{{ site.baseurl }}/social-boundaries-framework/" class="spotlight-link">
-        Explore Theoretical Framework & Graph ↗
-      </a>
     </div>
-  </div>
+    <a href="{{ site.baseurl }}/social-boundaries-framework/" class="spotlight-link">
+      Explore Theoretical Framework &amp; Graph <span aria-hidden="true">↗</span>
+    </a>
+  </article>
 
   <!-- Spotlight 2: Spatial Bayesian Models -->
-  <div class="double-bezel-outer">
-    <div class="double-bezel-inner">
-      <div>
-        <div class="spotlight-eyebrow">
-          <span class="pulse-dot"></span> COMPUTATIONAL SPATIAL DATA SCIENCE
-        </div>
-        <h3 class="spotlight-title">
-          <a href="{{ site.baseurl }}/files/Spatial_bayesian_models.html" target="_blank" rel="noopener noreferrer">Spatial Bayesian Models: Theory & Implementations</a>
-        </h3>
-        <p class="spotlight-desc">
-          Comprehensive spatial modeling resource covering areal models (CAR/SAR/BYM2), spatial point processes, and Bayesian inference algorithms (INLA, Stan) for larger-than-memory spatial datasets.
-        </p>
-        <div class="spotlight-tags">
-          <span class="spotlight-tag">Bayesian Econometrics</span>
-          <span class="spotlight-tag">INLA / Stan</span>
-          <span class="spotlight-tag">H3 Spatial Grids</span>
-          <span class="spotlight-tag">Point Processes</span>
-        </div>
+  <article class="spotlight-card">
+    <div>
+      <div class="spotlight-category">Computational Spatial Data Science</div>
+      <h3 class="spotlight-title">Spatial Bayesian Models: Theory &amp; Implementations</h3>
+      <p class="spotlight-desc">
+        Comprehensive spatial modeling resource covering areal models (CAR/SAR/BYM2), spatial point processes, and Bayesian inference algorithms (INLA, Stan) for larger-than-memory spatial datasets.
+      </p>
+      <div class="spotlight-tags">
+        <span class="spotlight-tag">Bayesian Econometrics</span>
+        <span class="spotlight-tag">INLA / Stan</span>
+        <span class="spotlight-tag">H3 Spatial Grids</span>
+        <span class="spotlight-tag">Point Processes</span>
       </div>
-      <a href="{{ site.baseurl }}/files/Spatial_bayesian_models.html" target="_blank" rel="noopener noreferrer" class="spotlight-link">
-        Open Spatial Bayesian Models Notebook ↗
-      </a>
     </div>
-  </div>
+    <a href="{{ site.baseurl }}/files/Spatial_bayesian_models.html" target="_blank" rel="noopener noreferrer" class="spotlight-link">
+      Open Interactive HTML Notebook <span aria-hidden="true">↗</span>
+    </a>
+  </article>
 </div>
 
 Where I've Worked & Consulted
