@@ -192,6 +192,13 @@ layout: compress
       window.addEventListener('blur', function() { mouse.active = false; });
       window.addEventListener('touchend', function() { mouse.active = false; }, { passive: true });
 
+      function isDarkTheme() {
+        var theme = document.documentElement.getAttribute('data-theme');
+        if (theme === 'dark') return true;
+        if (theme === 'light') return false;
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+
       function draw() {
         rafId = null;
         if (prefersReducedMotion) {
@@ -232,7 +239,7 @@ layout: compress
             points[r][c] = { x: x, y: y };
           }
         }
-        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        var isDark = isDarkTheme();
         ctx.beginPath();
         ctx.strokeStyle = isDark ? 'rgba(61,72,77,0.55)' : 'rgba(150,165,170,0.45)';
         ctx.lineWidth = 0.6;
@@ -279,7 +286,7 @@ layout: compress
         ctx.clearRect(0, 0, width, height);
         var cols = Math.ceil(width / spacing) + 2;
         var rows = Math.ceil(height / spacing) + 2;
-        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        var isDark = isDarkTheme();
         ctx.beginPath();
         ctx.strokeStyle = isDark ? 'rgba(61,72,77,0.55)' : 'rgba(150,165,170,0.45)';
         ctx.lineWidth = 0.6;

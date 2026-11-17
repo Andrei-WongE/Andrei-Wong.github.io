@@ -194,7 +194,7 @@ h1, h2, h3 {
             font-size: 0.78em;
 
             tr {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+                border-bottom: 1px solid var(--global-border-color);
                 &:last-child { border-bottom: none; }
             }
 
@@ -239,12 +239,12 @@ h1, h2, h3 {
 
     &.primary {
         background: var(--global-link-color);
-        color: #2D353B !important;
+        color: var(--btn-text, #2D353B) !important;
         border: 1px solid var(--global-link-color);
 
         .icon-circle {
             background: rgba(0, 0, 0, 0.15);
-            color: #2D353B;
+            color: var(--btn-text, #2D353B);
         }
 
         &:hover {
@@ -268,7 +268,7 @@ h1, h2, h3 {
         border: 1px solid var(--global-border-color);
 
         .icon-circle {
-            background: rgba(255, 255, 255, 0.06);
+            background: var(--global-border-color);
             color: var(--global-link-color);
         }
 
@@ -518,7 +518,7 @@ h1, h2, h3 {
             li {
                 font-size: 0.84em;
                 padding: 0.45rem 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+                border-bottom: 1px solid var(--global-border-color);
                 display: flex;
                 justify-content: space-between;
                 align-items: baseline;
