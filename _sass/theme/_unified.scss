@@ -26,13 +26,17 @@ html[data-theme="light"] {
   --global-thead-color: #EAE6DC;
   --font-mono: Monaco, Consolas, "Lucida Console", monospace;
   --hero-subtitle-color: #9d6800;
-  --accent-blue: #3B758C;
-  --accent-aqua: #357B62;
-  --accent-plum: #7D4E72;
-  --accent-blue-tint: rgba(59, 117, 140, 0.10);
-  --accent-amber-tint: rgba(157, 104, 0, 0.10);
-  --accent-plum-tint: rgba(125, 78, 114, 0.10);
-  --accent-aqua-tint: rgba(53, 123, 98, 0.10);
+  --accent-blue: #2B5F75;
+  --accent-aqua: #26614D;
+  --accent-plum: #6B3D60;
+  --accent-blue-tint: rgba(43, 95, 117, 0.13);
+  --accent-amber-tint: rgba(157, 104, 0, 0.13);
+  --accent-plum-tint: rgba(107, 61, 96, 0.13);
+  --accent-aqua-tint: rgba(38, 97, 77, 0.13);
+  --accent-blue-border: rgba(43, 95, 117, 0.38);
+  --accent-amber-border: rgba(157, 104, 0, 0.38);
+  --accent-plum-border: rgba(107, 61, 96, 0.38);
+  --accent-aqua-border: rgba(38, 97, 77, 0.38);
   --spotlight-surface: rgba(244, 241, 234, 0.72);
 
   /* Button states */
@@ -92,10 +96,14 @@ html[data-theme="light"] {
     --accent-blue: #7FBBB3;
     --accent-aqua: #83C092;
     --accent-plum: #D699B6;
-    --accent-blue-tint: rgba(127, 187, 179, 0.12);
-    --accent-amber-tint: rgba(219, 188, 127, 0.12);
-    --accent-plum-tint: rgba(214, 153, 182, 0.12);
-    --accent-aqua-tint: rgba(131, 192, 146, 0.12);
+    --accent-blue-tint: rgba(127, 187, 179, 0.20);
+    --accent-amber-tint: rgba(219, 188, 127, 0.20);
+    --accent-plum-tint: rgba(214, 153, 182, 0.20);
+    --accent-aqua-tint: rgba(131, 192, 146, 0.20);
+    --accent-blue-border: rgba(127, 187, 179, 0.48);
+    --accent-amber-border: rgba(219, 188, 127, 0.48);
+    --accent-plum-border: rgba(214, 153, 182, 0.48);
+    --accent-aqua-border: rgba(131, 192, 146, 0.48);
     --spotlight-surface: rgba(52, 63, 68, 0.58);
 
     --btn-bg: #A7C080;
@@ -153,10 +161,14 @@ html[data-theme="dark"] {
   --accent-blue: #7FBBB3;
   --accent-aqua: #83C092;
   --accent-plum: #D699B6;
-  --accent-blue-tint: rgba(127, 187, 179, 0.12);
-  --accent-amber-tint: rgba(219, 188, 127, 0.12);
-  --accent-plum-tint: rgba(214, 153, 182, 0.12);
-  --accent-aqua-tint: rgba(131, 192, 146, 0.12);
+  --accent-blue-tint: rgba(127, 187, 179, 0.20);
+  --accent-amber-tint: rgba(219, 188, 127, 0.20);
+  --accent-plum-tint: rgba(214, 153, 182, 0.20);
+  --accent-aqua-tint: rgba(131, 192, 146, 0.20);
+  --accent-blue-border: rgba(127, 187, 179, 0.48);
+  --accent-amber-border: rgba(219, 188, 127, 0.48);
+  --accent-plum-border: rgba(214, 153, 182, 0.48);
+  --accent-aqua-border: rgba(131, 192, 146, 0.48);
   --spotlight-surface: rgba(52, 63, 68, 0.58);
 
   --btn-bg: #A7C080;
