@@ -370,7 +370,7 @@ layout: compress
       if (!('IntersectionObserver' in window)) return;
 
       function initScrollSettle() {
-        var targets = document.querySelectorAll('.spotlight-card, .work-ledger-row, .ledger-box, .page__content > h2');
+        var targets = document.querySelectorAll('.spotlight-card, .work-ledger-row, .ledger-box, .page__content > h2, .archive__item, .card-list > li');
         if (!targets.length) return;
 
         var observer = new IntersectionObserver(function(entries) {
