@@ -26,6 +26,11 @@ html[data-theme="light"] {
   --global-thead-color: #EAE6DC;
   --font-mono: Monaco, Consolas, "Lucida Console", monospace;
   --hero-subtitle-color: #9d6800;
+  --accent-blue: #3B758C;
+  --accent-aqua: #357B62;
+  --accent-blue-tint: rgba(59, 117, 140, 0.10);
+  --accent-amber-tint: rgba(157, 104, 0, 0.10);
+  --spotlight-surface: rgba(244, 241, 234, 0.72);
 
   /* Button states */
   --btn-bg: #3A7D6E;
@@ -81,6 +86,11 @@ html[data-theme="light"] {
     --global-thead-color: #3D484D;
     --font-mono: Monaco, Consolas, "Lucida Console", monospace;
     --hero-subtitle-color: #DBBC7F;
+    --accent-blue: #7FBBB3;
+    --accent-aqua: #83C092;
+    --accent-blue-tint: rgba(127, 187, 179, 0.12);
+    --accent-amber-tint: rgba(219, 188, 127, 0.12);
+    --spotlight-surface: rgba(52, 63, 68, 0.58);
 
     --btn-bg: #A7C080;
     --btn-text: #2D353B;
@@ -134,6 +144,11 @@ html[data-theme="dark"] {
   --global-thead-color: #3D484D;
   --font-mono: Monaco, Consolas, "Lucida Console", monospace;
   --hero-subtitle-color: #DBBC7F;
+  --accent-blue: #7FBBB3;
+  --accent-aqua: #83C092;
+  --accent-blue-tint: rgba(127, 187, 179, 0.12);
+  --accent-amber-tint: rgba(219, 188, 127, 0.12);
+  --spotlight-surface: rgba(52, 63, 68, 0.58);
 
   --btn-bg: #A7C080;
   --btn-text: #2D353B;

@@ -149,6 +149,9 @@ layout: compress
       var height = canvas.height = window.innerHeight;
       var mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000, active: false };
       var spacing = 50, warpRadius = 180, maxDisp = 25;
+      var parallaxFactor = 0.35;
+      var targetScrollY = window.scrollY || window.pageYOffset || 0;
+      var smoothScrollY = targetScrollY;
       var motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
       var prefersReducedMotion = motionQuery.matches;
       var rafId = null;
@@ -157,6 +160,15 @@ layout: compress
         if (prefersReducedMotion || rafId !== null) return;
         rafId = requestAnimationFrame(draw);
       }
+
+      window.addEventListener('scroll', function() {
+        targetScrollY = window.scrollY || window.pageYOffset || 0;
+        if (prefersReducedMotion) {
+          smoothScrollY = targetScrollY;
+          return;
+        }
+        wakeLoop();
+      }, { passive: true });
 
       function updatePointer(x, y) {
         if (!mouse.active && mouse.x <= -999 && mouse.y <= -999) {
@@ -205,6 +217,15 @@ layout: compress
           drawStatic();
           return;
         }
+        var scrollDiff = targetScrollY - smoothScrollY;
+        var scrollSettled = Math.abs(scrollDiff) < 0.25;
+        if (!scrollSettled) {
+          smoothScrollY += scrollDiff * 0.14;
+        } else {
+          smoothScrollY = targetScrollY;
+        }
+
+        var mouseSettled = false;
         if (mouse.active) {
           mouse.x += (mouse.targetX - mouse.x) * 0.1;
           mouse.y += (mouse.targetY - mouse.y) * 0.1;
@@ -214,17 +235,24 @@ layout: compress
           if (Math.abs(-1000 - mouse.x) < 1 && Math.abs(-1000 - mouse.y) < 1) {
             mouse.x = -1000;
             mouse.y = -1000;
-            drawStatic();
-            return;
+            mouseSettled = true;
           }
         }
+
+        if (mouseSettled && scrollSettled) {
+          drawStatic();
+          return;
+        }
+
+        var offsetY = -(((smoothScrollY * parallaxFactor) % spacing) + spacing) % spacing;
+
         ctx.clearRect(0, 0, width, height);
         var cols = Math.ceil(width / spacing) + 2;
-        var rows = Math.ceil(height / spacing) + 2;
+        var rows = Math.ceil(height / spacing) + 3;
         var points = [];
         for (var r = 0; r < rows; r++) {
           points[r] = [];
-          var posY = (r - 1) * spacing;
+          var posY = (r - 1) * spacing + offsetY;
           for (var c = 0; c < cols; c++) {
             var posX = (c - 1) * spacing;
             var x = posX, y = posY;
@@ -283,18 +311,19 @@ layout: compress
       }
 
       function drawStatic() {
+        var offsetY = prefersReducedMotion ? 0 : -(((smoothScrollY * parallaxFactor) % spacing) + spacing) % spacing;
         ctx.clearRect(0, 0, width, height);
         var cols = Math.ceil(width / spacing) + 2;
-        var rows = Math.ceil(height / spacing) + 2;
+        var rows = Math.ceil(height / spacing) + 3;
         var isDark = isDarkTheme();
         ctx.beginPath();
         ctx.strokeStyle = isDark ? 'rgba(61,72,77,0.55)' : 'rgba(150,165,170,0.45)';
         ctx.lineWidth = 0.6;
         for (var r = 0; r < rows; r++) {
           for (var c = 0; c < cols; c++) {
-            var posX = (c - 1) * spacing, posY = (r - 1) * spacing;
+            var posX = (c - 1) * spacing, posY = (r - 1) * spacing + offsetY;
             if (c < cols - 1) { ctx.moveTo(posX, posY); ctx.lineTo((c) * spacing, posY); }
-            if (r < rows - 1) { ctx.moveTo(posX, posY); ctx.lineTo(posX, (r) * spacing); }
+            if (r < rows - 1) { ctx.moveTo(posX, posY); ctx.lineTo(posX, posY + spacing); }
           }
         }
         ctx.stroke();
@@ -302,7 +331,7 @@ layout: compress
         ctx.strokeStyle = isDark ? 'rgba(133,146,137,0.35)' : 'rgba(100,130,140,0.30)';
         for (var r = 0; r < rows; r++) {
           for (var c = 0; c < cols; c++) {
-            var posX = (c - 1) * spacing, posY = (r - 1) * spacing;
+            var posX = (c - 1) * spacing, posY = (r - 1) * spacing + offsetY;
             ctx.moveTo(posX - 3, posY); ctx.lineTo(posX + 3, posY);
             ctx.moveTo(posX, posY - 3); ctx.lineTo(posX, posY + 3);
           }
@@ -333,6 +362,41 @@ layout: compress
       }
 
       drawStatic();
+    })();
+
+    /* Subtle Section Scroll-Settle (Alternative A — enhances already-visible default) */
+    (function() {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (!('IntersectionObserver' in window)) return;
+
+      function initScrollSettle() {
+        var targets = document.querySelectorAll('.spotlight-card, .work-ledger-row, .ledger-box, .page__content > h2');
+        if (!targets.length) return;
+
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.remove('scroll-settle-pending');
+              entry.target.classList.add('scroll-settle-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+
+        var foldY = window.innerHeight * 0.94;
+        targets.forEach(function(el) {
+          if (el.getBoundingClientRect().top > foldY) {
+            el.classList.add('scroll-settle-pending');
+            observer.observe(el);
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollSettle);
+      } else {
+        initScrollSettle();
+      }
     })();
     </script>
 

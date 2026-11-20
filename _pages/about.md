@@ -42,7 +42,7 @@ Featured Research Initiatives
       </p>
       <div class="spotlight-tags">
         <span class="spotlight-tag">Areal Edge Detection</span>
-        <span class="spotlight-tag">London Business Cadastre</span>
+        <span class="spotlight-tag">Point of Interest Data</span>
         <span class="spotlight-tag">RGS-IBG 2025</span>
         <span class="spotlight-tag">Relational Segregation</span>
       </div>
