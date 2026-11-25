@@ -111,6 +111,7 @@
     setBackgroundInert(true);
     if (closeBtn) closeBtn.focus();
     if (window.CartographerAudio) window.CartographerAudio.pop();
+    if (window.trackEvent) window.trackEvent('contact_modal_open', { page_path: window.location.pathname });
   };
 
   window.closeContactModal = function() {
@@ -143,6 +144,7 @@
     revealBtn.addEventListener('click', function() {
       revealAddress();
       if (window.CartographerAudio) window.CartographerAudio.click();
+      if (window.trackEvent) window.trackEvent('email_reveal', { page_path: window.location.pathname });
     });
   }
 
@@ -154,6 +156,7 @@
         if (copyText) copyText.textContent = 'Copied to Clipboard! ✓';
         copyBtn.classList.add('copied');
         if (window.CartographerAudio) window.CartographerAudio.click();
+        if (window.trackEvent) window.trackEvent('email_copy', { page_path: window.location.pathname });
         setTimeout(function() {
           if (copyText) copyText.textContent = 'Copy Address';
           copyBtn.classList.remove('copied');

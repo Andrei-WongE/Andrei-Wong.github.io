@@ -1,0 +1,69 @@
+{% if site.analytics.provider == "google-analytics-4" and page.analytics != false %}
+<script data-cookieconsent="ignore">
+(function() {
+  window.trackEvent = function(eventName, params) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', eventName, params || {});
+  };
+
+  function classifyFile(fileName, ext) {
+    var lower = fileName.toLowerCase();
+    if (lower.indexOf('cv') !== -1) return 'cv';
+    if (lower.indexOf('slide') !== -1) return 'slides';
+    if (lower.indexOf('paper') !== -1) return 'paper';
+    if (ext === 'bib') return 'bibtex';
+    if (ext === 'html' || ext === 'ipynb') return 'notebook';
+    return 'document';
+  }
+
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a');
+    if (!link) return;
+
+    var rawHref = link.getAttribute('href') || '';
+    if (!rawHref || rawHref.charAt(0) === '#' || rawHref.indexOf('javascript:') === 0) return;
+
+    var linkText = (link.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 100);
+
+    if (rawHref.indexOf('mailto:') === 0) {
+      window.trackEvent('email_mailto_click', { page_path: window.location.pathname });
+      return;
+    }
+
+    var url;
+    try {
+      url = new URL(link.href, window.location.origin);
+    } catch (err) {
+      return;
+    }
+
+    var path = url.pathname || '';
+    var fileMatch = path.match(/\.([a-z0-9]+)$/i);
+    var ext = fileMatch ? fileMatch[1].toLowerCase() : '';
+    var isTrackedFile = /\.(pdf|bib|csv|tsv|zip|geojson|ipynb)$/i.test(path) || path.indexOf('/files/') !== -1;
+
+    if (isTrackedFile) {
+      var fileName = path.split('/').pop() || path;
+      window.trackEvent('file_download', {
+        file_name: fileName,
+        file_extension: ext || 'unknown',
+        file_category: classifyFile(fileName, ext),
+        link_url: url.href,
+        link_text: linkText,
+        transport_type: 'beacon'
+      });
+      return;
+    }
+
+    if (url.hostname && url.hostname !== window.location.hostname) {
+      window.trackEvent('outbound_click', {
+        link_domain: url.hostname,
+        link_url: url.href,
+        link_text: linkText,
+        transport_type: 'beacon'
+      });
+    }
+  }, { passive: true });
+})();
+</script>
+{% endif %}

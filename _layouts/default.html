@@ -30,6 +30,7 @@ layout: compress
 
     {% include contact-modal.html %}
     {% include scripts.html %}
+    {% include analytics-events.html %}
 
     <script>
     /* Cartographer Audio Engine — Web Audio API synthesized tactile sounds (krishnagupta-inspired) */
@@ -123,6 +124,7 @@ layout: compress
               if (span) span.textContent = 'Copied ✓';
               citeBtn.classList.add('copied');
               if (window.CartographerAudio) window.CartographerAudio.pop();
+              if (window.trackEvent) window.trackEvent('citation_copy', { page_path: window.location.pathname });
               setTimeout(function() {
                 if (span) span.textContent = originalText;
                 citeBtn.classList.remove('copied');
